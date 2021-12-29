@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C++阅读笔记 | Cloudyun</title><meta name="keywords" content="C++"><meta name="author" content="Cloudyun"><meta name="copyright" content="Cloudyun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言《C++ primer》的读书笔记，会包括书中的一些源码、比较重要的知识点和图。 本章是第一章开始 1.1    编写一个简单的C++程序一个函数的定义主要包括四个部分：返回类型、函数名、一个括号包围的形参列表（可以为空）以及函数体。 int main() { 	return 0; }  关于形参（parameters）和实参（argument）：  形参：函数定义中出现的参数，可以看作一个占">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Go学习笔记 | Cloudyun</title><meta name="keywords" content="Go"><meta name="author" content="Cloudyun"><meta name="copyright" content="Cloudyun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言Go语言相关基础知识的学习，主要参考菜鸟教程上的相关知识。 1、Go语言结构Go基础组成有以下几个部分：  包声明 引入包 函数 变量 语句、表达式 注释  package main import &quot;fmt&quot;  func main(){ 	fmt.Printfln(&quot;Hello,world!&quot;) }  几点注意：   一般来说启动后第一个执行的是main函数，但如果有init()函数则会先执行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++阅读笔记">
+<meta property="og:title" content="Go学习笔记">
 <meta property="og:url" content="https://cloudyunn.github.io/posts/2.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="前言《C++ primer》的读书笔记，会包括书中的一些源码、比较重要的知识点和图。 本章是第一章开始 1.1    编写一个简单的C++程序一个函数的定义主要包括四个部分：返回类型、函数名、一个括号包围的形参列表（可以为空）以及函数体。 int main() { 	return 0; }  关于形参（parameters）和实参（argument）：  形参：函数定义中出现的参数，可以看作一个占">
+<meta property="og:description" content="前言Go语言相关基础知识的学习，主要参考菜鸟教程上的相关知识。 1、Go语言结构Go基础组成有以下几个部分：  包声明 引入包 函数 变量 语句、表达式 注释  package main import &quot;fmt&quot;  func main(){ 	fmt.Printfln(&quot;Hello,world!&quot;) }  几点注意：   一般来说启动后第一个执行的是main函数，但如果有init()函数则会先执行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s4.ax1x.com/2021/12/21/TKCVjP.jpg">
 <meta property="article:published_time" content="2021-12-21T06:17:06.000Z">
-<meta property="article:modified_time" content="2021-12-21T08:37:23.396Z">
+<meta property="article:modified_time" content="2021-12-25T09:43:18.834Z">
 <meta property="article:author" content="Cloudyun">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s4.ax1x.com/2021/12/21/TKCVjP.jpg"><link rel="shortcut icon" href="https://z3.ax1x.com/2021/12/02/oNhO9e.png"><link rel="canonical" href="https://cloudyunn.github.io/posts/2"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
@@ -53,12 +53,12 @@
   islazyload: true,
   isanchor: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'C++阅读笔记',
+  title: 'Go学习笔记',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-12-21 16:37:23'
+  postUpdate: '2021-12-25 17:43:18'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -150,26 +150,329 @@
     document.addEventListener('pjax:complete', detectApple)})(window)</script><link defer rel="stylesheet" href="/css/customm.css" ><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/icon.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/background.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/index_ee.css"><meta name="generator" content="Hexo 5.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Cloudyun" type="application/atom+xml">
-</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9yTg.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/List/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/List/gallery/"><i class="fa-fw fa fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/List/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fa fa-suitcase"></i><span> 百宝箱</span></a></div><div class="menus_item"><a class="site-page" href="/Windows/"><i class="fa-fw fa fa-desktop"></i><span> Windows</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s4.ax1x.com/2021/12/21/TKCVjP.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cloudyun</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/List/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/List/gallery/"><i class="fa-fw fa fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/List/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fa fa-suitcase"></i><span> 百宝箱</span></a></div><div class="menus_item"><a class="site-page" href="/Windows/"><i class="fa-fw fa fa-desktop"></i><span> Windows</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++阅读笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-21T06:17:06.000Z" title="发表于 2021-12-21 14:17:06">2021-12-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-21T08:37:23.396Z" title="更新于 2021-12-21 16:37:23">2021-12-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++阅读笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>《C++ primer》的读书笔记，会包括书中的一些源码、比较重要的知识点和图。</p>
-<p>本章是第一章开始</p>
-<h2 id="1-1-编写一个简单的C-程序"><a href="#1-1-编写一个简单的C-程序" class="headerlink" title="1.1    编写一个简单的C++程序"></a>1.1    编写一个简单的C++程序</h2><p>一个函数的定义主要包括四个部分：<strong>返回类型</strong>、函数名、一个括号包围的<strong>形参列表</strong>（可以为空）以及<strong>函数体</strong>。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
-{
-	return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9yTg.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/List/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/List/gallery/"><i class="fa-fw fa fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/List/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fa fa-suitcase"></i><span> 百宝箱</span></a></div><div class="menus_item"><a class="site-page" href="/Windows/"><i class="fa-fw fa fa-desktop"></i><span> Windows</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s4.ax1x.com/2021/12/21/TKCVjP.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cloudyun</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/List/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/List/gallery/"><i class="fa-fw fa fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/List/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fa fa-suitcase"></i><span> 百宝箱</span></a></div><div class="menus_item"><a class="site-page" href="/Windows/"><i class="fa-fw fa fa-desktop"></i><span> Windows</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Go学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-21T06:17:06.000Z" title="发表于 2021-12-21 14:17:06">2021-12-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-25T09:43:18.834Z" title="更新于 2021-12-25 17:43:18">2021-12-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BC%80%E5%8F%91/">开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Go学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Go语言相关基础知识的学习，主要参考<a target="_blank" rel="noopener" href="https://www.runoob.com/go/go-tutorial.html">菜鸟教程</a>上的相关知识。</p>
+<h3 id="1、Go语言结构"><a href="#1、Go语言结构" class="headerlink" title="1、Go语言结构"></a>1、Go语言结构</h3><p>Go基础组成有以下几个部分：</p>
+<ul>
+<li>包声明</li>
+<li>引入包</li>
+<li>函数</li>
+<li>变量</li>
+<li>语句、表达式</li>
+<li>注释</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
 
-<p>关于形参（parameters）和实参（argument）：</p>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printfln</span><span class="token punctuation">(</span><span class="token string">"Hello,world!"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>几点注意：</p>
+<blockquote>
 <ul>
-<li>形参：函数定义中出现的参数，可以看作一个占位符，没有数据，仅仅表示函数调用时传进来的数据类型。</li>
-<li>实参：函数调用的时候，传给参数包含的实实在在的数据。</li>
+<li>一般来说启动后第一个执行的是main函数，但如果有init()函数则会先执行该函数</li>
+<li>当标识符（包括常量、变量、类型、函数名、结构字段等等）以一个<strong>大写字母</strong>开头，如：Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用（客户端程序需要先导入这个包），这被称为<strong>导出</strong>（像面向对象语言中的 public）；标识符如果以小写字母开头，则对包外是不可见的，但是他们在整个包的内部是<strong>可见并且可用</strong>的（像面向对象语言中的 protected ）</li>
+<li>“{“符号不能单独放在一行</li>
+<li>文件夹名、文件名和包名没有直接关系，但同一个文件夹下的文件只能有一个包名</li>
 </ul>
-<h3 id="1-1-1-编译、运行程序"><a href="#1-1-1-编译、运行程序" class="headerlink" title="1.1.1    编译、运行程序"></a>1.1.1    编译、运行程序</h3><p>编译器、编辑器和IDE。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/Tt8J7d"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="D:/Typora/image/Tt8J7d-16403340626024.png" alt="Tt8J7d.png"></a></p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token punctuation">[</span>Running<span class="token punctuation">]</span> <span class="token keyword">go</span> run <span class="token string">"d:\VScode\Go\project\hello\main\main.go"</span>
+# command<span class="token operator">-</span>line<span class="token operator">-</span>arguments
+project\hello\main\main<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span> missing function body
+project\hello\main\main<span class="token punctuation">.</span><span class="token keyword">go</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">:</span> syntax <span class="token builtin">error</span><span class="token punctuation">:</span> unexpected semicolon or newline before <span class="token punctuation">{</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2、Go语言基础语法"><a href="#2、Go语言基础语法" class="headerlink" title="2、Go语言基础语法"></a>2、Go语言基础语法</h3><h4 id="行分隔符"><a href="#行分隔符" class="headerlink" title="行分隔符"></a>行分隔符</h4><p>一行即为一个语句，每个语句不需要像C一样添加”;”，这些工作由Go编译器完成。如果打算将多个语句放在同一行，则需要用；区分</p>
+<h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><p>保留字：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/Tt84jU"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="D:/Typora/image/Tt84jU.png" alt="Tt84jU.png"></a></p>
+<p>预定义标识符：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/Tt8HE9"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="D:/Typora/image/Tt8HE9.png" alt="Tt8HE9.png"></a></p>
+<h4 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h4><p>Go语言使用<strong>fmt.Sprintf</strong>格式化字符串并赋值给新串，一般和Print搭配使用：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">    <span class="token keyword">var</span> stockcode<span class="token operator">=</span><span class="token number">123</span>
+    <span class="token keyword">var</span> enddate<span class="token operator">=</span><span class="token string">"2020-12-31"</span>
+    <span class="token keyword">var</span> url<span class="token operator">=</span><span class="token string">"Code=%d&amp;endDate=%s"</span>
+    <span class="token keyword">var</span> target_url<span class="token operator">=</span>fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span>stockcode<span class="token punctuation">,</span>enddate<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>target_url<span class="token punctuation">)</span>
+
+output<span class="token punctuation">:</span>
+	Code<span class="token operator">=</span><span class="token number">123</span><span class="token operator">&amp;</span>endDate<span class="token operator">=</span><span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">31</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3、Go语言数据类型"><a href="#3、Go语言数据类型" class="headerlink" title="3、Go语言数据类型"></a>3、Go语言数据类型</h3><ul>
+<li>布尔类型</li>
+<li>数字类型</li>
+<li>字符串类型</li>
+<li>派生类型<ul>
+<li>指针类型（Pointer）</li>
+<li>数组类型</li>
+<li>结构化类型(struct)</li>
+<li> Channel 类型</li>
+<li>函数类型</li>
+<li>切片类型</li>
+<li>接口类型（interface）</li>
+<li> Map 类型</li>
+</ul>
+</li>
+</ul>
+<h4 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h4><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">类型和描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>uint8</strong> 无符号 8 位整型 (0 到 255)</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>uint16</strong> 无符号 16 位整型 (0 到 65535)</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>uint32</strong> 无符号 32 位整型 (0 到 4294967295)</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><strong>uint64</strong> 无符号 64 位整型 (0 到 18446744073709551615)</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><strong>int8</strong> 有符号 8 位整型 (-128 到 127)</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><strong>int16</strong> 有符号 16 位整型 (-32768 到 32767)</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><strong>int32</strong> 有符号 32 位整型 (-2147483648 到 2147483647)</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><strong>int64</strong> 有符号 64 位整型 (-9223372036854775808 到 9223372036854775807)</td>
+</tr>
+</tbody></table>
+<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">类型和描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>float32</strong> IEEE-754 32位浮点型数</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>float64</strong> IEEE-754 64位浮点型数</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>complex64</strong> 32 位实数和虚数</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><strong>complex128</strong> 64 位实数和虚数</td>
+</tr>
+</tbody></table>
+<h3 id="4、Go语言变量"><a href="#4、Go语言变量" class="headerlink" title="4、Go语言变量"></a>4、Go语言变量</h3><p>变量的声明一般用var，可以一次声明多个变量</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> identifier1<span class="token punctuation">,</span> identifier2 <span class="token keyword">type</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h4><ul>
+<li>第一种，指定变量类型，如果没有初始化，则变量默认为零值。</li>
+<li>第二种，根据值自行判定变量类型。</li>
+<li>第三种，如果变量已经使用 var 声明过了，再使用 *<em>:=*</em> 声明变量，就产生编译错误，格式：</li>
+</ul>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> intVal <span class="token builtin">int</span> 
+intVal <span class="token operator">:=</span><span class="token number">1</span> <span class="token comment">// 这时候会产生编译错误，因为 intVal 已经声明，不需要重新声明</span>
+
+直接使用以下语句即可：
+
+intVal <span class="token operator">:=</span> <span class="token number">1</span> <span class="token comment">// 此时不会产生编译错误，因为有声明新的变量，因为 := 是一个声明语句</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="多变量声明"><a href="#多变量声明" class="headerlink" title="多变量声明"></a>多变量声明</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//类型相同多个变量, 非全局变量</span>
+<span class="token keyword">var</span> vname1<span class="token punctuation">,</span> vname2<span class="token punctuation">,</span> vname3 <span class="token keyword">type</span>
+vname1<span class="token punctuation">,</span> vname2<span class="token punctuation">,</span> vname3 <span class="token operator">=</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">,</span> v3
+
+<span class="token keyword">var</span> vname1<span class="token punctuation">,</span> vname2<span class="token punctuation">,</span> vname3 <span class="token operator">=</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">,</span> v3 <span class="token comment">// 和 python 很像,不需要显示声明类型，自动推断</span>
+
+vname1<span class="token punctuation">,</span> vname2<span class="token punctuation">,</span> vname3 <span class="token operator">:=</span> v1<span class="token punctuation">,</span> v2<span class="token punctuation">,</span> v3 <span class="token comment">// 出现在 := 左侧的变量不应该是已经被声明过的，否则会导致编译错误</span>
+
+
+<span class="token comment">// 这种因式分解关键字的写法一般用于声明全局变量</span>
+<span class="token keyword">var</span> <span class="token punctuation">(</span>
+    vname1 v_type1
+    vname2 v_type2
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><p>如果声明了一个局部变量<strong>却没有在</strong>相同的代码块中使用它，会得到编译错误，例如下面这个例子当中的变量 a：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">var</span> a <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">"abc"</span>
+   fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"hello, world"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>但是全局变量是允许声明但不使用的。</p>
+<p>并行：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> a<span class="token punctuation">,</span> b <span class="token builtin">int</span>
+<span class="token keyword">var</span> c <span class="token builtin">string</span>
+a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token string">"abc"</span>	<span class="token comment">//可称为并行 或 同时 赋值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="空白标识符"><a href="#空白标识符" class="headerlink" title="空白标识符"></a>空白标识符</h5><blockquote>
+<p>空白标识符 _ 也被用于<strong>抛弃值</strong>，如值 5 在：_, b = 5, 7 中被抛弃。</p>
+<p>_ 实际上是一个<strong>只写变量</strong>，你不能得到它的值。</p>
+<p>这样做是因为 Go 语言中你<strong>必须使用所有被声明的变量</strong>，但有时你并不需要使用从一个函数得到的所有返回值。</p>
+</blockquote>
+<p>例：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token boolean">_</span><span class="token punctuation">,</span>numb<span class="token punctuation">,</span>strs <span class="token operator">:=</span> <span class="token function">numbers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//只获取函数返回值的后两个</span>
+  fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>numb<span class="token punctuation">,</span>strs<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//一个可以返回多个值的函数</span>
+<span class="token keyword">func</span> <span class="token function">numbers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">,</span><span class="token builtin">int</span><span class="token punctuation">,</span><span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  a <span class="token punctuation">,</span> b <span class="token punctuation">,</span> c <span class="token operator">:=</span> <span class="token number">1</span> <span class="token punctuation">,</span> <span class="token number">2</span> <span class="token punctuation">,</span> <span class="token string">"str"</span>
+  <span class="token keyword">return</span> a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5、Go语言常量"><a href="#5、Go语言常量" class="headerlink" title="5、Go语言常量"></a>5、Go语言常量</h3><p>常量定义格式：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">const</span> identifier <span class="token punctuation">[</span><span class="token keyword">type</span><span class="token punctuation">]</span> <span class="token operator">=</span> value<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>常量还可用于枚举</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">const</span> <span class="token punctuation">(</span>
+    Unknown <span class="token operator">=</span> <span class="token number">0</span>
+    Female <span class="token operator">=</span> <span class="token number">1</span>
+    Male <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="iota"><a href="#iota" class="headerlink" title="iota"></a>iota</h4><p>iota是go里面的<strong>特殊常量</strong>，可以认为是一个可以被编译器修改的常量。</p>
+<p><strong>iota 在 const关键字出现时将被重置为 0(const 内部的第一行之前)，const 中每新增一行常量声明将使 iota 计数一次(iota 可理解为 const 语句块中的行索引)。</strong></p>
+<p>iota用例：</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">(</span>
+            a <span class="token operator">=</span> <span class="token boolean">iota</span>   <span class="token comment">//0</span>
+            b          <span class="token comment">//1</span>
+            c          <span class="token comment">//2</span>
+            d <span class="token operator">=</span> <span class="token string">"ha"</span>   <span class="token comment">//独立值，iota += 1</span>
+            e          <span class="token comment">//"ha"   iota += 1</span>
+            f <span class="token operator">=</span> <span class="token number">100</span>    <span class="token comment">//iota +=1</span>
+            g          <span class="token comment">//100  iota +=1</span>
+            h <span class="token operator">=</span> <span class="token boolean">iota</span>   <span class="token comment">//7,恢复计数</span>
+            i          <span class="token comment">//8</span>
+    <span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">,</span>d<span class="token punctuation">,</span>e<span class="token punctuation">,</span>f<span class="token punctuation">,</span>g<span class="token punctuation">,</span>h<span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//输出：0 1 2 ha ha 100 100 7 8</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+    i<span class="token operator">=</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token boolean">iota</span>
+    j<span class="token operator">=</span><span class="token number">3</span><span class="token operator">&lt;&lt;</span><span class="token boolean">iota</span>
+    k
+    l
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"i="</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"j="</span><span class="token punctuation">,</span>j<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"k="</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"l="</span><span class="token punctuation">,</span>l<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//输出：</span>
+i<span class="token operator">=</span> <span class="token number">1</span>
+j<span class="token operator">=</span> <span class="token number">6</span>
+k<span class="token operator">=</span> <span class="token number">12</span>
+l<span class="token operator">=</span> <span class="token number">24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6、Go语言运算符"><a href="#6、Go语言运算符" class="headerlink" title="6、Go语言运算符"></a>6、Go语言运算符</h3><p>这部分没什么好扩充的，记录下容易忘的运算符优先级</p>
+<table>
+<thead>
+<tr>
+<th>5</th>
+<th>* / % &lt;&lt; &gt;&gt; &amp; &amp;^</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4</td>
+<td>+ - | ^</td>
+</tr>
+<tr>
+<td>3</td>
+<td>== != &lt; &lt;= &gt; &gt;=</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&amp;&amp;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>||</td>
+</tr>
+</tbody></table>
+<h3 id="7、Go的条件语句"><a href="#7、Go的条件语句" class="headerlink" title="7、Go的条件语句"></a>7、Go的条件语句</h3><h4 id="（1）if语句用法"><a href="#（1）if语句用法" class="headerlink" title="（1）if语句用法"></a>（1）if语句用法</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> 布尔表达式 <span class="token punctuation">{</span>
+   <span class="token comment">/* 在布尔表达式为 true 时执行 */</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="（2）if-else语句用法"><a href="#（2）if-else语句用法" class="headerlink" title="（2）if..else语句用法"></a>（2）if..else语句用法</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">if</span> 布尔表达式 <span class="token punctuation">{</span>
+   <span class="token comment">/* 在布尔表达式为 true 时执行 */</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+	<span class="token comment">/* 在布尔表达式为 false 时执行 */</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="（3）if嵌套语句"><a href="#（3）if嵌套语句" class="headerlink" title="（3）if嵌套语句"></a>（3）if嵌套语句</h4><pre class="line-numbers language-none"><code class="language-none">if 布尔表达式1{
+	/* 在布尔表达式 1 为 true 时执行 */
+	if 布尔表达式2{
+		 /* 在布尔表达式 2 为 true 时执行 */
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="（4）switch语句"><a href="#（4）switch语句" class="headerlink" title="（4）switch语句"></a>（4）switch语句</h4><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">switch</span> var1 <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> val1<span class="token punctuation">:</span>
+        <span class="token operator">...</span>
+    <span class="token keyword">case</span> val2<span class="token punctuation">:</span>
+        <span class="token operator">...</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+        <span class="token operator">...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>需要注意的是：</p>
 <ul>
-<li>gcc是GNU Compiler Collection的缩写，是一个编译器的集合，可以编译多种语言，例如C、C++、Java等，编译器完成的工作就是：预处理、编译、汇编、链接这四步。</li>
-<li>编辑器仅仅是一个写代码的平台，如VScode、vim等。</li>
-<li>IDE：Integrated Developed Enviroment集成开发环境。将编译器、编辑器和其他程序创建的分析工具等都包装在一起，如微软的Visual studio，包含了写代码、编译代码、运行代码于一体的环境。</li>
+<li>支持多条件匹配</li>
+<li>不同的 case 之间不使用 break 分隔，默认只会执行一个 case</li>
+<li>如果想要执行多个 case，需要使用 fallthrough 关键字，也可用 break 终止</li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Cloudyun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://cloudyunn.github.io/posts/2.html">https://cloudyunn.github.io/posts/2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cloudyunn.github.io" target="_blank">Cloudyun</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://s4.ax1x.com/2021/12/21/TKCVjP.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/wechat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/1.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://z3.ax1x.com/2021/12/02/oNHCEn.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">忆我少年游</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9yTg.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Cloudyun</div><div class="author-info__description">忆我少年游，一梦到华胥</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" href="cloudyunn.github.io"><i class="fab fa-home"></i><span>个人主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Cloudyunn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=xxxxxxx&amp;website=www.qtxml.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">安慰愤怒的我，拥抱平凡的我</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84C-%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1.1    编写一个简单的C++程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E7%BC%96%E8%AF%91%E3%80%81%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1    编译、运行程序</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/2.html" title="C++阅读笔记"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TKCVjP.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="C++阅读笔记"/></a><div class="content"><a class="title" href="/posts/2.html" title="C++阅读笔记">C++阅读笔记</a><time datetime="2021-12-21T06:17:06.000Z" title="发表于 2021-12-21 14:17:06">2021-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1.html" title="忆我少年游"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://z3.ax1x.com/2021/12/02/oNHCEn.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="忆我少年游"/></a><div class="content"><a class="title" href="/posts/1.html" title="忆我少年游">忆我少年游</a><time datetime="2021-12-01T15:18:00.000Z" title="发表于 2021-12-01 23:18:00">2021-12-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Cloudyun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">switch</span><span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token operator">...</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">break</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">fallthrough</span> <span class="token comment">// 此时switch(1)会执行case1和case2，但是如果满足if条件，则只执行case1</span>
+
+    <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token operator">...</span>
+    <span class="token keyword">case</span> <span class="token number">3</span><span class="token punctuation">:</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="（5）select语句"><a href="#（5）select语句" class="headerlink" title="（5）select语句"></a>（5）select语句</h4></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Cloudyun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://cloudyunn.github.io/posts/2.html">https://cloudyunn.github.io/posts/2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cloudyunn.github.io" target="_blank">Cloudyun</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Go/">Go</a></div><div class="post_share"><div class="social-share" data-image="https://s4.ax1x.com/2021/12/21/TKCVjP.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/wechat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/reward/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/0.html"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9flq.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/posts/1.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://z3.ax1x.com/2021/12/02/oNHCEn.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">忆我少年游</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9yTg.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Cloudyun</div><div class="author-info__description">忆我少年游，一梦到华胥</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" href="cloudyunn.github.io"><i class="fab fa-home"></i><span>个人主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Cloudyunn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=xxxxxxx&amp;website=www.qtxml.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">安慰愤怒的我，拥抱平凡的我</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Go%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、Go语言结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、Go语言基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%8C%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">行分隔符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">格式化字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Go%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、Go语言数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">数字类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">浮点型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Go%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、Go语言变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">变量声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">多变量声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A9%BA%E7%99%BD%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">1.0.4.3.1.</span> <span class="toc-text">空白标识符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Go%E8%AF%AD%E8%A8%80%E5%B8%B8%E9%87%8F"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、Go语言常量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iota"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">iota</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81Go%E8%AF%AD%E8%A8%80%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.0.6.</span> <span class="toc-text">6、Go语言运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81Go%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.0.7.</span> <span class="toc-text">7、Go的条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89if%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">（1）if语句用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89if-else%E8%AF%AD%E5%8F%A5%E7%94%A8%E6%B3%95"><span class="toc-number">1.0.7.2.</span> <span class="toc-text">（2）if..else语句用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89if%E5%B5%8C%E5%A5%97%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.0.7.3.</span> <span class="toc-text">（3）if嵌套语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89switch%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.0.7.4.</span> <span class="toc-text">（4）switch语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89select%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.0.7.5.</span> <span class="toc-text">（5）select语句</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/0.html" title="无题"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9flq.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="无题"/></a><div class="content"><a class="title" href="/posts/0.html" title="无题">无题</a><time datetime="2021-12-28T06:04:44.625Z" title="发表于 2021-12-28 14:04:44">2021-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2.html" title="Go学习笔记"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TKCVjP.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="Go学习笔记"/></a><div class="content"><a class="title" href="/posts/2.html" title="Go学习笔记">Go学习笔记</a><time datetime="2021-12-21T06:17:06.000Z" title="发表于 2021-12-21 14:17:06">2021-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1.html" title="忆我少年游"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://z3.ax1x.com/2021/12/02/oNHCEn.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="忆我少年游"/></a><div class="content"><a class="title" href="/posts/1.html" title="忆我少年游">忆我少年游</a><time datetime="2021-12-01T15:18:00.000Z" title="发表于 2021-12-01 23:18:00">2021-12-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Cloudyun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")
@@ -217,7 +520,7 @@ if ('Valine' === 'Valine' || !true) {
   var disqus_config = function () {
     this.page.url = 'https://cloudyunn.github.io/posts/2.html'
     this.page.identifier = 'posts/2.html'
-    this.page.title = 'C++阅读笔记'
+    this.page.title = 'Go学习笔记'
   };
 
   window.disqusReset = () => {
