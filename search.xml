@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/posts/0.html"/>
+      <url>/posts/0.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java学习笔记(一).md</title>
       <link href="/posts/8.html"/>
       <url>/posts/8.html</url>
@@ -83,7 +96,7 @@
       <link href="/posts/4.html"/>
       <url>/posts/4.html</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​    当构造存储和处理信息的机器时，二进制工作得更好，因为二值信号进行存储和执行计算的电子电路非常简单可靠。 </p><p>​    本章研究在计算机上如何表示数字和其他形式数据的基本属性，以及计算机对这些数据执行操作的属性，例如编码等。</p><h1 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h1><p>​    大多数计算机使用8位的块（字节byte）作为<strong>最小</strong>的可寻址的内存单位，而不是访问内存中单独的<strong>位</strong>。</p><p>​    机器级程序将内存视为一个非常大的字节数组，称为虚拟内存（virtual memory）。内存的每个字节都由一个唯一的数字标识，即为它的地址（address），所有可能的地址集合就组成了<strong>虚拟地址空间</strong>（virtual address space）。</p><h2 id="十六进制表示法"><a href="#十六进制表示法" class="headerlink" title="十六进制表示法"></a>十六进制表示法</h2><p>太基础，不记录</p><p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201041721170.png" alt="image-20220104172145064"></p><h2 id="字数据大小"><a href="#字数据大小" class="headerlink" title="字数据大小"></a>字数据大小</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​    当构造存储和处理信息的机器时，二进制工作得更好，因为二值信号进行存储和执行计算的电子电路非常简单可靠。 </p><p>​    本章研究在计算机上如何表示数字和其他形式数据的基本属性，以及计算机对这些数据执行操作的属性，例如编码等。</p><h1 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h1><p>​    大多数计算机使用8位的块（字节byte）作为<strong>最小</strong>的可寻址的内存单位，而不是访问内存中单独的<strong>位</strong>。</p><p>​    机器级程序将内存视为一个非常大的字节数组，称为虚拟内存（virtual memory）。内存的每个字节都由一个唯一的数字标识，即为它的地址（address），所有可能的地址集合就组成了<strong>虚拟地址空间</strong>（virtual address space）。</p><h2 id="十六进制表示法"><a href="#十六进制表示法" class="headerlink" title="十六进制表示法"></a>十六进制表示法</h2><p>太基础，不记录</p><p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201041721170.png" alt="image-20220104172145064"></p><h2 id="字数据大小"><a href="#字数据大小" class="headerlink" title="字数据大小"></a>字数据大小</h2><p>​    字长（word size）指定指针数据的标称大小（normal size）。字长决定的最重要的系统参数就是<strong>虚拟地址空间的最大大小</strong>，因为虚拟地址是以这样的一个字来编码的。对于一个字长为w位的机器而言，虚拟地址的范围是0~2^w-1，程序最多访问2^w个字节。</p><p><img src="https://github.com/Cloudyunn/img/master/note/image-20220221140655942.png" alt="图2-3"></p><p>​    图2-3展示了为C语言各种数据类型分配的字节数。其还展示了指针使用程序的全字长。大部分数据类型都编码为有符号数值，除非有前缀关键字unsigned或对确定大小的数据类型使用了特定的无符号声明。数据类型char例外，因为大多数情况下，程序行为对数据类型char是有符号还是无符号的不敏感。</p><h2 id="寻址和字节顺序"><a href="#寻址和字节顺序" class="headerlink" title="寻址和字节顺序"></a>寻址和字节顺序</h2><p>​    对于程序对象，最重要的两个规则：<strong>这个对象的地址是什么？在内存中如何排列这些字节（大端序、小端序）？</strong></p><p>​    一般多字节对象都被存储为连续的字节序列，对象地址为其中所使用字节中最小的地址。例如一个int类型的变量x地址为0x100，也代表x的4个字节将被存储在0x100、0x101、0x102、0x103。</p><p>​    <strong>小端序</strong>——在内存中按照从<strong>最低</strong>有效字节到<strong>最高</strong>有效字节的顺序存储对象。</p><p>​    <strong>大端序</strong>——在内存中按照从<strong>最高</strong>有效字节到<strong>最低</strong>有效字节的顺序存储对象。</p><p>​    假设变量x的类型为int，位于地址0x100处，其十六进制值为0x01234567。地址范围0x100~0x103的字节顺序取决于其是小端序还是大端序：</p><p><img src="https://github.com/Cloudyunn/img/master/note/image-20220221142355279.png"></p><p>​    大多数Intel兼容机都只用小端模式。许多移动电话的ARM微处理器，这些芯片上的两种最火的操作系统——Android、IOS只能运行于小端模式。</p><h2 id="表示字符串"><a href="#表示字符串" class="headerlink" title="表示字符串"></a>表示字符串</h2><p>​    C语言中字符串被编码为一个以null（值为0）字符结尾的字符数组。每个字都由某个标准编码来表示，最常见的是ASCII字符码。</p><p>​    ASCII字符集适合于编码英文文档，但是在表达希腊语、中文、俄语等语言的特殊字符却没有太多办法。因此后续又提出了很多方法对不同语言的文字进行编码。当前的Unicode标准字库包括将近100000个字符，支持很广泛的语言种类。</p><h2 id="表示代码"><a href="#表示代码" class="headerlink" title="表示代码"></a>表示代码</h2><p>​    对于下述C函数：</p><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> x<span class="token operator">+</span>y<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>​    当在不同机器上编译时，生成的机器代码如下所示：</p><p><img src="https://github.com/Cloudyunn/img/master/note/image-20220221145037043.png"></p><p>​    这说明：不同的机器类型使用不同且不兼容的指令和编码方式。相同的进程，在不同的操作系统上也有不同的编码规则，所以二进制代码是不兼容的，很少能在不同机器和操作系统组合之间移植。</p><p>​    这归根于，计算机系统的一个基本概念：从机器的角度看，程序仅仅只是<strong>字节序列</strong>。</p>]]></content>
       
       
       <categories>
