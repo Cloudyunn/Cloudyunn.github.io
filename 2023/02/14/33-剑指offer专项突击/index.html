@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Java学习笔记">
+    <meta name="description" content="剑指 Offer 09. 用两个栈实现队列 用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )  思路：两个栈123456789101112131415161718192021222324252627282930class CQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode月冲刺">
 <meta property="og:url" content="http://example.com/2023/02/14/33-%E5%89%91%E6%8C%87offer%E4%B8%93%E9%A1%B9%E7%AA%81%E5%87%BB/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="Java学习笔记">
+<meta property="og:description" content="剑指 Offer 09. 用两个栈实现队列 用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，deleteHead 操作返回 -1 )  思路：两个栈123456789101112131415161718192021222324252627282930class CQ">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pic.leetcode-cn.com/1599404042-JMvjtL-Picture1.png">
 <meta property="og:image" content="https://assets.leetcode.com/uploads/2020/11/04/word2.jpg">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pic.leetcode-cn.com/379a042b9d8df3a96d1ac0f27346718033bf3bfce69731bab52bf6f372b4c8f4-Picture2.png">
 <meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-02-21%2022.09.29.png">
 <meta property="article:published_time" content="2023-02-14T06:34:30.000Z">
-<meta property="article:modified_time" content="2023-02-24T04:59:27.520Z">
+<meta property="article:modified_time" content="2023-02-24T05:47:38.929Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="刷题">
@@ -97,7 +97,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">33</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">32</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -163,7 +163,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -222,7 +222,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="LeetCode月冲刺 | Cloudyun">
-      <meta itemprop="description" content="Java学习笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -244,7 +244,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-24 12:59:27" itemprop="dateModified" datetime="2023-02-24T12:59:27+08:00">2023-02-24</time>
+      <time title="Modified: 2023-02-24 13:47:38" itemprop="dateModified" datetime="2023-02-24T13:47:38+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -259,7 +259,6 @@
   
 </div>
 
-            <div class="post-description">Java学习笔记</div>
         </div>
       </header>
 
@@ -412,9 +411,6 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/02/24/test/" rel="next" title="test">
-                  test <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
