@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="论文阅读笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fuzzing论文阅读笔记(一)">
+<meta property="og:url" content="http://example.com/2022/01/06/05-Fuzzing%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(%E4%B8%80)%20/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="论文阅读笔记">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201061410551.png">
+<meta property="article:published_time" content="2022-01-06T03:28:20.000Z">
+<meta property="article:modified_time" content="2022-01-06T12:41:26.179Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Fuzzing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201061410551.png">
+
+
+<link rel="canonical" href="http://example.com/2022/01/06/05-Fuzzing%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(%E4%B8%80)%20/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/01/06/05-Fuzzing%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(%E4%B8%80)%20/","path":"2022/01/06/05-Fuzzing论文阅读笔记(一) /","title":"Fuzzing论文阅读笔记(一)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Fuzzing论文阅读笔记(一) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">论文总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V-Shuttle"><span class="nav-number">2.1.</span> <span class="nav-text">V-Shuttle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICS3Fuzzer"><span class="nav-number">2.2.</span> <span class="nav-text">ICS3Fuzzer</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/06/05-Fuzzing%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0(%E4%B8%80)%20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Fuzzing论文阅读笔记(一) | Hexo">
+      <meta itemprop="description" content="论文阅读笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fuzzing论文阅读笔记(一)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-01-06 11:28:20 / Modified: 20:41:26" itemprop="dateCreated datePublished" datetime="2022-01-06T11:28:20+08:00">2022-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">论文阅读笔记</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​	之前从网上一个博主的博客里面看到有关论文阅读记录的博文，博主在看完每一篇论文后都会进行相关总结和思考记录。个人觉得这是个不错的习惯，遂学习了下，刚好对最近看的几篇论文进行简单的记录。</p>
+<h1 id="论文总结"><a href="#论文总结" class="headerlink" title="论文总结"></a>论文总结</h1><h2 id="V-Shuttle"><a href="#V-Shuttle" class="headerlink" title="V-Shuttle"></a>V-Shuttle</h2><p><strong>论文地址</strong>：<a target="_blank" rel="noopener" href="https://nesa.zju.edu.cn/download/pgn_pdf_V-SHUTTLE.pdf">V-Shuttle:Scalable and Semantics-Aware Hypervisor Virtual Device Fuzzing</a></p>
+<p><strong>1、基本介绍</strong>：</p>
+<p>​	这篇文章是<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/pan-mou-mou-86">潘神</a>在2021年CCS上发表的一篇fuzzing相关论文，论文拿了CCS2021年的best paper（国内唯一）。fuzzing对象是虚拟化技术的核心组件hypervisor（虚拟机管理程序）中的虚拟设备（virtual device），应该属于<strong>云计算安全</strong>、<strong>虚拟化技术</strong>、<strong>fuzzing</strong>、<strong>二进制漏洞挖掘与应用</strong>等相关领域。</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201061410551.png"></p>
+<p><strong>2、大致内容</strong>：</p>
+<p>​	传统使用随机输入、覆盖引导、结构感知的方法对hypervisor中大部分虚拟设备进行fuzzing，会存在<strong>效率低下、覆盖率低、可扩展性差</strong>等问题。本文研究了造成这些问题的核心在于：通过<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138573828"><strong>DMA</strong></a>传输的数据结构具有<strong>高度嵌套特性</strong>。后续作者通过对qemu的hypervisor中与DMA操作相关的api进行hook，将对虚拟机用户内存数据的读取<strong>重定向</strong>到了fuzzer的testcase中，以此来解决传统fuzzing突变指针字段会导致<strong>无效内存访问</strong>的问题。在前面基础上，作者再通过数据流分析方法（活变量）对每种类型DMA对象的数据结构进行标记、分组构建种子池（seedpool），实现了语义感知的功能，来引导fuzzing过程中testcase的构建。</p>
+<p><strong>3、结论</strong>：</p>
+<p>​	作者提出的对hypervisor中虚拟设备可扩展和语义感知的fuzzing框架，相较于之前的研究来说：</p>
+<ul>
+<li>有了更好的自动化能力：无需先验知识、整个过程无需人工驱动</li>
+<li>更强的可扩展性：对不同平台、多个虚拟设备的fuzz都有很好的覆盖率（virtual box上的虚拟设备似乎没有展示，有代考究）</li>
+<li>更优秀的漏洞挖掘能力：挖出了之前没有的35个bug、17个被授权为CVE，甚至包含了black hat上公布的一个<strong>虚拟机逃逸</strong>。（先膜拜一波）</li>
+</ul>
+<p><strong>4、思考</strong>：</p>
+<p>​	文章中提到该框架的相关问题主要有：要求目标设备代码开源，因为需要进行相关hook操作（这个应该不是问题，只要得到官方授权应该可以弄到源码）、不能自动恢复POC，因为fuzzing引擎是集成在hypervisor主机进程中（有点没弄懂，是需要手动构建漏洞利用脚本的意思？）、对hypervisor内部状态的细粒度感知不够（v-shuttle的工作过程中，目标系统内部状态一直存在，但相同输入在不同的内部状态下可能执行不同的代码路径）。</p>
+<p>​	个人觉得这篇文章的亮点主要在于：</p>
+<ul>
+<li>对虚拟化技术底层的研究比较深入（包括DMA、MIMO等机制）</li>
+<li>论文的产出确实丰厚：35个之前没有发现的bug，17个CVE，1个虚拟机逃逸（这个成绩属实很好了）</li>
+<li>云计算安全的背景加分：现在云计算相关应用太火了，这方面的安全问题确实影响太大。</li>
+</ul>
+<h2 id="ICS3Fuzzer"><a href="#ICS3Fuzzer" class="headerlink" title="ICS3Fuzzer"></a>ICS3Fuzzer</h2><p><strong>论文地址</strong>：<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/3485832.3488028">ICS3Fuzzer: A Framework for Discovering Protocol Implementation Bugs in ICS Supervisory Software by Fuzzing</a></p>
+<p><strong>1、基本介绍</strong></p>
+<p>​	这篇论文是中科院信工所<a target="_blank" rel="noopener" href="http://people.ucas.edu.cn/~0002848">孙利民老师</a>指导的一篇fuzzing论文。fuzzing对象是ICS（工业控制系统）中的<strong>监控软件</strong>（也就是常见的上位机软件这些），应该属于<strong>工控安全</strong>领域。</p>
+<p><strong>2、大致内容</strong>	</p>
+<p>​	监控软件广泛用于ICS中，可被滥用来恶意控制或操纵物理设备（PLC等），危机生产过程甚至人类生命。本论文提出了一个<strong>可移植化、模块化</strong>的模糊框架来自动发现<strong>监控软件和现场设备之间</strong>通信协议中的bug。针对协议逆向需要大量人工工作的问题，该方法通过GUI操作和网络通信的同步控制，实现了整个监控软件的运行和模糊测试，避免了对协议实现模块的分析和提取。基于监控软件的执行轨迹和相应输入，构造一个状态记录本，同时提出一种状态选择算法来找出更容易出现bug的协议状态，进而为fuzzer分配更多这些状态的输入。</p>
+<p><strong>3、存在的挑战性</strong></p>
+<ul>
+<li>引导监控软件进入特定的输入状态是有挑战性的，因为监控软件中每个会话涉及多个输入状态。<ul>
+<li>例如TCP三次交互都是由客户端角色（监控软件）发起的，所以fuzzer智能被动等待，指导接收到监控软件的会话请求。</li>
+<li>其次每次模糊测试一个输入状态，多要一次又一次触发监控软件进入正确交互状态。</li>
+<li>最后由于输入状态之间复杂的依赖关系，很多情况下监控软件不先输入其他状态就不能直接输入一个输入状态。</li>
+<li>最糟糕的是——基于流量识别一组完整的会话状态本身就很难（因为缺乏私有协议知识）</li>
+</ul>
+</li>
+<li>几乎所有监控软件使用的都是私有协议来和PLC通信，所以具有未知的状态空间（输入状态）和格式——不可能探索深层路径和协议状态。</li>
+<li>在进入特定的输入状态之前，监控软件发送的每个请求都必须正确响应（状态机要满足，然而缺乏该方面的知识）</li>
+</ul>
+<p><strong>4、相关解决方法</strong></p>
+<ul>
+<li>对于C1，本文设计了一种新的控制机制，通过对GUI操作和网络通信的精确同步控制，实现进入任何识别的输入状态。</li>
+<li>对于C2，采用现有的工作（Discover、Dispatcher、Netzob等）来自动化逆向工程协议的包帧格式，同时通过差分分析来识别字段、识别出会话ID、序列号等字段值约束。此外为了识别有价值的状态、过滤重复状态，作者避免了对详细的程序状态进行逆向工程，而是基于<strong>执行跟踪</strong>和<strong>相应的输入构建状态簿</strong>，同时在此基础上提出一种<strong>动态切换状态</strong>的模糊策略。</li>
+<li>对于C3，根据实际捕获的流量构造了一组通信模板，模拟PLC设备的响应。对于管理软件的每个请求，首先在匹配的模板中识别相应的响应，然后自动调整对应的值约束（会话ID、序列号等），如果太复杂则直接使用真实PLC设备提供？</li>
+</ul>
+<p><strong>5、结论</strong></p>
+<p>​	本文提出一个针对<strong>ICS监控软件</strong>的<strong>可定制、模块化</strong>的fuzzing框架，以支持不同监控软件协议实现方面的漏洞检测。给定监控软件的功能，作者可以构建一个<strong>通信模板</strong>来基于捕获的消息模拟会话，在网络和GUI行为自动同步的帮助下，ICS3 Fuzzer可以达到任何输入状态，并定向提供突变的输入，通过在4个不同的商业监控软件上实验，发现了13个漏洞。</p>
+<p><strong>6、思考</strong></p>
+<p>​	这篇文章的fuzzing对象是ICS系统的监控软件，通俗点理解应该就是PLC上位机软件。感觉一定程度上还是从流量的角度来对软件进行fuzzing，进而挖掘上位机软件的协议漏洞。整体的框架中，Fuzzer似乎就模拟成了一个虚拟PLC，作为为上位机提供响应的角色。感觉关键思想在于：通过捕获的流量包来制作字典，能匹配请求的响应就送出去，无法匹配（过于复杂）的复杂请求，就交给真实的PLC处理。这个思想和虚拟化工控蜜罐的思想好像差不多欸？然后在此基础上，动态选择感兴趣的状态（输入）来模糊测试软件？</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Fuzzing/" rel="tag"># Fuzzing</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/04/04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F(%E4%BA%8C)/" rel="prev" title="深入理解计算机系统(二)——信息的表示和处理">
+                  <i class="fa fa-chevron-left"></i> 深入理解计算机系统(二)——信息的表示和处理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/09/06-%E5%86%AC%E5%A5%A5%E6%8A%A4%E7%BD%91%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87%20/" rel="next" title="冬奥护网项目面试问题">
+                  冬奥护网项目面试问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="CASPP的相关读书笔记记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解计算机系统(一)">
+<meta property="og:url" content="http://example.com/2021/12/29/03-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F(%E4%B8%80)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CASPP的相关读书笔记记录">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291141178.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291148695.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291311237.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291319809.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291322127.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291323609.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291323931.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291325136.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291327391.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291332882.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291339690.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291352379.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291407156.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291407018.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291412574.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291413759.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291424053.png">
+<meta property="article:published_time" content="2021-12-29T07:18:00.000Z">
+<meta property="article:modified_time" content="2022-01-04T09:13:31.855Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="计算机操作系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291141178.png">
+
+
+<link rel="canonical" href="http://example.com/2021/12/29/03-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F(%E4%B8%80)/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/12/29/03-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F(%E4%B8%80)/","path":"2021/12/29/03-深入理解计算机系统(一)/","title":"深入理解计算机系统(一)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>深入理解计算机系统(一) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E5%B0%B1%E6%98%AF%E4%BD%8D-%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">信息就是位+上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%A2%AB%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">程序被其他程序翻译成不同的格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E7%9A%84%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">编译的四个阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GNU"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">GNU</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E7%BC%96%E8%AF%91%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E6%98%AF%E5%A4%A7%E6%9C%89%E7%9B%8A%E5%A4%84%E7%9A%84"><span class="nav-number">2.2.</span> <span class="nav-text">了解编译系统如何工作是大有益处的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A1%AC%E4%BB%B6%E7%BB%84%E6%88%90"><span class="nav-number">2.2.1.</span> <span class="nav-text">系统的硬件组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Chello%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">运行hello程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98%E8%87%B3%E5%85%B3%E9%87%8D%E8%A6%81"><span class="nav-number">2.3.</span> <span class="nav-text">高速缓存至关重要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%BD%A2%E6%88%90%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.1.</span> <span class="nav-text">存储设备形成层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E7%A1%AC%E4%BB%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">操作系统管理硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.3.3.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B"><span class="nav-number">2.3.4.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="nav-number">2.3.5.</span> <span class="nav-text">虚拟内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.6.</span> <span class="nav-text">文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A7%8DI-x2F-O%E8%AE%BE%E5%A4%87"><span class="nav-number">2.4.</span> <span class="nav-text">网络也是一种I&#x2F;O设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C"><span class="nav-number">2.4.1.</span> <span class="nav-text">并发和并行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%BA%A7%E5%B9%B6%E5%8F%91"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">线程级并发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%BA%A7%E5%B9%B6%E8%A1%8C"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">指令级并行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E6%8C%87%E4%BB%A4%E3%80%81%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C"><span class="nav-number">2.4.1.3.</span> <span class="nav-text">单指令、多数据并行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%8A%BD%E8%B1%A1%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="nav-number">2.4.2.</span> <span class="nav-text">计算机系统中抽象的重要性</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/29/03-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="深入理解计算机系统(一) | Hexo">
+      <meta itemprop="description" content="CASPP的相关读书笔记记录">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深入理解计算机系统(一)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-29 15:18:00" itemprop="dateCreated datePublished" datetime="2021-12-29T15:18:00+08:00">2021-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-04 17:13:31" itemprop="dateModified" datetime="2022-01-04T17:13:31+08:00">2022-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">CASPP的相关读书笔记记录</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>计算机操作系统部分的知识零零散散学过一些，没有系统性学</p>
+<p>遂开始阅读《深入理解计算机系统》这本书</p>
+<p>算是为后续校招，平时学习工作打下基础，同时方便后面需要的时候回顾。</p>
+<p>本篇是第1章计算机系统漫游部分的笔记记录，应该算是整本书的绪论。</p>
+<h1 id="信息就是位-上下文"><a href="#信息就是位-上下文" class="headerlink" title="信息就是位+上下文"></a>信息就是位+上下文</h1><p>本书主要目的是帮助了解你在系统上执行程序时，系统发生了什么以及为什么会这样。</p>
+<p>程序是从源程序开始的，源程序实际上就是一个由值0和1组成的位（bit）序列，8个位为一组称为字节。</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291141178.png"></p>
+<p>hello.c的表示方法说明了一个基本思想：<strong>系统中所有的信息，——包括磁盘文件、内存中的程序、内存中存放的用户数据以及网络上传送的数据，都是由一串比特表示的</strong>。</p>
+<h2 id="程序被其他程序翻译成不同的格式"><a href="#程序被其他程序翻译成不同的格式" class="headerlink" title="程序被其他程序翻译成不同的格式"></a>程序被其他程序翻译成不同的格式</h2><p>在Unix系统上，源文件到目标文件的转化是由编译器驱动程序完成的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linux&gt; gcc -o hello hello.c</span><br></pre></td></tr></table></figure>
+
+<h4 id="编译的四个阶段"><a href="#编译的四个阶段" class="headerlink" title="编译的四个阶段"></a>编译的四个阶段</h4><p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291148695.png"></p>
+<p>执行四个阶段的程序构成了<strong>编译系统</strong></p>
+<ul>
+<li>预处理阶段：根据#字符来定位头文件，并由预处理器插入程序文本</li>
+<li>编译阶段：讲文本文件翻译成汇编文件。汇编语言为不同高级语言的不同编译器提供了<strong>通用的输出语言</strong>。</li>
+<li>汇编阶段：汇编语言——&gt;机器语言。将指令打包成<strong>可重定位目标程序</strong>的格式，存放在.o文件中，该文件是二进制文件，包含的是main函数的指令编码，所以用文本编辑器打开是一堆乱码。</li>
+<li>链接阶段：hello程序调用printf函数，其存在于一个名为printf.o的单独预编译好的目标文件中，因此需要将其合并到hello.o程序中，链接器就负责处理这种合并，输出一个<strong>可执行目标文件</strong>。</li>
+</ul>
+<h4 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a>GNU</h4><p>​	GCC是GNU项目开发出的工具之一。该项目开发出了包含Unix操作系统的所有主要部件的环境，除了内核，内核是由Linux项目单独开发出的。</p>
+<h2 id="了解编译系统如何工作是大有益处的"><a href="#了解编译系统如何工作是大有益处的" class="headerlink" title="了解编译系统如何工作是大有益处的"></a>了解编译系统如何工作是大有益处的</h2><ul>
+<li>优化程序性能</li>
+<li>理解链接时出现的错误</li>
+<li>避免安全漏洞</li>
+</ul>
+<h3 id="系统的硬件组成"><a href="#系统的硬件组成" class="headerlink" title="系统的硬件组成"></a>系统的硬件组成</h3><p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291311237.png"></p>
+<ul>
+<li>1、总线：传输作用。通常被设计成传送定长的字节块（字）。各个系统字中的字节数（字长）不相同，分为4字节（32位）和8字节（64位）</li>
+<li>2、I&#x2F;O设备： 长期存储数据和程序的磁盘驱动器（磁盘）也属于I&#x2F;O设备。通常设备和I&#x2F;O总线间有适配器或控制器。</li>
+<li>3、主存：临时存储设备，在处理器执行程序时，用来存放程序和程序处理的数据。</li>
+<li>4、处理器：解释、执行存储在主存中指令的引擎。核心是寄存器、PC、ALU。</li>
+</ul>
+<h3 id="运行hello程序"><a href="#运行hello程序" class="headerlink" title="运行hello程序"></a>运行hello程序</h3><ul>
+<li>输入<strong>“.&#x2F;hello”</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291319809.png"></p>
+<ul>
+<li>运行<strong>“.&#x2F;hello”</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291322127.png"></p>
+<ul>
+<li>一旦前一步加载完成，处理器就开始执行程序</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291323609.png"></p>
+<h2 id="高速缓存至关重要"><a href="#高速缓存至关重要" class="headerlink" title="高速缓存至关重要"></a>高速缓存至关重要</h2><p>通过让高速缓存里存放可能经常访问的数据，大部分的内存操作就能在快速的高速缓存中完成。</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291323931.png"></p>
+<h3 id="存储设备形成层次结构"><a href="#存储设备形成层次结构" class="headerlink" title="存储设备形成层次结构"></a>存储设备形成层次结构</h3><p>在处理和较大较慢的设备（主存）之间插入一个更小更快的存储设备（高速缓存）的思想已经成为普遍观念。</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291325136.png"></p>
+<p>​	存储器层次结构的主要思想：上一层的存储器作为第一层存储器的高速缓存。</p>
+<h3 id="操作系统管理硬件"><a href="#操作系统管理硬件" class="headerlink" title="操作系统管理硬件"></a>操作系统管理硬件</h3><p>所有应用程序对硬件的操作尝试都必须经过操作系统</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291327391.png"></p>
+<p>操作系统的两个基本功能：</p>
+<ul>
+<li>防止硬件被失控的应用程序滥用</li>
+<li>向应用程序提供简单一致的机制来控制复杂而不相同的低级硬件设备</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291332882.png"></p>
+<p>三个基本的抽象：</p>
+<ul>
+<li>文件是对I&#x2F;O设备的抽象</li>
+<li>虚拟内存是对主存和磁盘的抽象</li>
+<li>进程是处理器、主存和I&#x2F;O设备的抽象</li>
+</ul>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程是操作系统对一个正在运行的程序的一种抽象，一个系统上可以同时运行多个进程。</p>
+<p>而<strong>并发运行</strong>，则是说一个进程的指令和另一个进程的指令是<strong>交错执行</strong>的。大多数系统，需要运行的进程数可以多于运行它们的CPU个数（CPU就几个核？）。一个CPU看上去实在并发执行多个进程，实际是在进程间来回切换实现的。操作系统实现这种交错执行的机制为<strong>上下文切换</strong>。</p>
+<p>上下文信息主要包括PC、寄存器文件当前值、主存内容等。</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291339690.png"></p>
+<p>切换过程主要由操作系统内核（kernel）管理的。</p>
+<ul>
+<li><strong>当应用程序需要操作系统的某些操作时，例如读写文件，就执行一条特殊的系统调用指令，将控制权交给内核，然后内核执行被请求的操作并返回应用程序。</strong></li>
+</ul>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>一个进程由多个线程组成，每个线程都运行在进程上下文中，共享同样的代码和全局数据。多线程之间比多进程之间更容易共享数据，因此线程一般比进程更高效。</p>
+<h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h3><p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291352379.png"></p>
+<ul>
+<li>程序代码和数据区：对所有进程来说，代码都从同一固定地址开始。</li>
+<li>堆：虽然代码和数据区在进程开始就被定义了大小，但调用malloc和free这样的c标准库函数时，堆可以动态扩展、收缩</li>
+<li>共享库：存放C标准库和数学库等共享库的代码和数据</li>
+<li>栈：位于用户虚拟地址空间顶部。编译器用其来实现函数调用，同样可动态扩展和收缩。</li>
+<li>内核虚拟内存：不允许应用程序读写这俄格区域的内容或者直接调用内核代码定义的函数，需要调用内核才能执行这些操作。</li>
+</ul>
+<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><p>​	文件就是<strong>字节序列</strong>，每个I&#x2F;O设备，包括磁盘、键盘、显示器甚至网络<strong>都可以看成文件</strong>、系统中所有输入输出都是通过使用一小组成为Unix I&#x2F;O的系统函数调用读写文件实现的。</p>
+<h2 id="网络也是一种I-x2F-O设备"><a href="#网络也是一种I-x2F-O设备" class="headerlink" title="网络也是一种I&#x2F;O设备"></a>网络也是一种I&#x2F;O设备</h2><p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291407156.png"></p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291407018.png" alt="image-20211229140717950"></p>
+<h3 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h3><p>并发：一个同时具有多个活动的系统</p>
+<p>并行：用并发来使一个系统运行得更快</p>
+<h4 id="线程级并发"><a href="#线程级并发" class="headerlink" title="线程级并发"></a>线程级并发</h4><p>构建在进程这个抽象上，我们可以设计出同时有多个程序执行得系统，也就是<strong>并发</strong>。</p>
+<p>那么在线程上，我们可以在<strong>一个进程</strong>里面执行<strong>多个控制流</strong>，这就是线程级并发。</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291412574.png"></p>
+<p>​	多核处理器就是把多个CPU（几核就是有几个CPU）集成在一个集成电路芯片上。如下图所示，微处理器芯片有4个CPU核，每个核都有自己的L1和L2高速缓存，其中L1高速缓存分为两个部分——一个保存<strong>最近取到的指令</strong>，另一个存放数据。</p>
+<p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291413759.png"></p>
+<p>超线程：同时多线程，允许<strong>一个CPU执行多个控制流</strong>。举例来说，Intel Core i7处理器可以让每个核执行两个线程，所以1个4核的系统实际上可以并行执行8个线程。</p>
+<h4 id="指令级并行"><a href="#指令级并行" class="headerlink" title="指令级并行"></a>指令级并行</h4><p>​	处理器可以执行多条指令的属性成为指令级并行。如果一个处理器可以达到比一个周期一条指令更快的执行速率，就称之为<strong>超标量处理器</strong>，大多数现代处理器都支持这种操作。 </p>
+<h4 id="单指令、多数据并行"><a href="#单指令、多数据并行" class="headerlink" title="单指令、多数据并行"></a>单指令、多数据并行</h4><p>​	SIMD，也即允许一条指令产生多个可以并行执行的操作。例如，最新处理器都具有并行的对8对单精度浮点数做加法的指令。</p>
+<p>​	提供这些SIMD指令多是为了提高处理影像、声音和视频数据应用的执行速度。</p>
+<h3 id="计算机系统中抽象的重要性"><a href="#计算机系统中抽象的重要性" class="headerlink" title="计算机系统中抽象的重要性"></a>计算机系统中抽象的重要性</h3><p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202112291424053.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 计算机操作系统</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/21/02-go%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Go学习笔记">
+                  <i class="fa fa-chevron-left"></i> Go学习笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/04/04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F(%E4%BA%8C)/" rel="next" title="深入理解计算机系统(二)——信息的表示和处理">
+                  深入理解计算机系统(二)——信息的表示和处理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
