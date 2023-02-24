@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言记录一下3月底、4月份每日一题记录，顺便督促自己打卡，仅记录每日一题~ （困难题型是否可以摸鱼呢？） 172. 阶乘后的零题目描述：给定一个整数 n ，返回 n! 结果中尾随零的数量。提示 n! &#x3D; n * (n - 1) * (n - 2) * ... * 3 * 2 * 1 自己的解法最开始想的是阶乘求解之后，再去求末尾0的数量， 例如阶乘后的结果遍历对(10*j)求余，但发现执行到30就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日一题——April and March(part)">
+<meta property="og:url" content="http://example.com/2022/04/07/13-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20April%20and%20March(part)/index.html">
+<meta property="og:site_name" content="Cloudyun">
+<meta property="og:description" content="前言记录一下3月底、4月份每日一题记录，顺便督促自己打卡，仅记录每日一题~ （困难题型是否可以摸鱼呢？） 172. 阶乘后的零题目描述：给定一个整数 n ，返回 n! 结果中尾随零的数量。提示 n! &#x3D; n * (n - 1) * (n - 2) * ... * 3 * 2 * 1 自己的解法最开始想的是阶乘求解之后，再去求末尾0的数量， 例如阶乘后的结果遍历对(10*j)求余，但发现执行到30就">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-07T05:41:48.000Z">
+<meta property="article:modified_time" content="2023-02-24T06:03:52.639Z">
+<meta property="article:author" content="Yann Cheung">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="每日一题">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/04/07/13-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20April%20and%20March(part)/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/04/07/13-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20April%20and%20March(part)/","path":"2022/04/07/13-每日一题 April and March(part)/","title":"每日一题——April and March(part)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>每日一题——April and March(part) | Cloudyun</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Cloudyun</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Yann Cheungの博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">33</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#172-%E9%98%B6%E4%B9%98%E5%90%8E%E7%9A%84%E9%9B%B6"><span class="nav-number">1.1.</span> <span class="nav-text">172. 阶乘后的零</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%B7%B1%E7%9A%84%E8%A7%A3%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">自己的解法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.1.2.</span> <span class="nav-text">思路学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#682-%E6%A3%92%E7%90%83%E6%AF%94%E8%B5%9B"><span class="nav-number">1.2.</span> <span class="nav-text">682. 棒球比赛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E6%A0%88"><span class="nav-number">1.2.1.</span> <span class="nav-text">思路——模拟栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2028-%E6%89%BE%E5%87%BA%E7%BC%BA%E5%A4%B1%E7%9A%84%E8%A7%82%E6%B5%8B%E6%95%B0%E6%8D%AE"><span class="nav-number">1.3.</span> <span class="nav-text">2028. 找出缺失的观测数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E7%9B%B4%E6%8E%A5%E6%A8%A1%E6%8B%9F"><span class="nav-number">1.3.1.</span> <span class="nav-text">思路：直接模拟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#693-%E4%BA%A4%E6%9B%BF%E4%BD%8D%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">693. 交替位二进制数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E2%80%94%E2%80%94%E4%B8%A4%E4%B8%AA%E6%9D%A1%E4%BB%B6%E9%99%90%E5%88%B6%E4%BA%A4%E6%9B%BF%E4%BD%8D%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0"><span class="nav-number">1.4.1.</span> <span class="nav-text">思路——两个条件限制交替位二进制数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2024-%E8%80%83%E8%AF%95%E7%9A%84%E6%9C%80%E5%A4%A7%E5%9B%B0%E6%89%B0%E5%BA%A6"><span class="nav-number">1.5.</span> <span class="nav-text">2024. 考试的最大困扰度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-number">1.5.1.</span> <span class="nav-text">思路——滑动窗口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1004-%E6%9C%80%E5%A4%A7%E8%BF%9E%E7%BB%AD1%E7%9A%84%E4%B8%AA%E6%95%B0-III"><span class="nav-number">1.6.</span> <span class="nav-text">1004. 最大连续1的个数 III</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2"><span class="nav-number">1.7.</span> <span class="nav-text">3. 无重复字符的最长子串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#728-%E8%87%AA%E9%99%A4%E6%95%B0"><span class="nav-number">1.8.</span> <span class="nav-text">728. 自除数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#954-%E4%BA%8C%E5%80%8D%E6%95%B0%E5%AF%B9%E6%95%B0%E7%BB%84"><span class="nav-number">1.9.</span> <span class="nav-text">954. 二倍数对数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8-%E6%8E%92%E5%BA%8F"><span class="nav-number">1.9.1.</span> <span class="nav-text">思路：哈希表+排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#744-%E5%AF%BB%E6%89%BE%E6%AF%94%E7%9B%AE%E6%A0%87%E5%AD%97%E6%AF%8D%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%97%E6%AF%8D"><span class="nav-number">1.10.</span> <span class="nav-text">744. 寻找比目标字母大的最小字母</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.10.1.</span> <span class="nav-text">思路：二分查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#796-%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.11.</span> <span class="nav-text">796. 旋转字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E6%A8%A1%E6%8B%9F-%E6%8B%BC%E6%8E%A5"><span class="nav-number">1.11.1.</span> <span class="nav-text">思路：模拟+拼接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#357-%E7%BB%9F%E8%AE%A1%E5%90%84%E4%BD%8D%E6%95%B0%E5%AD%97%E9%83%BD%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%AA%E6%95%B0"><span class="nav-number">1.12.</span> <span class="nav-text">357. 统计各位数字都不同的数字个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF1%EF%BC%9A%E6%9A%B4%E5%8A%9B%E9%81%8D%E5%8E%86-%E5%93%88%E5%B8%8C"><span class="nav-number">1.12.1.</span> <span class="nav-text">思路1：暴力遍历+哈希</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF%EF%BC%9A%E4%B9%98%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.13.</span> <span class="nav-text">正确思路：乘法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#806-%E5%86%99%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%9C%80%E8%A6%81%E7%9A%84%E8%A1%8C%E6%95%B0"><span class="nav-number">1.14.</span> <span class="nav-text">806. 写字符串需要的行数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF1%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">1.14.1.</span> <span class="nav-text">思路1：哈希表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF2%EF%BC%9A%E7%9B%B4%E6%8E%A5%E6%A8%A1%E6%8B%9F"><span class="nav-number">1.14.2.</span> <span class="nav-text">思路2：直接模拟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#386-%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E6%95%B0"><span class="nav-number">1.15.</span> <span class="nav-text">386. 字典序排数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF1%EF%BC%9A%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="nav-number">1.15.1.</span> <span class="nav-text">思路1：深度优先搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#883-%E4%B8%89%E7%BB%B4%E5%BD%A2%E4%BD%93%E6%8A%95%E5%BD%B1%E9%9D%A2%E7%A7%AF"><span class="nav-number">1.16.</span> <span class="nav-text">883. 三维形体投影面积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E7%9B%B4%E6%8E%A5%E6%A8%A1%E6%8B%9F-1"><span class="nav-number">1.16.1.</span> <span class="nav-text">思路：直接模拟</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#905-%E6%8C%89%E5%A5%87%E5%81%B6%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84"><span class="nav-number">1.17.</span> <span class="nav-text">905. 按奇偶排序数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF1%EF%BC%9A%E7%9B%B4%E6%8E%A5%E6%A8%A1%E6%8B%9F"><span class="nav-number">1.17.1.</span> <span class="nav-text">思路1：直接模拟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF2%EF%BC%9A%E7%AE%80%E5%8C%96%EF%BC%8C%E7%9B%B4%E6%8E%A5%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.17.2.</span> <span class="nav-text">思路2：简化，直接交换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#908-%E6%9C%80%E5%B0%8F%E5%B7%AE%E5%80%BC-I"><span class="nav-number">1.18.</span> <span class="nav-text">908. 最小差值 I</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E6%95%B0%E5%AD%A6"><span class="nav-number">1.18.1.</span> <span class="nav-text">思路：数学</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yann Cheung"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Yann Cheung</p>
+  <div class="site-description" itemprop="description">忆我少年游，一梦到华胥</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Cloudyunn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Cloudyunn" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/07/13-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20April%20and%20March(part)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Yann Cheung">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cloudyun">
+      <meta itemprop="description" content="忆我少年游，一梦到华胥">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="每日一题——April and March(part) | Cloudyun">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          每日一题——April and March(part)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-07 13:41:48" itemprop="dateCreated datePublished" datetime="2022-04-07T13:41:48+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-24 14:03:52" itemprop="dateModified" datetime="2023-02-24T14:03:52+08:00">2023-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>20k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>18 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下3月底、4月份每日一题记录，顺便督促自己打卡，仅记录每日一题~</p>
+<p>（困难题型是否可以摸鱼呢？）</p>
+<h2 id="172-阶乘后的零"><a href="#172-阶乘后的零" class="headerlink" title="172. 阶乘后的零"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/factorial-trailing-zeroes/">172. 阶乘后的零</a></h2><p>题目描述：给定一个整数 <code>n</code> ，返回 <code>n!</code> 结果中尾随零的数量。提示 <code>n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1</code></p>
+<h3 id="自己的解法"><a href="#自己的解法" class="headerlink" title="自己的解法"></a>自己的解法</h3><p>最开始想的是阶乘求解之后，再去求末尾0的数量， 例如阶乘后的结果遍历对(10*j)求余，但发现执行到30就走不通了&#x3D; &#x3D;，就算给result赋值long类型也不够，因为会溢出。</p>
+<h3 id="思路学习"><a href="#思路学习" class="headerlink" title="思路学习"></a>思路学习</h3><blockquote>
+<p>首先末尾有多少个 0 ，只需要给当前数乘以一个 10 就可以加一个 0。</p>
+<p>再具体对于 5!，也就是 5 * 4 * 3 * 2 * 1 &#x3D; 120，我们发现结果会有一个 0，原因就是 <strong>2 和 5 相乘</strong>构成了一个 10。而对于 10 的话，其实也只有 2 * 5 可以构成，所以我们<strong>只需要找有多少对 2&#x2F;5</strong>。</p>
+<p>我们把每个乘数再稍微分解下，看一个例子。</p>
+<p>11! &#x3D; 11 * 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1 &#x3D; 11 * (2 * 5) * 9 * (4 * 2) * 7 * (3 * 2) * (1 * 5) * (2 * 2) * 3 * (1 * 2) * 1</p>
+<p>对于含有 2 的因子的话是 1 * 2, 2 * 2, 3 * 2, 4 * 2 …</p>
+<p>对于含有 5 的因子的话是 1 * 5, 2 * 5…</p>
+<p>含有 2 的因子每两个出现一次，含有 5 的因子每 5 个出现一次，<strong>所有 2 出现的个数远远多于 5</strong>，换言之<strong>找到一个 5，一定能找到一个 2 与之配对</strong>。所以我们<strong>只需要找有多少个 5</strong>。</p>
+<p>直接的，我们只需要判断<strong>每个累乘的数有多少个 5 的因子即可</strong>。</p>
+<p>对于一个数的阶乘，就如之前分析的，5 的因子一定是每隔 5 个数出现一次，也就是下边的样子。</p>
+<p>n! &#x3D; 1 * 2 * 3 * 4 * (1 * 5) * … * (2 * 5) * … * (3 * 5) *… * n</p>
+<p>因为每隔 5 个数出现一个 5，所以计算出现了多少个 5，我们只需要用 <strong>n&#x2F;5</strong> 就可以算出来。</p>
+<p>但还没有结束，继续分析。</p>
+<p>… * (1 * 5) * … * (1 * 5 * 5) * … * (2 * 5 * 5) * … * (3 * 5 * 5) * … * n</p>
+<p>每隔 25 个数字，<strong>出现的是两个 5</strong>，所以除了每隔 5 个数算作一个 5，<strong>每隔 25 个数，还需要多算一个 5。</strong></p>
+<p>也就是我们需要再加上 n &#x2F; 25 个 5。</p>
+<p>同理我们还会发现每隔 5 * 5 * 5 &#x3D; 125 个数字，会出现 3 个 5，所以我们还需要再加上 n &#x2F; 125 。</p>
+<p>综上，规律就是每隔 5 个数，出现一个 5，每隔 25 个数，出现 2 个 5，每隔 125 个数，出现 3 个 5… 以此类推。</p>
+<p>最终 5 的个数就是 n &#x2F; 5 + n &#x2F; 25 + n &#x2F; 125 …</p>
+<p>写程序的话，如果直接按照上边的式子计算，<strong>分母可能会造成溢出</strong>。所以算 n &#x2F; 25 的时候，我们先把 n 更新，n &#x3D; n &#x2F; 5，然后再计算 n &#x2F; 5 即可。后边的同理。</p>
+</blockquote>
+<span id="more"></span>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">trailingZeroes</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(n &gt; <span class="number">0</span>)&#123;</span><br><span class="line">          count += n / <span class="number">5</span>;</span><br><span class="line">          n = n/<span class="number">5</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="682-棒球比赛"><a href="#682-棒球比赛" class="headerlink" title="682. 棒球比赛"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/baseball-game/">682. 棒球比赛</a></h2><h3 id="思路——模拟栈"><a href="#思路——模拟栈" class="headerlink" title="思路——模拟栈"></a>思路——模拟栈</h3><p><strong>使用变长数组对栈进行模拟</strong>。</p>
+<p>如果操作是 ++，那么访问数组的后两个得分，将两个得分之和加到总得分，并且将两个得分之和入栈。</p>
+<p>如果操作是D，那么访问数组的最后一个得分，将得分乘以 2 加到总得分，并且将得分乘以 2入栈。</p>
+<p>如果操作是 C，那么访问数组的最后一个得分，将总得分减去该得分，并且将该得分出栈。</p>
+<p>如果操作是整数，那么将该整数加到总得分，并且将该整数入栈。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">calPoints</span><span class="params">(String[] ops)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> ops.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">idx</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len ; i++ , idx++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ops[i].equals(<span class="string">&quot;+&quot;</span>))&#123;</span><br><span class="line">                nums[idx] = nums[idx - <span class="number">1</span>]+nums[idx - <span class="number">2</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ops[i].equals(<span class="string">&quot;D&quot;</span>))&#123;</span><br><span class="line">                nums[idx] = <span class="number">2</span>*nums[idx-<span class="number">1</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ops[i].equals(<span class="string">&quot;C&quot;</span>))&#123;</span><br><span class="line">                idx -= <span class="number">2</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                nums[idx] = Integer.parseInt(ops[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; idx ; j++)&#123;</span><br><span class="line">            result += nums[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2028-找出缺失的观测数据"><a href="#2028-找出缺失的观测数据" class="headerlink" title="2028. 找出缺失的观测数据"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-missing-observations/">2028. 找出缺失的观测数据</a></h2><h3 id="思路：直接模拟"><a href="#思路：直接模拟" class="headerlink" title="思路：直接模拟"></a>思路：直接模拟</h3><p>最开始个人的代码如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int[] missingRolls(int[] rolls, int mean, int n) &#123;</span><br><span class="line">        int len = rolls.length;</span><br><span class="line">        int sum = mean*(len+n);</span><br><span class="line">        int[] res = new int[n];</span><br><span class="line">        for(int i = 0;i&lt;len ; i++ )&#123;</span><br><span class="line">            sum = sum - rolls[i];</span><br><span class="line">        &#125;</span><br><span class="line">        if((sum &lt; n)||(sum &gt; n * 6))&#123;</span><br><span class="line">            return new int[0];</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            int num = sum/n;</span><br><span class="line">            int end = sum%n;</span><br><span class="line">            if(end != 0)&#123;</span><br><span class="line">                res[0] = num+end;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                res[0] = num;</span><br><span class="line">            &#125;</span><br><span class="line">            for(int i = 1;i&lt;n ; i++)&#123;</span><br><span class="line">                res[i] = num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后发现几次没通过&#x3D; &#x3D;，原因出在这个示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[4,5,6,2,3,6,5,4,6,4,5,1,6,3,1,4,5,5,3,2,3,5,3,2,1,5,4,3,5,1,5]</span><br><span class="line">4</span><br><span class="line">40</span><br></pre></td></tr></table></figure>
+
+<p>我的输出里面竟然构造了一个11，不符合题目1~6要求。。。</p>
+<p>这是因为我把除法之后的余数全都分配在了一个数上面，当余数太大的时候肯定回超过范围，所以肯定要把余数分摊一下~（太蠢了）</p>
+<p>以下是修改并优化后的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] missingRolls(<span class="type">int</span>[] rolls, <span class="type">int</span> mean, <span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> rolls.length;<span class="comment">//</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> mean*(len+n);</span><br><span class="line">        <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;len ; i++ )&#123;</span><br><span class="line">            sum = sum - rolls[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>((sum &lt; n)||(sum &gt; n * <span class="number">6</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> sum / n;</span><br><span class="line">        <span class="type">int</span> <span class="variable">remain</span> <span class="operator">=</span> sum % n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span> ; i&lt; n ; i++)&#123;</span><br><span class="line">            res[i] = num + ( i &lt; remain ? <span class="number">1</span> : <span class="number">0</span>);<span class="comment">//关键点！</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>假设缺失的部分和是：11，要分配给4个位置。那么11&#x2F;4 &#x3D; 2&#96;&#96;&#96;3，那么4个位置中，分配3个2+1，最后一个分配2+0，即可得到要求，这也是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res[i] = num + ( i &lt; remain ? <span class="number">1</span> : <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这行代码的用处：将很大的余数分配给数组中一定数量的元素。</p>
+<h2 id="693-交替位二进制数"><a href="#693-交替位二进制数" class="headerlink" title="693. 交替位二进制数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-number-with-alternating-bits/">693. 交替位二进制数</a></h2><h3 id="思路——两个条件限制交替位二进制数"><a href="#思路——两个条件限制交替位二进制数" class="headerlink" title="思路——两个条件限制交替位二进制数"></a>思路——两个条件限制交替位二进制数</h3><ul>
+<li>1、对输入 n 的二进制表示右移一位后，得到的数字再与 n<strong>按位异或</strong>得到 a。当且仅当输入 n 为<strong>交替位二进制数</strong>时，a 的二进制表示全为 1（不包括前导 0）</li>
+<li>2、将 a与 a + 1 按位与，当且仅当 a的二进制表示全为 1 时，结果为 0：当且仅当 a 的二进制表示全为 1 时，a + 1可以进位，并将原最高位置为 0，按位与的结果为 0。否则，不会产生进位，两个最高位都为 1，相与结果不为 0。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">hasAlternatingBits</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> n ^ (n &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> (a &amp; (a+<span class="number">1</span>)) == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2024-考试的最大困扰度"><a href="#2024-考试的最大困扰度" class="headerlink" title="2024. 考试的最大困扰度"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/">2024. 考试的最大困扰度</a></h2><blockquote>
+<p>给你一个字符串 answerKey ，其中 answerKey[i] 是第 i 个问题的正确结果。除此以外，还给你一个整数 k ，表示你能进行以下操作的最多次数：</p>
+<p>每次操作中，将问题的正确答案改为 ‘T’ 或者 ‘F’ （也就是将 answerKey[i] 改为 ‘T’ 或者 ‘F’ ）。<br>请你返回在不超过 k 次操作的情况下，最大 连续 ‘T’ 或者 ‘F’ 的数目</p>
+</blockquote>
+<h3 id="思路——滑动窗口"><a href="#思路——滑动窗口" class="headerlink" title="思路——滑动窗口"></a>思路——滑动窗口</h3><p>题目求修改次数不超过k的前提下，连续段“T” 或“F”的最大长度，也就是等价于：</p>
+<p>求一个包含“T”和“F”的个数不超过k的最大长度窗口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    String s;</span><br><span class="line">    <span class="type">int</span> n ,_k;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxConsecutiveAnswers</span><span class="params">(String answerKey, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        s = answerKey;</span><br><span class="line">        n = s.length();</span><br><span class="line">        _k = k;</span><br><span class="line">        <span class="keyword">return</span> Math.max(getCount(<span class="string">&#x27;T&#x27;</span>),getCount(<span class="string">&#x27;F&#x27;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getCount</span><span class="params">(<span class="type">char</span> c)</span>&#123;<span class="comment">//滑动窗口找个数不超过k的最大长度窗口</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> , j = <span class="number">0</span> , count = <span class="number">0</span>; i &lt; n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i) == c)&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(count &gt; _k)&#123;</span><br><span class="line">                <span class="keyword">if</span>(s.charAt(j) == c)&#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = Math.max(ans,i-j+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>由于滑动窗口这类题目很多，所以扩展一下以下题目：</p>
+<h2 id="1004-最大连续1的个数-III"><a href="#1004-最大连续1的个数-III" class="headerlink" title="1004. 最大连续1的个数 III"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-consecutive-ones-iii/">1004. 最大连续1的个数 III</a></h2><blockquote>
+<p>给定一个二进制数组 <code>nums</code> 和一个整数 <code>k</code>，如果可以翻转最多 <code>k</code> 个 <code>0</code> ，则返回 <em>数组中连续 <code>1</code> 的最大个数</em> 。</p>
+<p>输入：nums &#x3D; [1,1,1,0,0,0,1,1,1,1,0], K &#x3D; 2<br>输出：6<br>解释：[1,1,1,0,0,1,1,1,1,1,1]<br>粗体数字从 0 翻转到 1，最长的子数组长度为 6。</p>
+</blockquote>
+<p>和刚刚那个题目一样，只不过找T和F中最大的那个变为了只找包含0最大的窗口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span> n , _k;</span><br><span class="line">    <span class="type">int</span>[] num ;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">longestOnes</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        num = nums;</span><br><span class="line">        n = nums.length;</span><br><span class="line">        _k = k;</span><br><span class="line">        <span class="keyword">return</span> getNums();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getNums</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> , j = <span class="number">0</span> ,count = <span class="number">0</span> ; i &lt; n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(count &gt; _k)&#123;</span><br><span class="line">                <span class="keyword">if</span>(num[j] == <span class="number">0</span>)&#123;</span><br><span class="line">                    count--;</span><br><span class="line">                &#125;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = Math.max(ans , i-j+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3. 无重复字符的最长子串"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        HashMap&lt;Character,Integer&gt; myMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Character,Integer&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//用于记录最大不重复子串的长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//滑动窗口左指针</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i&lt;s.length();i++)&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment"> 1、首先，判断当前字符是否包含在map中，如果不包含，将该字符添加到map（字符，字符在数组下标）,</span></span><br><span class="line"><span class="comment">   此时没有出现重复的字符，左指针不需要变化。此时不重复子串的长度为：i-left+1，与原来的maxLen比较，取最大值；</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> 2、如果当前字符 ch 包含在 map中，此时有2类情况：</span></span><br><span class="line"><span class="comment">   1）当前字符包含在当前有效的子段中，如：abca，当我们遍历到第二个a，当前有效最长子段是 abc，我们又遍历到a，那么此时更新 left 为 map.get(a)+1=1，当前有效子段更新为 bca；</span></span><br><span class="line"><span class="comment">   2）当前字符不包含在当前最长有效子段中，如：abba，我们先添加a,b进map，此时left=0，我们再添加b，发现map中包含b，</span></span><br><span class="line"><span class="comment">   而且b包含在最长有效子段中，就是1）的情况，我们更新 left=map.get(b)+1=2，此时子段更新为 b，而且map中仍然包含a，map.get(a)=0；随后，我们遍历到a，发现a包含在map中，且map.get(a)=0，如果我们像1）一样处理，就会发现 left=map.get(a)+1=1，实际上，left此时应该不变，left始终为2，子段变成 ba才对。</span></span><br><span class="line"><span class="comment">	为了处理以上2类情况，我们每次更新left，left=Math.max(left , map.get(ch)+1).另外，更新left后，不管原来的 s.charAt(i) 是否在最长子段中，我们都要将 s.charAt(i) 的位置更新为当前的i，</span></span><br><span class="line"><span class="comment">因此此时新的 s.charAt(i) 已经进入到 当前最长的子段中！</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">if</span>(myMap.containsKey(s.charAt(i)))&#123;</span><br><span class="line">                left = Math.max(left , myMap.get(s.charAt(i))+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            myMap.put(s.charAt(i),i);</span><br><span class="line">            max = Math.max(max , i-left+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="728-自除数"><a href="#728-自除数" class="headerlink" title="728. 自除数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/self-dividing-numbers/">728. 自除数</a></h2><blockquote>
+<p>自除数 是指可以被它包含的每一位数整除的数。</p>
+<p>例如，128 是一个 自除数 ，因为 128 % 1 &#x3D;&#x3D; 0，128 % 2 &#x3D;&#x3D; 0，128 % 8 &#x3D;&#x3D; 0。<br>自除数 不允许包含 0 。</p>
+<p>给定两个整数 <code>left</code> 和 <code>right</code> ，返回一个列表，<em>列表的元素是范围 <code>[left, right]</code> 内所有的 <strong>自除数</strong></em> </p>
+</blockquote>
+<p>思路——直接模拟</p>
+<p>关键点在于：</p>
+<p>判断一个整数是否为自除数的方法是遍历整数的每一位，判断每一位数是否为 0 以及是否可以<strong>整除</strong>该整数。</p>
+<p>遍历整数的每一位的方法是，每次将当前整数<strong>对 10 取模</strong>即可得到当前整数的最后一位，然后将整数除以 10。重复该操作，直到当前整数变成 0 时即遍历了整数的每一位。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">selfDividingNumbers</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">       List&lt;Integer&gt;ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       out:<span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left ; i &lt;= right ; i++)&#123;</span><br><span class="line">           <span class="type">int</span> <span class="variable">cur</span> <span class="operator">=</span> i ;</span><br><span class="line">           <span class="keyword">while</span>(cur != <span class="number">0</span>)&#123;</span><br><span class="line">               <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> cur % <span class="number">10</span>;</span><br><span class="line">               <span class="keyword">if</span>(t == <span class="number">0</span> || i %t != <span class="number">0</span>)&#123;</span><br><span class="line">                   <span class="keyword">continue</span> out;</span><br><span class="line">               &#125;</span><br><span class="line">               cur /= <span class="number">10</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           ans.add(i);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="954-二倍数对数组"><a href="#954-二倍数对数组" class="headerlink" title="954. 二倍数对数组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/array-of-doubled-pairs/">954. 二倍数对数组</a></h2><blockquote>
+<p>给定一个长度为偶数的整数数组 arr，只有对 arr 进行重组后可以满足 “对于每个 0 &lt;&#x3D; i &lt; len(arr) &#x2F; 2，都有 arr[2 * i + 1] &#x3D; 2 * arr[2 * i]” 时，返回 true；否则，返回 false。</p>
+</blockquote>
+<h3 id="思路：哈希表-排序"><a href="#思路：哈希表-排序" class="headerlink" title="思路：哈希表+排序"></a>思路：哈希表+排序</h3><p>思路没有什么问题，就是不知道如何实现，另外就是排序没有思考到这个电上，下面是我自己的代码&#x3D; &#x3D;肯定有问题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canReorderDoubled</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> arr.length ;</span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//要满足的个数</span></span><br><span class="line">        Map&lt;Integer,Integer&gt; hashtable = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer,Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; len ; i++ )&#123;</span><br><span class="line">            <span class="keyword">if</span>(hashtable.containsKey(arr[i]/<span class="number">2</span>)||hashtable.containsKey(arr[i]*<span class="number">2</span>))&#123;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">            hashtable.put(arr[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>( num == (arr.length&gt;&gt;<span class="number">1</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面附上学习之后的代码：</p>
+<blockquote>
+<p>依题意，我们首先对每个元素的出现次数用哈希表进行维护，然后用一个 list 存储其中的各个元素。然后遍历各个元素，对于每个元素 key判断是否有足够的 2k ，如果有，更新 2k 的数量；如果没有，返回 false 。</p>
+<p><strong>要注意的是，由于map的无序性，会导致遍历时可能会从中间元素开始遍历，此时后面的数就会受到影响。所以，我们要从小的元素开始遍历，以确保元素匹配的正确性。</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canReorderDoubled</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">        Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer,Integer&gt;();</span><br><span class="line">        <span class="comment">//Map是用来维护数组中元素出现的个数的，也就是映射是元素-&gt;个数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : arr)&#123;</span><br><span class="line">            map.put(x , map.getOrDefault(x , <span class="number">0</span>)+<span class="number">1</span>);<span class="comment">//出现重复的则个数+1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//表用来存map中的key值，也就是元素</span></span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(map.keySet());</span><br><span class="line">        <span class="comment">//例:[10,20,40,80]</span></span><br><span class="line">        <span class="comment">//由于map的无序性,导致遍历时可能会从中间开始遍历(20)</span></span><br><span class="line">        <span class="comment">//此时后面的数(40)就会收到影响</span></span><br><span class="line">        list.sort((o1,o2) -&gt; Math.abs(o1) - Math.abs(o2));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> key : list)&#123;</span><br><span class="line">            <span class="comment">//判断是否有足够多的2*key</span></span><br><span class="line">            <span class="keyword">if</span>(map.get(key) &gt; map.getOrDefault(<span class="number">2</span>*key,<span class="number">0</span>))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//维护2*key的数量，每次抵消key相同数量的2*key</span></span><br><span class="line">            map.put(<span class="number">2</span>*key , map.getOrDefault(<span class="number">2</span>*key,<span class="number">0</span>)-map.get(key));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="744-寻找比目标字母大的最小字母"><a href="#744-寻找比目标字母大的最小字母" class="headerlink" title="744. 寻找比目标字母大的最小字母"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-smallest-letter-greater-than-target/">744. 寻找比目标字母大的最小字母</a></h2><blockquote>
+<p>给你一个排序后的字符列表 letters ，列表中只包含小写英文字母。另给出一个目标字母 target，请你寻找在这一有序列表里比目标字母大的最小字母。</p>
+<p>在比较时，字母是依序循环出现的。举个例子：</p>
+<p>如果目标字母 target &#x3D; ‘z’ 并且字符列表为 letters &#x3D; [‘a’, ‘b’]，则答案返回 ‘a’</p>
+</blockquote>
+<h3 id="思路：二分查找"><a href="#思路：二分查找" class="headerlink" title="思路：二分查找"></a>思路：二分查找</h3><p>和之前做的二分查找一样，只不过对象换成了字符而已</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">char</span> <span class="title function_">nextGreatestLetter</span><span class="params">(<span class="type">char</span>[] letters, <span class="type">char</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span> , right = letters.length-<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> letters.length;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (left + right)&gt;&gt; <span class="number">1</span> ;</span><br><span class="line">            <span class="type">char</span> <span class="variable">char1</span> <span class="operator">=</span> letters[mid];</span><br><span class="line">            <span class="keyword">if</span>((char1 - target)&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                right = mid -<span class="number">1</span> ;</span><br><span class="line">                ans = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                left = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans == letters.length ? letters[<span class="number">0</span>] : letters[ans];</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="796-旋转字符串"><a href="#796-旋转字符串" class="headerlink" title="796. 旋转字符串"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-string/">796. 旋转字符串</a></h2><blockquote>
+<p>给定两个字符串, s 和 goal。如果在若干次旋转操作之后，s 能变成 goal ，那么返回 true 。</p>
+<p>s 的 旋转操作 就是将 s 最左边的字符移动到最右边。 </p>
+<p>例如, 若 s &#x3D; ‘abcde’，在旋转一次之后结果就是’bcdea’ 。</p>
+</blockquote>
+<h3 id="思路：模拟-拼接"><a href="#思路：模拟-拼接" class="headerlink" title="思路：模拟+拼接"></a>思路：模拟+拼接</h3><p>当时做题的时候想的是直接模拟，但是后来发现用拼接的方法简单、粗暴又迅速，一行代码就可以解决~瞬间觉得智商低下&#x3D; &#x3D;</p>
+<p>由于每次旋转操作都是将最左侧字符移动到最右侧，因此如果 goal 可由 s 经过多步旋转而来，<strong>那么 goal 必然会出现在 s + s 中</strong>，即满足 (s + s).contains(goal)，同时为了 s 本身过长导致的结果成立，我们需要先确保两字符串长度相等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">rotateString</span><span class="params">(String s, String goal)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> s.length()==goal.length()&amp;&amp;(s+s).contains(goal);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="357-统计各位数字都不同的数字个数"><a href="#357-统计各位数字都不同的数字个数" class="headerlink" title="357. 统计各位数字都不同的数字个数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-numbers-with-unique-digits/">357. 统计各位数字都不同的数字个数</a></h2><blockquote>
+<p>给你一个整数 <code>n</code> ，统计并返回各位数字都不同的数字 <code>x</code> 的个数，其中 <code>0 &lt;= x &lt; 10n</code> 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 2</span><br><span class="line">输出：91</span><br><span class="line">解释：答案应为除去 11、22、33、44、55、66、77、88、99 外，在 0 ≤ x &lt; 100 范围内的所有数字。 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="思路1：暴力遍历-哈希"><a href="#思路1：暴力遍历-哈希" class="headerlink" title="思路1：暴力遍历+哈希"></a>思路1：暴力遍历+哈希</h3><p>最开始的思路是两层for循环，一层遍历所有数，一层来判断当前数是否含有重复数字，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">countNumbersWithUniqueDigits</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        tab: <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt; Math.pow(<span class="number">10</span>,n);i++)&#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">temp</span> <span class="operator">=</span> String.valueOf(i);</span><br><span class="line">            Map&lt;Character,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Character,Integer&gt;();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;j &lt; temp.length();j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(map.containsKey(temp.charAt(j)))&#123;</span><br><span class="line">                    <span class="keyword">continue</span> tab;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    map.put(temp.charAt(j),j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            number++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后得出的结果，逻辑没问题，但时间超出了限制。。。在意料之中</p>
+<h2 id="正确思路：乘法原理"><a href="#正确思路：乘法原理" class="headerlink" title="正确思路：乘法原理"></a>正确思路：乘法原理</h2><p>对于 n &#x3D; 0的情况较为特殊，特判一下，返回 1。</p>
+<p>对于其他情况，由于不能含有前导 0，最高位可选择的数值个数为 9，而从次高位开始到最低位，可选的个数从 9 开始逐一递减。</p>
+<p>利用乘法原理，每位数可选的数值个数相乘即是长度为 n 的数的可能方案数 cur，而所有长度[1,n]的方案数累加即是答案</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int countNumbersWithUniqueDigits(int n) &#123;</span><br><span class="line">        if(n==0) return 1;</span><br><span class="line">        int ans = 10;</span><br><span class="line">        for(int i = 2 , last = 9 ; i &lt;= n ;i++)&#123;</span><br><span class="line">            int cur = last*(10-i+1);</span><br><span class="line">            ans += cur;</span><br><span class="line">            last = cur;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户</li>
+<li>内存消耗：38.1 MB, 在所有 Java 提交中击败了51.14%的用户</li>
+<li>通过测试用例：9 &#x2F; 9</li>
+</ul>
+<p>这个题发现：刷题不是简单的模拟，还要找规律，看下能否用上数学思想&#x3D; &#x3D;</p>
+<h2 id="806-写字符串需要的行数"><a href="#806-写字符串需要的行数" class="headerlink" title="806. 写字符串需要的行数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-lines-to-write-string/">806. 写字符串需要的行数</a></h2><blockquote>
+<p>我们要把给定的字符串 S 从左到右写到每一行上，每一行的最大宽度为100个单位，如果我们在写某个字母的时候会使这行超过了100 个单位，那么我们应该把这个字母写到下一行。我们给定了一个数组 widths ，这个数组 widths[0] 代表 ‘a’ 需要的单位， widths[1] 代表 ‘b’ 需要的单位，…， widths[25] 代表 ‘z’ 需要的单位。</p>
+<p>现在回答两个问题：至少多少行能放下S，以及最后一行使用的宽度是多少个单位？将你的答案作为长度为2的整数列表返回。</p>
+<p>示例 1:<br>输入:<br>widths &#x3D; [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]<br>S &#x3D; “abcdefghijklmnopqrstuvwxyz”<br>输出: [3, 60]<br>解释:<br>所有的字符拥有相同的占用单位10。所以书写所有的26个字母，<br>我们需要2个整行和占用60个单位的一行。</p>
+</blockquote>
+<h3 id="思路1：哈希表"><a href="#思路1：哈希表" class="headerlink" title="思路1：哈希表"></a>思路1：哈希表</h3><p>首先将26个字母的单位存入哈希表中，然后遍历读取字符串的时候从哈希表中get</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] numberOfLines(<span class="type">int</span>[] widths, String s) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">row</span> <span class="operator">=</span> <span class="number">1</span> , column = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> s.length();</span><br><span class="line">        Map&lt;Character,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Character,Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i&lt; <span class="number">26</span> ; i++)&#123;</span><br><span class="line">           </span><br><span class="line">            map.put((<span class="type">char</span>)(<span class="string">&#x27;a&#x27;</span>+i),widths[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;j &lt; len;j++)&#123;</span><br><span class="line">            sum += map.get(s.charAt(j));</span><br><span class="line">            <span class="keyword">while</span>(sum &gt; <span class="number">100</span>)&#123;</span><br><span class="line">                sum = map.get(s.charAt(j));</span><br><span class="line">                row++;</span><br><span class="line">            &#125;</span><br><span class="line">            column = sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;row,column&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行用时：1 ms, 在所有 Java 提交中击败了19.23%的用户</li>
+<li>内存消耗：39.7 MB, 在所有 Java 提交中击败了22.88%的用户</li>
+<li>通过测试用例：27 &#x2F; 27</li>
+</ul>
+<p>时间复杂度有点高</p>
+<h3 id="思路2：直接模拟"><a href="#思路2：直接模拟" class="headerlink" title="思路2：直接模拟"></a>思路2：直接模拟</h3><p>似乎之前的想法太复杂了&#x3D; &#x3D; 。根本没必要用到哈希表，直接用数组即可表示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] numberOfLines(<span class="type">int</span>[] widths, String s) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lines</span> <span class="operator">=</span> <span class="number">1</span> , width =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i&lt;s.length(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> widths[s.charAt(i)-<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">            width += sum;</span><br><span class="line">            <span class="keyword">if</span>(width &gt; <span class="number">100</span>)&#123;</span><br><span class="line">                lines++;</span><br><span class="line">                width = sum;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;lines,width&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户，<strong>O(n)</strong></li>
+<li>内存消耗：39.4 MB, 在所有 Java 提交中击败了55.26%的用户，<strong>O(1)</strong></li>
+<li>通过测试用例：27 &#x2F; 27</li>
+</ul>
+<h2 id="386-字典序排数"><a href="#386-字典序排数" class="headerlink" title="386. 字典序排数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lexicographical-numbers/">386. 字典序排数</a></h2><blockquote>
+<p>给你一个整数 <code>n</code> ，按字典序返回范围 <code>[1, n]</code> 内所有整数。</p>
+<p>你必须设计一个时间复杂度为 <code>O(n)</code> 且使用 <code>O(1)</code> 额外空间的算法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 13</span><br><span class="line">输出：[1,10,11,12,13,2,3,4,5,6,7,8,9]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="思路1：深度优先搜索"><a href="#思路1：深度优先搜索" class="headerlink" title="思路1：深度优先搜索"></a>思路1：深度优先搜索</h3><p>对于一个整数curr，它的下一个字典序整数对应下面的规则：</p>
+<ul>
+<li>尝试在curr后面附加一个零，即curr x 10，如果curr x 10 &lt; n，那么说明curr x 10是下一个字典序	整数；</li>
+<li>如果curr % 10 &#x3D;&#x3D; 9 || curr &#x3D;&#x3D; n，那么说明末尾的数位已经搜索完成，退回上一位，然后继续判断直到curr % 10 &#x3D;&#x3D; 9 || curr &#x3D;&#x3D; n为止，那么curr+1是下一个字典序整数。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">lexicalOrder</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        List&lt;Integer&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ,curr = <span class="number">1</span>; i&lt; n;i++)&#123;</span><br><span class="line">            ans.add(curr);</span><br><span class="line">            <span class="keyword">if</span>(curr*<span class="number">10</span> &lt;= n)&#123;</span><br><span class="line">                curr *= <span class="number">10</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(curr % <span class="number">10</span> == <span class="number">9</span> || curr == n)&#123;</span><br><span class="line">                    curr /= <span class="number">10</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                curr++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="883-三维形体投影面积"><a href="#883-三维形体投影面积" class="headerlink" title="883. 三维形体投影面积"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/projection-area-of-3d-shapes/">883. 三维形体投影面积</a></h2><blockquote>
+<p>在 n x n 的网格 grid 中，我们放置了一些与 x，y，z 三轴对齐的 1 x 1 x 1 立方体。</p>
+<p>每个值 v &#x3D; grid[i][j] 表示 v 个正方体叠放在单元格 (i, j) 上。</p>
+<p>现在，我们查看这些立方体在 xy 、yz 和 zx 平面上的投影。</p>
+<p>投影 就像影子，将 三维 形体映射到一个 二维 平面上。从顶部、前面和侧面看立方体时，我们会看到“影子”。</p>
+<p>返回 所有三个投影的总面积 。</p>
+</blockquote>
+<h3 id="思路：直接模拟-1"><a href="#思路：直接模拟-1" class="headerlink" title="思路：直接模拟"></a>思路：直接模拟</h3><p>根据题意，\texttt{x}x 轴对应行，\texttt{y}y 轴对应列，\texttt{z}z 轴对应网格的数值。</p>
+<p>因此：</p>
+<ul>
+<li><p>xy 平面的投影面积等于网格上非零数值的数目；</p>
+</li>
+<li><p>yz 平面的投影面积等于网格上每一列最大数值之和；</p>
+</li>
+<li><p>zx 平面的投影面积等于网格上每一行最大数值之和。</p>
+</li>
+</ul>
+<p>返回上述三个投影面积之和。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">projectionArea</span><span class="params">(<span class="type">int</span>[][] grid)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans1</span> <span class="operator">=</span> <span class="number">0</span>,ans2 = <span class="number">0</span>,ans3 = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> grid.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span> , b = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span> ; j &lt; n ;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]&gt;<span class="number">0</span>)</span><br><span class="line">                    ans1++;</span><br><span class="line">                a = Math.max(a,grid[i][j]);</span><br><span class="line">                b = Math.max(b,grid[j][i]);</span><br><span class="line">            &#125;</span><br><span class="line">        ans2 += a;</span><br><span class="line">        ans3 += b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans1+ans2+ans3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行用时：2 ms, 在所有 Java 提交中击败了69.63%的用户,O(n2)</li>
+<li>内存消耗：41.2 MB, 在所有 Java 提交中击败了36.20%的用户,O(1)</li>
+<li>通过测试用例：90 &#x2F; 90</li>
+</ul>
+<h2 id="905-按奇偶排序数组"><a href="#905-按奇偶排序数组" class="headerlink" title="905. 按奇偶排序数组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-array-by-parity/">905. 按奇偶排序数组</a></h2><h3 id="思路1：直接模拟"><a href="#思路1：直接模拟" class="headerlink" title="思路1：直接模拟"></a>思路1：直接模拟</h3><p>定义两个指针，一个left，一个right，创建一个相同大小数组，遍历nums的每一个值，如果为偶数则赋给新数组的左边，如果为奇数则赋给新数组的右边。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] sortArrayByParity(<span class="type">int</span>[] nums) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="type">int</span>[] ans = <span class="keyword">new</span> <span class="title class_">int</span>[len];</span><br><span class="line">        <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span> , b = len-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; len ; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]%<span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                ans[a] = nums[i];</span><br><span class="line">                a += <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                ans[b] = nums[i];</span><br><span class="line">                b -= <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户，O（n）</li>
+<li>内存消耗：42.5 MB, 在所有 Java 提交中击败了9.86%的用户，O（1）</li>
+<li>通过测试用例：285 &#x2F; 285</li>
+</ul>
+<h3 id="思路2：简化，直接交换"><a href="#思路2：简化，直接交换" class="headerlink" title="思路2：简化，直接交换"></a>思路2：简化，直接交换</h3><p>使用指针 ii和 j 分别代表未处理区间的左右端点，当 nums[i] 不为偶数时，将 i 和 j 两个位置互换，原有位置 j 边是奇数（已处理好），让 j 自减左移，但原有位置 i 交换后不确保是偶数，需要再次检查。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] sortArrayByParity(<span class="type">int</span>[] nums) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> , j = n-<span class="number">1</span>; i&lt;j ; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] % <span class="number">2</span> ==<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> nums[j];</span><br><span class="line">                nums[j--] = nums[i];</span><br><span class="line">                nums[i--] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户，O（n）</li>
+<li>内存消耗：42.4 MB, 在所有 Java 提交中击败了27.43%的用户，O（1）</li>
+<li>通过测试用例：285 &#x2F; 285</li>
+</ul>
+<p>实际上一个数组空间的提升，似乎很小~</p>
+<h2 id="908-最小差值-I"><a href="#908-最小差值-I" class="headerlink" title="908. 最小差值 I"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/smallest-range-i/">908. 最小差值 I</a></h2><blockquote>
+<p>给你一个整数数组 nums，和一个整数 k 。</p>
+<p>在一个操作中，您可以选择 0 &lt;&#x3D; i &lt; nums.length 的任何索引 i 。将 nums[i] 改为 nums[i] + x ，其中 x 是一个范围为 [-k, k] 的整数。对于每个索引 i ，最多 只能 应用 一次 此操作。</p>
+<p>nums 的 分数 是 nums 中最大和最小元素的差值。 </p>
+<p>在对  nums 中的每个索引最多应用一次上述操作后，返回 nums 的最低 分数 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1], k = 0</span><br><span class="line">输出：0</span><br><span class="line">解释：分数是 max(nums) - min(nums) = 1 - 1 = 0。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="思路：数学"><a href="#思路：数学" class="headerlink" title="思路：数学"></a>思路：数学</h3><p>假设数组的最大值为maxVlue，最小值为minValue，则以下两种情况即可涵盖所有情景：</p>
+<ul>
+<li>maxValue - minValue &lt;&#x3D; 2*k，那么我们总可以将整数数组 nums 的所有元素都改为同一个整数，因此更改后的整数数组 nums 的最低分数为 0。</li>
+<li>maxValue - minValue &gt; 2<em>k，那么更改后的整数数组 nums 的最低分数为maxValue - minValue - 2</em>k  。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">smallestRangeI</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">minValue</span> <span class="operator">=</span> Arrays.stream(nums).min().getAsInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxValue</span> <span class="operator">=</span> Arrays.stream(nums).max().getAsInt();</span><br><span class="line">        <span class="keyword">return</span> maxValue-minValue &lt;= <span class="number">2</span>*k?<span class="number">0</span>:maxValue-minValue-<span class="number">2</span>*k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 每日一题</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/28/11-leetcode%E2%80%94%E2%80%94%E9%93%BE%E8%A1%A8/" rel="prev" title="leetcode——链表">
+                  <i class="fa fa-chevron-left"></i> leetcode——链表
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/18/14-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)%E2%80%94%E2%80%94%E5%8C%85%E5%8F%8A%E5%B0%81%E8%A3%85%20/" rel="next" title="Java学习笔记(四)——包及封装">
+                  Java学习笔记(四)——包及封装 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yann Cheung</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">274k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">4:09</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>

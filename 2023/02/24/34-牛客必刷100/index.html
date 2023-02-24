@@ -20,29 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言12月份每日一题记录~ 1805. 字符串中不同整数的数目 给你一个字符串 word ，该字符串由数字和小写英文字母组成。 请你用空格替换每个不是数字的字符。例如，”a123bc34d8ef34” 将会变成 “ 123  34 8  34” 。注意，剩下的这些整数为（相邻彼此至少有一个空格隔开）：”123”、”34”、”8” 和 “34” 。 返回对 word 完成替换后形成的 不同 整数的数">
+    <meta name="description" content="BM1 反转链表 描述给定一个单链表的头结点pHead(该头节点是有值的，比如在下图，它的val是1)，长度为n，反转该链表后，返回新链表的表头。  数据范围： 0≤n≤10000≤n≤1000 要求：空间复杂度 O(1)，时间复杂度 O(n)。  思路：迭代12345678910111213public class Solution &amp;#123;    public ListNode Rever">
 <meta property="og:type" content="article">
-<meta property="og:title" content="每日一题——December">
-<meta property="og:url" content="http://example.com/2022/12/06/31-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98December/index.html">
+<meta property="og:title" content="牛客必刷100题">
+<meta property="og:url" content="http://example.com/2023/02/24/34-%E7%89%9B%E5%AE%A2%E5%BF%85%E5%88%B7100/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="前言12月份每日一题记录~ 1805. 字符串中不同整数的数目 给你一个字符串 word ，该字符串由数字和小写英文字母组成。 请你用空格替换每个不是数字的字符。例如，”a123bc34d8ef34” 将会变成 “ 123  34 8  34” 。注意，剩下的这些整数为（相邻彼此至少有一个空格隔开）：”123”、”34”、”8” 和 “34” 。 返回对 word 完成替换后形成的 不同 整数的数">
+<meta property="og:description" content="BM1 反转链表 描述给定一个单链表的头结点pHead(该头节点是有值的，比如在下图，它的val是1)，长度为n，反转该链表后，返回新链表的表头。  数据范围： 0≤n≤10000≤n≤1000 要求：空间复杂度 O(1)，时间复杂度 O(n)。  思路：迭代12345678910111213public class Solution &amp;#123;    public ListNode Rever">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-12-06T01:58:25.000Z">
-<meta property="article:modified_time" content="2023-02-24T06:00:06.682Z">
+<meta property="article:published_time" content="2023-02-24T06:35:28.000Z">
+<meta property="article:modified_time" content="2023-02-24T07:37:14.621Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="每日一题">
+<meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/12/06/31-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98December/">
+<link rel="canonical" href="http://example.com/2023/02/24/34-%E7%89%9B%E5%AE%A2%E5%BF%85%E5%88%B7100/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/12/06/31-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98December/","path":"2022/12/06/31-每日一题December/","title":"每日一题——December"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/02/24/34-%E7%89%9B%E5%AE%A2%E5%BF%85%E5%88%B7100/","path":"2023/02/24/34-牛客必刷100/","title":"牛客必刷100题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>每日一题——December | Cloudyun</title>
+<title>牛客必刷100题 | Cloudyun</title>
   
 
 
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1805-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">1805. 字符串中不同整数的数目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%8F%8C%E6%8C%87%E9%92%88"><span class="nav-number">2.1.</span> <span class="nav-text">思路：双指针</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BM1-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">BM1 反转链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E8%BF%AD%E4%BB%A3"><span class="nav-number">1.2.</span> <span class="nav-text">思路：迭代</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BM2-%E9%93%BE%E8%A1%A8%E5%86%85%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%8F%8D%E8%BD%AC"><span class="nav-number">2.</span> <span class="nav-text">BM2 链表内指定区间反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A%E4%B8%80%E6%AC%A1%E9%81%8D%E5%8E%86"><span class="nav-number">2.1.</span> <span class="nav-text">思路：一次遍历</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BM3-%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9%E6%AF%8Fk%E4%B8%AA%E4%B8%80%E7%BB%84%E7%BF%BB%E8%BD%AC"><span class="nav-number">3.</span> <span class="nav-text">BM3 链表中的节点每k个一组翻转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">思路：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -204,7 +204,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/06/31-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98December/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/02/24/34-%E7%89%9B%E5%AE%A2%E5%BF%85%E5%88%B7100/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.JPG">
@@ -217,12 +217,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="每日一题——December | Cloudyun">
+      <meta itemprop="name" content="牛客必刷100题 | Cloudyun">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          每日一题——December
+          牛客必刷100题
         </h1>
 
         <div class="post-meta-container">
@@ -232,15 +232,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-12-06 09:58:25" itemprop="dateCreated datePublished" datetime="2022-12-06T09:58:25+08:00">2022-12-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-02-24 14:00:06" itemprop="dateModified" datetime="2023-02-24T14:00:06+08:00">2023-02-24</time>
+      <time title="Created: 2023-02-24 14:35:28 / Modified: 15:37:14" itemprop="dateCreated datePublished" datetime="2023-02-24T14:35:28+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -259,7 +253,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.2k</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -277,21 +271,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>12月份每日一题记录~</p>
-<h1 id="1805-字符串中不同整数的数目"><a href="#1805-字符串中不同整数的数目" class="headerlink" title="1805. 字符串中不同整数的数目"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-different-integers-in-a-string/">1805. 字符串中不同整数的数目</a></h1><blockquote>
-<p>给你一个字符串 word ，该字符串由数字和小写英文字母组成。</p>
-<p>请你用空格替换每个不是数字的字符。例如，”a123bc34d8ef34” 将会变成 “ 123  34 8  34” 。注意，剩下的这些整数为（相邻彼此至少有一个空格隔开）：”123”、”34”、”8” 和 “34” 。</p>
-<p>返回对 word 完成替换后形成的 不同 整数的数目。</p>
-<p>只有当两个整数的 不含前导零 的十进制表示不同， 才认为这两个整数也不同。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：word = &quot;a123bc34d8ef34&quot;</span><br><span class="line">输出：3</span><br><span class="line">解释：不同的整数有 &quot;123&quot;、&quot;34&quot; 和 &quot;8&quot; 。注意，&quot;34&quot; 只计数一次。</span><br></pre></td></tr></table></figure>
-
-
+        <h1 id="BM1-反转链表"><a href="#BM1-反转链表" class="headerlink" title="BM1 反转链表"></a><strong>BM1</strong> <strong>反转链表</strong></h1><blockquote>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一个单链表的头结点pHead(该头节点是有值的，比如在下图，它的val是1)，长度为n，反转该链表后，返回新链表的表头。 </p>
+<p>数据范围： 0≤n≤10000≤<em>n</em>≤1000</p>
+<p>要求：空间复杂度 O(1)，时间复杂度 O(n)。</p>
 </blockquote>
+<h2 id="思路：迭代"><a href="#思路：迭代" class="headerlink" title="思路：迭代"></a>思路：迭代</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">ReverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">prev</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">curr</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="keyword">while</span>(curr != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">next</span> <span class="operator">=</span> curr.next;</span><br><span class="line">            curr.next = prev;</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
-<h2 id="思路：双指针"><a href="#思路：双指针" class="headerlink" title="思路：双指针"></a>思路：双指针</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">numDifferentIntegers</span><span class="params">(String word)</span> &#123;</span><br><span class="line">        Set&lt;String&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;String&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> word.length(),left = <span class="number">0</span>,right;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">while</span>(left &lt; n &amp;&amp; !Character.isDigit(word.charAt(left)))&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(left == n) <span class="keyword">break</span>;</span><br><span class="line">            right = left;</span><br><span class="line">            <span class="keyword">while</span>(right &lt; n &amp;&amp; Character.isDigit(word.charAt(right)))&#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(right - left &gt; <span class="number">1</span> &amp;&amp; word.charAt(left) == <span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            set.add(word.substring(left,right));</span><br><span class="line">            left = right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> set.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="BM2-链表内指定区间反转"><a href="#BM2-链表内指定区间反转" class="headerlink" title="BM2 链表内指定区间反转"></a><strong>BM2</strong> <strong>链表内指定区间反转</strong></h1><blockquote>
+<p>将一个节点数为 size 链表 m 位置到 n 位置之间的区间反转，要求时间复杂度 O(n)<em>O</em>(<em>n</em>)，空间复杂度 O(1)<em>O</em>(1)。<br>例如：<br>给出的链表为 1→2→3→4→5→NULL1→2→3→4→5→<em>N<strong>U</strong>L**L</em>, m&#x3D;2,n&#x3D;4<em>m</em>&#x3D;2,<em>n</em>&#x3D;4,<br>返回 1→4→3→2→5→NULL1→4→3→2→5→<em>N<strong>U</strong>L**L</em>.</p>
+</blockquote>
+<h2 id="思路：一次遍历"><a href="#思路：一次遍历" class="headerlink" title="思路：一次遍历"></a>思路：一次遍历</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">reverseBetween</span> <span class="params">(ListNode head, <span class="type">int</span> m, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">dummyNode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(-<span class="number">1</span>);</span><br><span class="line">        dummyNode.next = head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> dummyNode;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; m-<span class="number">1</span> ; i++)&#123;</span><br><span class="line">            pre = pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> pre.next;</span><br><span class="line">        ListNode cur_next;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; n-m;i++)&#123;</span><br><span class="line">            cur_next = cur.next;</span><br><span class="line">            cur.next = cur_next.next;</span><br><span class="line">            cur_next.next = pre.next;</span><br><span class="line">            pre.next = cur_next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummyNode.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<h1 id="BM3-链表中的节点每k个一组翻转"><a href="#BM3-链表中的节点每k个一组翻转" class="headerlink" title="BM3 链表中的节点每k个一组翻转"></a><strong>BM3</strong> <strong>链表中的节点每k个一组翻转</strong></h1><blockquote>
+<p>将给出的链表中的节点每 k 个一组翻转，返回翻转后的链表<br>如果链表中的节点数不是 k 的倍数，将最后剩下的节点保持原样<br>你不能更改节点中的值，只能更改节点本身。 </p>
+<p>数据范围： 0≤n≤2000 0≤<em>n</em>≤2000 ， 1≤k≤20001≤<em>k</em>≤2000 ，链表中每个元素都满足 0≤val≤10000≤<em>v<strong>a</strong>l</em>≤1000<br>要求空间复杂度 O(1)<em>O</em>(1)，时间复杂度 O(n)<em>O</em>(<em>n</em>)</p>
+<p>例如： </p>
+<p>给定的链表是 1→2→3→4→5</p>
+<p>对于 k&#x3D;2, 你应该返回 2→1→4→3→5</p>
+<p>对于 k&#x3D;3 , 你应该返回 3→2→1→4→5</p>
+</blockquote>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2>
     </div>
 
     
@@ -301,21 +303,18 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 每日一题</a>
+              <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 刷题</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/29/30-LeetCode%20%E7%83%AD%E9%A2%98%20HOT%20100%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="LeetCode 热题 HOT 100（一）">
-                  <i class="fa fa-chevron-left"></i> LeetCode 热题 HOT 100（一）
+                <a href="/2023/02/14/33-%E5%89%91%E6%8C%87offer%E4%B8%93%E9%A1%B9%E7%AA%81%E5%87%BB/" rel="prev" title="剑指offer专项突击">
+                  <i class="fa fa-chevron-left"></i> 剑指offer专项突击
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/02/14/33-%E5%89%91%E6%8C%87offer%E4%B8%93%E9%A1%B9%E7%AA%81%E5%87%BB/" rel="next" title="剑指offer专项突击">
-                  剑指offer专项突击 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
