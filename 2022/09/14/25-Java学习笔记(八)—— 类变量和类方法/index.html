@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Java学习笔记">
+    <meta name="description" content="前言该部分已经进入面向对象高级部分知识，主要涉及到类变量、类方法、代码块等知识 类变量引出例子：有一群小孩在玩堆雪人，不时有新的小孩加入，请问如何知道现在共有多少小孩在玩？ 思路：  1、在main方法中定义一个变量count 2、当一个小孩加入游戏后，count++，最后count就记录有多少个小孩玩游戏  问题：  1、count是一个独立于对象&#x2F;类的变量 2、以后访问count比较">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java学习笔记(八)——类变量和类方法">
 <meta property="og:url" content="http://example.com/2022/09/14/25-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AB)%E2%80%94%E2%80%94%20%E7%B1%BB%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="Java学习笔记">
+<meta property="og:description" content="前言该部分已经进入面向对象高级部分知识，主要涉及到类变量、类方法、代码块等知识 类变量引出例子：有一群小孩在玩堆雪人，不时有新的小孩加入，请问如何知道现在共有多少小孩在玩？ 思路：  1、在main方法中定义一个变量count 2、当一个小孩加入游戏后，count++，最后count就记录有多少个小孩玩游戏  问题：  1、count是一个独立于对象&#x2F;类的变量 2、以后访问count比较">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-14%2019.43.35.png">
 <meta property="article:published_time" content="2022-09-14T08:50:23.000Z">
-<meta property="article:modified_time" content="2022-09-14T14:10:04.114Z">
+<meta property="article:modified_time" content="2023-02-24T06:06:26.733Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="Java">
@@ -218,7 +218,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Java学习笔记(八)——类变量和类方法 | Cloudyun">
-      <meta itemprop="description" content="Java学习笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -232,9 +232,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-14 16:50:23 / Modified: 22:10:04" itemprop="dateCreated datePublished" datetime="2022-09-14T16:50:23+08:00">2022-09-14</time>
+      <time title="Created: 2022-09-14 16:50:23" itemprop="dateCreated datePublished" datetime="2022-09-14T16:50:23+08:00">2022-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-24 14:06:26" itemprop="dateModified" datetime="2023-02-24T14:06:26+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,7 +255,6 @@
   
 </div>
 
-            <div class="post-description">Java学习笔记</div>
         </div>
       </header>
 
@@ -274,6 +279,8 @@
 <li>如果设计一个int count表示总人数，我们在创建一个小孩时，就把count+1，并且<span style='color:orange'>count是所有对象共享</span>的就ok了</li>
 </ul>
 <p>因此我们引出<span style='color:red'>类变量（也叫静态变量）</span></p>
+<span id="more"></span>
+
 <h2 id="类变量快速入门"><a href="#类变量快速入门" class="headerlink" title="类变量快速入门"></a>类变量快速入门</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">child</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">		<span class="comment">//当我们给一个属性增加了一个static修饰符，它就成了一个类变量（静态变量）</span></span><br><span class="line">    <span class="comment">//该变量最大的特点就是会被child类的所有对象实例共享</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="类变量基础知识"><a href="#类变量基础知识" class="headerlink" title="类变量基础知识"></a>类变量基础知识</h2><h3 id="什么是类变量"><a href="#什么是类变量" class="headerlink" title="什么是类变量"></a>什么是类变量</h3><p>类变量也叫静态变量&#x2F;静态属性，是该类的所有对象共享的变量，任何一个该类的对象去访问他时，取到的都是相同的值，同样任何一个类的对象去修改它时，修改的也是同一个变量。</p>

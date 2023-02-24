@@ -20,19 +20,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="CASPP的相关读书笔记记录">
+    <meta name="description" content="前言​	当构造存储和处理信息的机器时，二进制工作得更好，因为二值信号进行存储和执行计算的电子电路非常简单可靠。  ​	本章研究在计算机上如何表示数字和其他形式数据的基本属性，以及计算机对这些数据执行操作的属性，例如编码等。 信息存储​	大多数计算机使用8位的块（字节byte）作为最小的可寻址的内存单位，而不是访问内存中单独的位。 ​	机器级程序将内存视为一个非常大的字节数组，称为虚拟内存（virt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解计算机系统(二)——信息的表示和处理">
 <meta property="og:url" content="http://example.com/2022/01/04/04-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F(%E4%BA%8C)/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="CASPP的相关读书笔记记录">
+<meta property="og:description" content="前言​	当构造存储和处理信息的机器时，二进制工作得更好，因为二值信号进行存储和执行计算的电子电路非常简单可靠。  ​	本章研究在计算机上如何表示数字和其他形式数据的基本属性，以及计算机对这些数据执行操作的属性，例如编码等。 信息存储​	大多数计算机使用8位的块（字节byte）作为最小的可寻址的内存单位，而不是访问内存中单独的位。 ​	机器级程序将内存视为一个非常大的字节数组，称为虚拟内存（virt">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201041721170.png">
 <meta property="og:image" content="https://github.com/Cloudyunn/img/master/note/image-20220221140655942.png">
 <meta property="og:image" content="https://github.com/Cloudyunn/img/master/note/image-20220221142355279.png">
 <meta property="og:image" content="https://github.com/Cloudyunn/img/master/note/image-20220221145037043.png">
 <meta property="article:published_time" content="2022-01-04T11:28:00.000Z">
-<meta property="article:modified_time" content="2022-02-21T07:44:54.395Z">
+<meta property="article:modified_time" content="2023-02-24T06:01:40.425Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="计算机操作系统">
 <meta name="twitter:card" content="summary">
@@ -220,7 +220,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="深入理解计算机系统(二)——信息的表示和处理 | Cloudyun">
-      <meta itemprop="description" content="CASPP的相关读书笔记记录">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -242,7 +242,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-02-21 15:44:54" itemprop="dateModified" datetime="2022-02-21T15:44:54+08:00">2022-02-21</time>
+      <time title="Modified: 2023-02-24 14:01:40" itemprop="dateModified" datetime="2023-02-24T14:01:40+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,7 +257,6 @@
   
 </div>
 
-            <div class="post-description">CASPP的相关读书笔记记录</div>
         </div>
       </header>
 
@@ -271,6 +270,8 @@
 <p>​	机器级程序将内存视为一个非常大的字节数组，称为虚拟内存（virtual memory）。内存的每个字节都由一个唯一的数字标识，即为它的地址（address），所有可能的地址集合就组成了<strong>虚拟地址空间</strong>（virtual address space）。</p>
 <h2 id="十六进制表示法"><a href="#十六进制表示法" class="headerlink" title="十六进制表示法"></a>十六进制表示法</h2><p>太基础，不记录</p>
 <p><img src="https://raw.githubusercontent.com/Cloudyunn/img/master/note/202201041721170.png" alt="image-20220104172145064"></p>
+<span id="more"></span>
+
 <h2 id="字数据大小"><a href="#字数据大小" class="headerlink" title="字数据大小"></a>字数据大小</h2><p>​	字长（word size）指定指针数据的标称大小（normal size）。字长决定的最重要的系统参数就是<strong>虚拟地址空间的最大大小</strong>，因为虚拟地址是以这样的一个字来编码的。对于一个字长为w位的机器而言，虚拟地址的范围是0~2^w-1，程序最多访问2^w个字节。</p>
 <p><img src="https://github.com/Cloudyunn/img/master/note/image-20220221140655942.png" alt="图2-3"></p>
 <p>​	图2-3展示了为C语言各种数据类型分配的字节数。其还展示了指针使用程序的全字长。大部分数据类型都编码为有符号数值，除非有前缀关键字unsigned或对确定大小的数据类型使用了特定的无符号声明。数据类型char例外，因为大多数情况下，程序行为对数据类型char是有符号还是无符号的不敏感。</p>

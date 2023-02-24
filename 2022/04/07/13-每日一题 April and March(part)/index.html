@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="leetcode每日一题">
+    <meta name="description" content="前言记录一下3月底、4月份每日一题记录，顺便督促自己打卡，仅记录每日一题~ （困难题型是否可以摸鱼呢？） 172. 阶乘后的零题目描述：给定一个整数 n ，返回 n! 结果中尾随零的数量。提示 n! &#x3D; n * (n - 1) * (n - 2) * ... * 3 * 2 * 1 自己的解法最开始想的是阶乘求解之后，再去求末尾0的数量， 例如阶乘后的结果遍历对(10*j)求余，但发现执行到30就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日一题——April and March(part)">
 <meta property="og:url" content="http://example.com/2022/04/07/13-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20April%20and%20March(part)/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="leetcode每日一题">
+<meta property="og:description" content="前言记录一下3月底、4月份每日一题记录，顺便督促自己打卡，仅记录每日一题~ （困难题型是否可以摸鱼呢？） 172. 阶乘后的零题目描述：给定一个整数 n ，返回 n! 结果中尾随零的数量。提示 n! &#x3D; n * (n - 1) * (n - 2) * ... * 3 * 2 * 1 自己的解法最开始想的是阶乘求解之后，再去求末尾0的数量， 例如阶乘后的结果遍历对(10*j)求余，但发现执行到30就">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-07T05:41:48.000Z">
-<meta property="article:modified_time" content="2022-04-30T01:12:15.773Z">
+<meta property="article:modified_time" content="2023-02-24T06:03:52.639Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="每日一题">
@@ -216,7 +216,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="每日一题——April and March(part) | Cloudyun">
-      <meta itemprop="description" content="leetcode每日一题">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-04-30 09:12:15" itemprop="dateModified" datetime="2022-04-30T09:12:15+08:00">2022-04-30</time>
+      <time title="Modified: 2023-02-24 14:03:52" itemprop="dateModified" datetime="2023-02-24T14:03:52+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,7 +253,6 @@
   
 </div>
 
-            <div class="post-description">leetcode每日一题</div>
         </div>
       </header>
 
@@ -286,6 +285,8 @@
 <p>最终 5 的个数就是 n &#x2F; 5 + n &#x2F; 25 + n &#x2F; 125 …</p>
 <p>写程序的话，如果直接按照上边的式子计算，<strong>分母可能会造成溢出</strong>。所以算 n &#x2F; 25 的时候，我们先把 n 更新，n &#x3D; n &#x2F; 5，然后再计算 n &#x2F; 5 即可。后边的同理。</p>
 </blockquote>
+<span id="more"></span>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">trailingZeroes</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span>(n &gt; <span class="number">0</span>)&#123;</span><br><span class="line">          count += n / <span class="number">5</span>;</span><br><span class="line">          n = n/<span class="number">5</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="682-棒球比赛"><a href="#682-棒球比赛" class="headerlink" title="682. 棒球比赛"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/baseball-game/">682. 棒球比赛</a></h2><h3 id="思路——模拟栈"><a href="#思路——模拟栈" class="headerlink" title="思路——模拟栈"></a>思路——模拟栈</h3><p><strong>使用变长数组对栈进行模拟</strong>。</p>

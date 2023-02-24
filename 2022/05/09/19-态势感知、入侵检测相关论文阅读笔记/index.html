@@ -20,17 +20,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="论文阅读笔记">
+    <meta name="description" content="前言记录一下最近看的一些入侵检测、态势感知相关论文，主要是针对AGV物流调度系统态势感知平台开发的相关学习。 论文总结一、《Machine Learning for Intrusion Detection in Industrial Control Systems: Applications, Challenges, and Recommendations》综述性论文 二、《Embedding E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="态势感知、入侵检测相关论文阅读笔记">
 <meta property="og:url" content="http://example.com/2022/05/09/19-%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E3%80%81%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="论文阅读笔记">
+<meta property="og:description" content="前言记录一下最近看的一些入侵检测、态势感知相关论文，主要是针对AGV物流调度系统态势感知平台开发的相关学习。 论文总结一、《Machine Learning for Intrusion Detection in Industrial Control Systems: Applications, Challenges, and Recommendations》综述性论文 二、《Embedding E">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/image-20220520095452632.png">
 <meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/image-20220520101315752.png">
 <meta property="article:published_time" content="2022-05-09T07:24:14.000Z">
-<meta property="article:modified_time" content="2022-06-10T07:29:24.912Z">
+<meta property="article:modified_time" content="2023-02-24T06:05:17.922Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="Intrusion detection">
 <meta property="article:tag" content="situational awareness">
@@ -219,7 +219,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="态势感知、入侵检测相关论文阅读笔记 | Cloudyun">
-      <meta itemprop="description" content="论文阅读笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-10 15:29:24" itemprop="dateModified" datetime="2022-06-10T15:29:24+08:00">2022-06-10</time>
+      <time title="Modified: 2023-02-24 14:05:17" itemprop="dateModified" datetime="2023-02-24T14:05:17+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -256,7 +256,6 @@
   
 </div>
 
-            <div class="post-description">论文阅读笔记</div>
         </div>
       </header>
 
@@ -269,6 +268,8 @@
 <h2 id="二、《Embedding-Encryption-and-Machine-Learning-Intrusion-Prevention-Systems-on-Programmable-Logic-Controllers》"><a href="#二、《Embedding-Encryption-and-Machine-Learning-Intrusion-Prevention-Systems-on-Programmable-Logic-Controllers》" class="headerlink" title="二、《Embedding Encryption and Machine Learning Intrusion Prevention Systems on Programmable Logic Controllers》"></a>二、《Embedding Encryption and Machine Learning Intrusion Prevention Systems on Programmable Logic Controllers》</h2><p>在可编程逻辑控制器上嵌入加密和机器学习入侵防御系统</p>
 <h3 id="1、Abstract"><a href="#1、Abstract" class="headerlink" title="1、Abstract"></a>1、Abstract</h3><p>​	由于PLC供应商不提供有关其硬件或软件的信息，研究人员很难将安全机制嵌入到设备中。本文描述了一种使用<strong>开源PLC</strong>的替代设计，该PLC经过修改后可以独立于所使用的协议对其通过网络发送的所有数据进行加密。此外，基于机器学习的IPS被添加到PLC网络堆栈中，提供了一种安全机制来抵御拒绝服务(DoS)等网络flood攻击。实验结果表明，加密层和IPS提高了PLC与监控软件之间链路的安全性，防止了拦截、注入和DoS攻击</p>
 <p>​	这项工作增强了具有AES-256加密和解密功能的开源PLC和基于机器学习的IPS，以创建嵌入式弹性系统。<strong>OpenPLC</strong>项目是根据IEC 61131-3标准创建的，该标准定义了plc的基本软件体系结构和编程语言。这意味着OpenPLC可以与其他遵循相同标准的plc兼容。</p>
+<span id="more"></span>
+
 <h3 id="2、Main-work"><a href="#2、Main-work" class="headerlink" title="2、Main work"></a>2、Main work</h3><p>​	这篇文章的主要工作在于以下两个贡献：</p>
 <ul>
 <li><strong>在OpenPLC的网络层和入侵防御系统之间加入了AES加密层，密钥方案为PSK (Pre-Shared key)</strong></li>

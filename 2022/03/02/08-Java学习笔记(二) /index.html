@@ -20,18 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Java学习笔记">
+    <meta name="description" content="（一）Java数据类型 这里需要注意：String在Java里面是属于一个类而不是数据类型。 1、整数类型细节  Java的整型常量默认为int型，声明long型常量必须在后面加’l’或者‘L’。  1long a&#x3D;1L  2、浮点数细节 Java的浮点型常量默认为double类型，声明float型常量，通常在后面加’f’或‘F’ 通常情况下，应该使用double型，因为比float型更精确。 浮">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java学习笔记(二)——数据类型及相关细节">
 <meta property="og:url" content="http://example.com/2022/03/02/08-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)%20/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="Java学习笔记">
+<meta property="og:description" content="（一）Java数据类型 这里需要注意：String在Java里面是属于一个类而不是数据类型。 1、整数类型细节  Java的整型常量默认为int型，声明long型常量必须在后面加’l’或者‘L’。  1long a&#x3D;1L  2、浮点数细节 Java的浮点型常量默认为double类型，声明float型常量，通常在后面加’f’或‘F’ 通常情况下，应该使用double型，因为比float型更精确。 浮">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/Cloudyunn/img/master/note/image-20220302113514650.png">
 <meta property="og:image" content="https://github.com/Cloudyunn/img/master/note/image-20220302113814202.png">
 <meta property="og:image" content="https://github.com/Cloudyunn/img/master/note/image-20220302113243813.png">
 <meta property="article:published_time" content="2022-03-02T12:15:24.000Z">
-<meta property="article:modified_time" content="2022-03-28T04:58:46.430Z">
+<meta property="article:modified_time" content="2023-02-24T06:02:58.528Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="Java">
@@ -220,7 +220,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Java学习笔记(二)——数据类型及相关细节 | Cloudyun">
-      <meta itemprop="description" content="Java学习笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -242,7 +242,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-28 12:58:46" itemprop="dateModified" datetime="2022-03-28T12:58:46+08:00">2022-03-28</time>
+      <time title="Modified: 2023-02-24 14:02:58" itemprop="dateModified" datetime="2023-02-24T14:02:58+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,7 +257,6 @@
   
 </div>
 
-            <div class="post-description">Java学习笔记</div>
         </div>
       </header>
 
@@ -280,6 +279,8 @@
 <li>如果涉及浮点数计算，例如除法得到的变量：a &#x3D; 8.1 &#x2F; 3。一般用其进行条件判断时，不使用”&#x3D;”来作条件（2.7和8.1&#x2F;3比较例子），而是让条件判断为一个范围，例如：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2.7</span>;</span><br><span class="line">b = <span class="number">8.1</span> / <span class="number">3</span>;</span><br><span class="line"><span class="keyword">if</span>( a =	b)&#123;</span><br><span class="line">	<span class="comment">//错误</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//应该使用以下条件判断：</span></span><br><span class="line"><span class="keyword">if</span>(Math.abs(a - b) &lt; <span class="number">0.00001</span>)&#123;</span><br><span class="line">	<span class="comment">//0.00001这个数字可以自设定，属于精度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
 
 <h2 id="3、字符类型细节"><a href="#3、字符类型细节" class="headerlink" title="3、字符类型细节"></a>3、字符类型细节</h2><ul>
 <li>字符常量使用单引号（’ ‘）括起来的单个字符，而不能使用双引号（会报错？）。例如：</li>

@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Java学习笔记">
+    <meta name="description" content="前言leetcode恢复刷题，十月底之前尽量完成这部分…该部分只简单记录部分关键思路以及代码，帮助回顾～ 1. 两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。  思路：HashM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 热题 HOT 100（一）">
 <meta property="og:url" content="http://example.com/2022/09/29/30-LeetCode%20%E7%83%AD%E9%A2%98%20HOT%20100%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="Java学习笔记">
+<meta property="og:description" content="前言leetcode恢复刷题，十月底之前尽量完成这部分…该部分只简单记录部分关键思路以及代码，帮助回顾～ 1. 两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。  思路：HashM">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://assets.leetcode-cn.com/solution-static/8/fig1.png">
 <meta property="article:published_time" content="2022-09-29T06:34:30.000Z">
-<meta property="article:modified_time" content="2022-11-25T02:46:10.101Z">
+<meta property="article:modified_time" content="2023-02-24T06:07:23.708Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="刷题">
@@ -218,7 +218,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="LeetCode 热题 HOT 100（一） | Cloudyun">
-      <meta itemprop="description" content="Java学习笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -240,7 +240,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-25 10:46:10" itemprop="dateModified" datetime="2022-11-25T10:46:10+08:00">2022-11-25</time>
+      <time title="Modified: 2023-02-24 14:07:23" itemprop="dateModified" datetime="2023-02-24T14:07:23+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,7 +255,6 @@
   
 </div>
 
-            <div class="post-description">Java学习笔记</div>
         </div>
       </header>
 
@@ -271,6 +270,8 @@
 </blockquote>
 <h2 id="思路：HashMap"><a href="#思路：HashMap" class="headerlink" title="思路：HashMap"></a>思路：HashMap</h2><p>由于还需要返回数组下标，所以存的时候肯定还要存数组下标，那就需要存一个键值对。这种情况直接考虑HashMap～</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer,Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; nums.length ; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(target - nums[i]))&#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> map.get(target - nums[i]);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,j&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(nums[i],i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
 
 <h1 id="2-两数相加"><a href="#2-两数相加" class="headerlink" title="2. 两数相加"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/add-two-numbers/">2. 两数相加</a></h1><blockquote>
 <p>给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。</p>
@@ -349,13 +350,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/09/16/29-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%8D%81%E4%BA%8C)%E2%80%94%E2%80%94%E6%9E%9A%E4%B8%BE/" rel="prev" title="Java学习笔记(十二)——枚举和注解">
-                  <i class="fa fa-chevron-left"></i> Java学习笔记(十二)——枚举和注解
+                <a href="/2022/09/29/32-LeetCode%E6%9C%88%E5%86%B2%E5%88%BA/" rel="prev" title="LeetCode月冲刺">
+                  <i class="fa fa-chevron-left"></i> LeetCode月冲刺
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/09/29/32-LeetCode%E6%9C%88%E5%86%B2%E5%88%BA/" rel="next" title="LeetCode月冲刺">
-                  LeetCode月冲刺 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/12/06/31-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98December/" rel="next" title="每日一题——December">
+                  每日一题——December <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

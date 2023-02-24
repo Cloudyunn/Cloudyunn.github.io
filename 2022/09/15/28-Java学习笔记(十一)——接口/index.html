@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Java学习笔记">
+    <meta name="description" content="接口基本介绍接口就是给出一些没有实现的方法，封装到一起，到某个类要使用的时候，在根据具体情况把这些方法写出来。语法： 12345678910interface 接口名&amp;#123;&#x2F;&#x2F;属性&#x2F;&#x2F;抽象方法、默认实现方法或静态方法。&amp;#125;class 类名 implements 接口&amp;#123;自己属性，自己方法：必须实现的接口的抽象方法&amp;#125;  小结：  接口是更加抽象的抽象的类，抽象类里的方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java学习笔记(十一)——接口、四种内部类">
 <meta property="og:url" content="http://example.com/2022/09/15/28-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%8D%81%E4%B8%80)%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="Cloudyun">
-<meta property="og:description" content="Java学习笔记">
+<meta property="og:description" content="接口基本介绍接口就是给出一些没有实现的方法，封装到一起，到某个类要使用的时候，在根据具体情况把这些方法写出来。语法： 12345678910interface 接口名&amp;#123;&#x2F;&#x2F;属性&#x2F;&#x2F;抽象方法、默认实现方法或静态方法。&amp;#125;class 类名 implements 接口&amp;#123;自己属性，自己方法：必须实现的接口的抽象方法&amp;#125;  小结：  接口是更加抽象的抽象的类，抽象类里的方">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-15T09:22:50.000Z">
-<meta property="article:modified_time" content="2022-09-16T03:09:27.240Z">
+<meta property="article:modified_time" content="2023-02-24T06:06:55.918Z">
 <meta property="article:author" content="Yann Cheung">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="Java">
@@ -216,7 +216,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Java学习笔记(十一)——接口、四种内部类 | Cloudyun">
-      <meta itemprop="description" content="Java学习笔记">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-16 11:09:27" itemprop="dateModified" datetime="2022-09-16T11:09:27+08:00">2022-09-16</time>
+      <time title="Modified: 2023-02-24 14:06:55" itemprop="dateModified" datetime="2023-02-24T14:06:55+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,7 +253,6 @@
   
 </div>
 
-            <div class="post-description">Java学习笔记</div>
         </div>
       </header>
 
@@ -270,6 +269,8 @@
 <li>特别说明：Jdk8.0后接口类可以有<span style='color:red'>静态方法，默认方法</span>，也就是说接口中可以有方法的具体实现。</li>
 <li>在接口中，抽象方法可以省略abstact关键字。</li>
 </ul>
+<span id="more"></span>
+
 <h2 id="接口的应用"><a href="#接口的应用" class="headerlink" title="接口的应用"></a>接口的应用</h2><p>对初学者讲，理解接口的概念不算太难，难的是不知道<span style='color:red'>什么时候使用接口</span>,考虑以下两个应用场景：</p>
 <ul>
 <li>现在要制造战斗机,武装直升机.专家只需把飞机需要的功能&#x2F;规格定下来即可,然后让别的人具体实现就可。</li>

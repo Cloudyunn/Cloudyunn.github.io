@@ -225,9 +225,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-14 16:40:20 / Modified: 16:45:37" itemprop="dateCreated datePublished" datetime="2022-09-14T16:40:20+08:00">2022-09-14</time>
+      <time title="Created: 2022-09-14 16:40:20" itemprop="dateCreated datePublished" datetime="2022-09-14T16:40:20+08:00">2022-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-24 14:06:08" itemprop="dateModified" datetime="2023-02-24T14:06:08+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,10 +255,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Java学习笔记</p>
+          <h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>方法和对象具有多种形态。是面向对象的第三大特征，多态是建立在封装和继承基础之上的。</p>
+<h2 id="例子引出多态"><a href="#例子引出多态" class="headerlink" title="例子引出多态"></a>例子引出多态</h2><p>假设有一个主人Master类，其中有一个feed（喂食）方法，可以完成主人给动物喂食的信息。假设Food类有两个子类：Fish和Bone，动物Animal类有两个子类Cat和Dog。根据前面知识可以写出代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Animal类</span></span><br><span class="line"><span class="keyword">package</span> com.learn.poly_;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Animal</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/14/23-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AD)%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81%20/">
+              <a class="btn" href="/2022/09/14/23-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%85%AD)%E2%80%94%E2%80%94%E5%A4%9A%E6%80%81%20/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -311,9 +319,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-09-14 16:29:54 / Modified: 16:40:00" itemprop="dateCreated datePublished" datetime="2022-09-14T16:29:54+08:00">2022-09-14</time>
+      <time title="Created: 2022-09-14 16:29:54" itemprop="dateCreated datePublished" datetime="2022-09-14T16:29:54+08:00">2022-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-02-24 14:05:48" itemprop="dateModified" datetime="2023-02-24T14:05:48+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -335,10 +349,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Java学习笔记</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>该部分为面向对象编程（中级部分）中：继承部分的知识</p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="为什么需要继承？"><a href="#为什么需要继承？" class="headerlink" title="为什么需要继承？"></a>为什么需要继承？</h2><p>继承可以解决<span style='color:orange'>代码复用</span>，让我们的编程更加接近人类思维。当多个类存在相同的属性（变量）和方法时，可以从这些类中抽象出父类，在父类中定义这些相同的属性和方法，所有的字类不需要重新定义这些属性和方法，只需要通过extends来声明继承父类即可。</p>
+<ul>
+<li>代码的复用性提高</li>
+<li>代码的扩展性和维护性提高</li>
+</ul>
+<h2 id="继承的基本语法"><a href="#继承的基本语法" class="headerlink" title="继承的基本语法"></a>继承的基本语法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class 子类 extends 父类&#123;</span><br><span class="line">	<span class="number">1</span>）子类就会自动拥有父类定义的属性和方法</span><br><span class="line">	<span class="number">2</span>）父类又叫超类、基类</span><br><span class="line">	<span class="number">3</span>）子类又叫派生类</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="继承的细节"><a href="#继承的细节" class="headerlink" title="继承的细节"></a>继承的细节</h2><ul>
+<li>1、子类继承了所有的属性和方法，<span style='color:orange'>非私有的属性和方法可以在子类直接访问</span>，但是<span style='color:orange'>私有属性和方法</span>不能在子类<span style='color:orange'>直接访问</span>直接访问，要通过<span style='color:orange'>父类提供的公共方法</span>去访问。（注意，如果是默认的属性和方法，如果在同包下也可访问，具体可以看访问修饰符的范围表）</li>
+<li>2、子类必须调用父类的构造器，完成父类的初始化。</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/09/14/22-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%94)%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF/">
+              <a class="btn" href="/2022/09/14/22-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%94)%E2%80%94%E2%80%94%E7%BB%A7%E6%89%BF/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -405,7 +430,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-16 13:53:45" itemprop="dateModified" datetime="2022-05-16T13:53:45+08:00">2022-05-16</time>
+      <time title="Modified: 2023-02-24 14:05:37" itemprop="dateModified" datetime="2023-02-24T14:05:37+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -427,10 +452,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>leetcode刷题</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下leetcode栈与队列部分题目的刷题笔记，顺序参考代码随想录中，但不仅限于这些，可以扩展记录。</p>
+<h1 id="笔记记录"><a href="#笔记记录" class="headerlink" title="笔记记录"></a>笔记记录</h1><h2 id="1、LinkedList"><a href="#1、LinkedList" class="headerlink" title="1、LinkedList"></a>1、LinkedList</h2><p>Java里的LinkedList可以同时作为堆栈和队列使用，因此在使用的时候总是会弄混他们的方法，这里简单总结一下作为不同数据结构时的用法：</p>
+<h3 id="作为队列："><a href="#作为队列：" class="headerlink" title="作为队列："></a>作为队列：</h3><h4 id="（1）声明"><a href="#（1）声明" class="headerlink" title="（1）声明"></a>（1）声明</h4><p>任意两种方法：</p>
+<ul>
+<li>一是直接声明LinkedList：<br> <code>LinkedList&lt;T&gt; q = new LinkedList&lt;T&gt;();</code></li>
+<li>或者使用java.util.Queue接口，其底层关联到一个LinkedList实例。<br> <strong><code>Queue&lt;T&gt; q = new LinkedList&lt;T&gt;();</code></strong><br> 由于只暴露部分基于队列实现的接口，所以可以提供安全的队列实现。</li>
+</ul>
+<h4 id="（2）入队"><a href="#（2）入队" class="headerlink" title="（2）入队"></a>（2）入队</h4><p><strong><code>void offer(T v)</code></strong></p>
+<h4 id="（3）出队"><a href="#（3）出队" class="headerlink" title="（3）出队"></a>（3）出队</h4><ul>
+<li><strong><code>T poll()</code></strong>, 如果队列为空，则返回null</li>
+<li><code>T remove()</code>,  如果队列为空，则抛出异常</li>
+</ul>
+<h4 id="（4）偷看"><a href="#（4）偷看" class="headerlink" title="（4）偷看"></a>（4）偷看</h4><p>看看队首元素不移除它。</p>
+<ul>
+<li><strong><code>T peek()</code></strong>, 如果队列为空，则返回null</li>
+<li><code>T element()</code>,  如果队列为空，则抛出异常</li>
+</ul>
+<h4 id="（5）是否为空"><a href="#（5）是否为空" class="headerlink" title="（5）是否为空"></a>（5）是否为空</h4><ul>
+<li><code>boolean isEmpty()</code>, 空返回true，否则返回false</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/12/21-leetcode%E2%80%94%E2%80%94%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/">
+              <a class="btn" href="/2022/05/12/21-leetcode%E2%80%94%E2%80%94%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -497,7 +541,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-12 14:01:17" itemprop="dateModified" datetime="2022-05-12T14:01:17+08:00">2022-05-12</time>
+      <time title="Modified: 2023-02-24 14:05:27" itemprop="dateModified" datetime="2023-02-24T14:05:27+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -519,10 +563,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>leetcode刷题</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下leetcode双指针部分题目的刷题笔记，顺序参考代码随想录中，但不仅限于这些，可以扩展记录。</p>
+<h1 id="27-移除元素"><a href="#27-移除元素" class="headerlink" title="27. 移除元素"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/remove-element/">27. 移除元素</a></h1><blockquote>
+<p>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p>示例 1：</p>
+<p>输入：nums &#x3D; [3,2,2,3], val &#x3D; 3<br>输出：2, nums &#x3D; [2,2]<br>解释：函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。你不需要考虑数组中超出新长度后面的元素。例如，函数返回的新长度为 2 ，而 nums &#x3D; [2,2,3,3] 或 nums &#x3D; [2,2,0,0]，也会被视作正确答案。</p>
+</blockquote>
+<h2 id="思路：双指针"><a href="#思路：双指针" class="headerlink" title="思路：双指针"></a>思路：双指针</h2><p>快慢指针</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">removeElement</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="type">int</span>  <span class="variable">slowPtr</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">fastPtr</span> <span class="operator">=</span> <span class="number">0</span> ; fastPtr &lt; nums.length;fastPtr++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[fastPtr] != val)&#123;</span><br><span class="line">                nums[slowPtr] = nums[fastPtr];</span><br><span class="line">                slowPtr++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slowPtr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(1)</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/11/20-leetcode%E2%80%94%E2%80%94%E5%8F%8C%E6%8C%87%E9%92%88/">
+              <a class="btn" href="/2022/05/11/20-leetcode%E2%80%94%E2%80%94%E5%8F%8C%E6%8C%87%E9%92%88/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -589,7 +647,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-10 15:29:24" itemprop="dateModified" datetime="2022-06-10T15:29:24+08:00">2022-06-10</time>
+      <time title="Modified: 2023-02-24 14:05:17" itemprop="dateModified" datetime="2023-02-24T14:05:17+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -611,10 +669,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>论文阅读笔记</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下最近看的一些入侵检测、态势感知相关论文，主要是针对AGV物流调度系统态势感知平台开发的相关学习。</p>
+<h1 id="论文总结"><a href="#论文总结" class="headerlink" title="论文总结"></a>论文总结</h1><h2 id="一、《Machine-Learning-for-Intrusion-Detection-in-Industrial-Control-Systems-Applications-Challenges-and-Recommendations》"><a href="#一、《Machine-Learning-for-Intrusion-Detection-in-Industrial-Control-Systems-Applications-Challenges-and-Recommendations》" class="headerlink" title="一、《Machine Learning for Intrusion Detection in Industrial Control Systems: Applications, Challenges, and Recommendations》"></a>一、《Machine Learning for Intrusion Detection in Industrial Control Systems: Applications, Challenges, and Recommendations》</h2><p>综述性论文</p>
+<h2 id="二、《Embedding-Encryption-and-Machine-Learning-Intrusion-Prevention-Systems-on-Programmable-Logic-Controllers》"><a href="#二、《Embedding-Encryption-and-Machine-Learning-Intrusion-Prevention-Systems-on-Programmable-Logic-Controllers》" class="headerlink" title="二、《Embedding Encryption and Machine Learning Intrusion Prevention Systems on Programmable Logic Controllers》"></a>二、《Embedding Encryption and Machine Learning Intrusion Prevention Systems on Programmable Logic Controllers》</h2><p>在可编程逻辑控制器上嵌入加密和机器学习入侵防御系统</p>
+<h3 id="1、Abstract"><a href="#1、Abstract" class="headerlink" title="1、Abstract"></a>1、Abstract</h3><p>​	由于PLC供应商不提供有关其硬件或软件的信息，研究人员很难将安全机制嵌入到设备中。本文描述了一种使用<strong>开源PLC</strong>的替代设计，该PLC经过修改后可以独立于所使用的协议对其通过网络发送的所有数据进行加密。此外，基于机器学习的IPS被添加到PLC网络堆栈中，提供了一种安全机制来抵御拒绝服务(DoS)等网络flood攻击。实验结果表明，加密层和IPS提高了PLC与监控软件之间链路的安全性，防止了拦截、注入和DoS攻击</p>
+<p>​	这项工作增强了具有AES-256加密和解密功能的开源PLC和基于机器学习的IPS，以创建嵌入式弹性系统。<strong>OpenPLC</strong>项目是根据IEC 61131-3标准创建的，该标准定义了plc的基本软件体系结构和编程语言。这意味着OpenPLC可以与其他遵循相同标准的plc兼容。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/09/19-%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E3%80%81%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+              <a class="btn" href="/2022/05/09/19-%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E3%80%81%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -681,7 +743,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-09 15:13:29" itemprop="dateModified" datetime="2022-05-09T15:13:29+08:00">2022-05-09</time>
+      <time title="Modified: 2023-02-24 14:05:03" itemprop="dateModified" datetime="2023-02-24T14:05:03+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -703,10 +765,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>leetcode刷题</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下leetcode字符串部分题目的刷题笔记，顺序参考代码随想录中，但不仅限于这些，可以扩展记录。</p>
+<h1 id="344-反转字符串"><a href="#344-反转字符串" class="headerlink" title="344. 反转字符串"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-string/">344. 反转字符串</a></h1><blockquote>
+<p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。</p>
+<p>不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">输出：[&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="思路：双指针"><a href="#思路：双指针" class="headerlink" title="思路：双指针"></a>思路：双指针</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reverseString</span><span class="params">(<span class="type">char</span>[] s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>  ,len = s.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> len - left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="type">char</span> <span class="variable">temp</span> <span class="operator">=</span> s[left];</span><br><span class="line">            s[left++] = s[right];</span><br><span class="line">            s[right--] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行用时：0 ms, 在所有 Java 提交中击败了100.00%的用户</li>
+<li>内存消耗：48.2 MB, 在所有 Java 提交中击败了35.53%的用户</li>
+<li>通过测试用例：477 &#x2F; 477</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/06/18-leetcode%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+              <a class="btn" href="/2022/05/06/18-leetcode%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -773,7 +848,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-05 11:36:59" itemprop="dateModified" datetime="2022-05-05T11:36:59+08:00">2022-05-05</time>
+      <time title="Modified: 2023-02-24 14:04:51" itemprop="dateModified" datetime="2023-02-24T14:04:51+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -795,10 +870,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>leetcode刷题</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下leetcode哈希表部分题目的刷题笔记，顺序参考代码随想录中，但不仅限于这些，可以扩展记录。</p>
+<p><a target="_blank" rel="noopener" href="https://programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html">代码随想录 ——哈希表理论基础</a></p>
+<h1 id="242-有效的字母异位词"><a href="#242-有效的字母异位词" class="headerlink" title="242. 有效的字母异位词"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-anagram/">242. 有效的字母异位词</a></h1><blockquote>
+<p>给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。</p>
+<p>注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s = &quot;anagram&quot;, t = &quot;nagaram&quot;</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="思路：哈希表"><a href="#思路：哈希表" class="headerlink" title="思路：哈希表"></a>思路：哈希表</h2><p>思路很简单，维护一个26位数组，每次遍历s的时候，对应位置的值+1，遍历t的时候，对应字母位置值-1，当有一个小于0的时候，即数量不同，直接返回false</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isAnagram</span><span class="params">(String s, String t)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length()!=t.length())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span>[] table = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i&lt;s.length() ; i++)&#123;</span><br><span class="line">            table[s.charAt(i)-<span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; t.length(); i++)&#123;</span><br><span class="line">            table[t.charAt(i)-<span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">            <span class="keyword">if</span>(table[t.charAt(i)-<span class="string">&#x27;a&#x27;</span>]&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/03/17-leetcode%E2%80%94%E2%80%94%E5%93%88%E5%B8%8C%E8%A1%A8/">
+              <a class="btn" href="/2022/05/03/17-leetcode%E2%80%94%E2%80%94%E5%93%88%E5%B8%8C%E8%A1%A8/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -865,7 +948,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-13 16:37:43" itemprop="dateModified" datetime="2022-06-13T16:37:43+08:00">2022-06-13</time>
+      <time title="Modified: 2023-02-24 14:04:36" itemprop="dateModified" datetime="2023-02-24T14:04:36+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -887,10 +970,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>leetcode刷题</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录一下leetcode树部分题目的刷题笔记</p>
+<h1 id="一、二叉树的深度优先遍历"><a href="#一、二叉树的深度优先遍历" class="headerlink" title="一、二叉树的深度优先遍历"></a>一、二叉树的深度优先遍历</h1><ul>
+<li>前序遍历</li>
+<li>中序遍历</li>
+<li>后序遍历</li>
+</ul>
+<p>这三种遍历方式，我个人比较倾向于递归法来实现，因为递归法的代码简洁，三种遍历的写法很类似。</p>
+<p>其实还可以使用<a target="_blank" rel="noopener" href="https://programmercarl.com/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%9F%E4%B8%80%E8%BF%AD%E4%BB%A3%E6%B3%95.html#%E8%BF%AD%E4%BB%A3%E6%B3%95%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86">统一迭代法</a>来实现这三种遍历方式，但个人觉得还是有点难记~可以当作扩展来了解</p>
+<h2 id="94-二叉树的中序遍历"><a href="#94-二叉树的中序遍历" class="headerlink" title="94. 二叉树的中序遍历"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a></h2><blockquote>
+<p>给定一个二叉树的根节点 <code>root</code> ，返回 <em>它的 <strong>中序</strong> 遍历</em> 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,null,2,3]</span><br><span class="line">输出：[1,3,2]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="思路：递归"><a href="#思路：递归" class="headerlink" title="思路：递归"></a>思路：递归</h3><p>首先我们需要了解什么是二叉树的中序遍历：按照访问左子树——根节点——右子树的方式遍历这棵树，而在访问左子树或者右子树的时候我们按照同样的方式遍历，直到遍历完整棵树。因此整个遍历过程天然具有递归的性质，我们可以直接用递归函数来模拟这一过程。</p>
+<p>定义 inorder(root) 表示当前遍历到 root 节点的答案，那么按照定义，我们只要递归调用 inorder(root.left) 来遍历 root 节点的左子树，然后将 root 节点的值加入答案，再递归调用inorder(root.right) 来遍历 root 节点的右子树即可，递归终止的条件为碰到空节点。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/01/16-leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91/">
+              <a class="btn" href="/2022/05/01/16-leetcode%E2%80%94%E2%80%94%E4%BA%8C%E5%8F%89%E6%A0%91/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -957,7 +1053,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-27 12:55:50" itemprop="dateModified" datetime="2022-05-27T12:55:50+08:00">2022-05-27</time>
+      <time title="Modified: 2023-02-24 14:04:21" itemprop="dateModified" datetime="2023-02-24T14:04:21+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -979,10 +1075,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>leetcode每日一题</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>5月份每日一题记录~</p>
+<h1 id="1305-两棵二叉搜索树中的所有元素"><a href="#1305-两棵二叉搜索树中的所有元素" class="headerlink" title="1305. 两棵二叉搜索树中的所有元素"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/all-elements-in-two-binary-search-trees/">1305. 两棵二叉搜索树中的所有元素</a></h1><blockquote>
+<p>给你 <code>root1</code> 和 <code>root2</code> 这两棵二叉搜索树。请你返回一个列表，其中包含 <strong>两棵树</strong> 中的所有整数并按 <strong>升序</strong> 排序。.</p>
+</blockquote>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/29/q2-e1.png" alt="image"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root1 = [2,1,4], root2 = [1,0,3]</span><br><span class="line">输出：[0,1,1,2,3,4]</span><br></pre></td></tr></table></figure>
+
+<h2 id="思路：中序遍历-归并"><a href="#思路：中序遍历-归并" class="headerlink" title="思路：中序遍历+归并"></a>思路：中序遍历+归并</h2><p>回顾二叉搜索树的定义：</p>
+<ul>
+<li><p>当前节点的左子树中的数均小于当前节点的数；</p>
+</li>
+<li><p>当前节点的右子树中的数均大于当前节点的数；</p>
+</li>
+<li><p>所有左子树和右子树自身也是二叉搜索树。</p>
+</li>
+</ul>
+<p>根据上述定义，我们可以用中序遍历访问二叉搜索树，即按照访问左子树——根节点——右子树的方式遍历这棵树，而在访问左子树或者右子树的时候也按照同样的方式遍历，直到遍历完整棵树。遍历结束后，就得到了一个有序数组。</p>
+<p>由于整个遍历过程天然具有递归的性质，我们可以直接用<strong>递归函数</strong>来模拟这一过程。具体描述见 94. 二叉树的中序遍历 的 官方题解。</p>
+<p>中序遍历这两棵二叉搜索树，可以得到两个有序数组。然后可以使用双指针方法来合并这两个有序数组，这一方法将两个数组看作两个队列，每次从队列头部取出比较小的数字放到结果中（头部相同时可任取一个）。如下面的动画所示：</p>
+<p><img src="https://assets.leetcode-cn.com/solution-static/88/1.gif" alt="https://assets.leetcode-cn.com/solution-static/88/1.gif"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/05/01/15-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98May/">
+              <a class="btn" href="/2022/05/01/15-%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98May/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1049,7 +1164,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-14 16:50:14" itemprop="dateModified" datetime="2022-09-14T16:50:14+08:00">2022-09-14</time>
+      <time title="Modified: 2023-02-24 14:04:03" itemprop="dateModified" datetime="2023-02-24T14:04:03+08:00">2023-02-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1071,10 +1186,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Java学习笔记</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>该部分为面向对象编程（中级部分）</p>
+<h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>本质：创建不同的文件夹来保存类文件</p>
+<h3 id="三大作用"><a href="#三大作用" class="headerlink" title="三大作用"></a>三大作用</h3><ul>
+<li>1、区分相同名字的类</li>
+<li>2、当类很多时，可以很好的管理类</li>
+<li>3、控制访问范围</li>
+</ul>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hspedu;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>1、package 关键字，表示打包</li>
+<li>2、com.hspedu 表示包名</li>
+</ul>
+<h3 id="包的命名"><a href="#包的命名" class="headerlink" title="包的命名"></a>包的命名</h3><p>规则：只能包含数字、字母、下划线、小圆点。但不能用数字开头，不能是关键字或保留字</p>
+<p>规范：</p>
+<ul>
+<li>一般是小写字母+小圆点</li>
+<li>com.公司名.项目名.业务模块名</li>
+</ul>
+<h3 id="常用的包"><a href="#常用的包" class="headerlink" title="常用的包"></a>常用的包</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java.lang.*		<span class="comment">//lang是基本包，默认引入，不需要再引入</span></span><br><span class="line">java.util.*		<span class="comment">//util包，系统提供的工具包，工具类，使用Scanner</span></span><br><span class="line">java.net.*		<span class="comment">//网络包，网络开发</span></span><br><span class="line">java.awt.*		<span class="comment">//java界面开发，GUI</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/04/18/14-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)%E2%80%94%E2%80%94%E5%8C%85%E5%8F%8A%E5%B0%81%E8%A3%85%20/">
+              <a class="btn" href="/2022/04/18/14-Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E5%9B%9B)%E2%80%94%E2%80%94%E5%8C%85%E5%8F%8A%E5%B0%81%E8%A3%85%20/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
