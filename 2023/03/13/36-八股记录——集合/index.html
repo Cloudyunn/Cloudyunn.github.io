@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、集合概览整体框架：  1、说说 List, Set, Queue, Map 四者的区别？ List(对付顺序的好帮手): 存储的元素是有序的、可重复的。 Set(注重独一无二的性质): 存储的元素是无序的、不可重复的。 Queue(实现排队功能的叫号机): 按特定的排队规则来确定先后顺序，存储的元素是有序的、可重复的。 Map(用 key 来搜索的专家): 使用键值对（key-value）存储">
+<meta property="og:type" content="article">
+<meta property="og:title" content="八股记录——集合">
+<meta property="og:url" content="http://example.com/2023/03/13/36-%E5%85%AB%E8%82%A1%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="Cloudyun">
+<meta property="og:description" content="一、集合概览整体框架：  1、说说 List, Set, Queue, Map 四者的区别？ List(对付顺序的好帮手): 存储的元素是有序的、可重复的。 Set(注重独一无二的性质): 存储的元素是无序的、不可重复的。 Queue(实现排队功能的叫号机): 按特定的排队规则来确定先后顺序，存储的元素是有序的、可重复的。 Map(用 key 来搜索的专家): 使用键值对（key-value）存储">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/java/collection/java-collection-hierarchy.png">
+<meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.02.44.png">
+<meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.09.52.png">
+<meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.15.52.png">
+<meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.16.01.png">
+<meta property="og:image" content="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.27.30.png">
+<meta property="article:published_time" content="2023-03-13T14:57:03.000Z">
+<meta property="article:modified_time" content="2023-03-14T02:03:13.605Z">
+<meta property="article:author" content="Yann Cheung">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="八股文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/java/collection/java-collection-hierarchy.png">
+
+
+<link rel="canonical" href="http://example.com/2023/03/13/36-%E5%85%AB%E8%82%A1%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E9%9B%86%E5%90%88/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/03/13/36-%E5%85%AB%E8%82%A1%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E9%9B%86%E5%90%88/","path":"2023/03/13/36-八股记录——集合/","title":"八股记录——集合"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>八股记录——集合 | Cloudyun</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Cloudyun</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Yann Cheungの博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">18</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">35</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%9B%86%E5%90%88%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">一、集合概览</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E8%AF%B4%E8%AF%B4-List-Set-Queue-Map-%E5%9B%9B%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1、说说 List, Set, Queue, Map 四者的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">2、集合框架底层数据结构总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-number">1.2.1.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.2.2.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-number">1.2.3.</span> <span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.2.4.</span> <span class="nav-text">Map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%A6%82%E4%BD%95%E9%80%89%E7%94%A8%E9%9B%86%E5%90%88"><span class="nav-number">1.3.</span> <span class="nav-text">3、如何选用集合?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Collection-%E5%AD%90%E6%8E%A5%E5%8F%A3%E4%B9%8B-List"><span class="nav-number">2.</span> <span class="nav-text">二、Collection 子接口之 List</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81ArrayList-%E5%92%8C-Vector-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text">1、ArrayList 和 Vector 的区别?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81ArrayList-%E4%B8%8E-LinkedList-%E5%8C%BA%E5%88%AB"><span class="nav-number">2.2.</span> <span class="nav-text">2、ArrayList 与 LinkedList 区别?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E8%AF%B4%E4%B8%80%E8%AF%B4-ArrayList-%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6%E5%90%A7"><span class="nav-number">2.3.</span> <span class="nav-text">3、说一说 ArrayList 的扩容机制吧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Collection-%E5%AD%90%E6%8E%A5%E5%8F%A3%E4%B9%8B-Set"><span class="nav-number">3.</span> <span class="nav-text">三、Collection 子接口之 Set</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81comparable-%E5%92%8C-Comparator-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.1.</span> <span class="nav-text">1、comparable 和 Comparator 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%97%A0%E5%BA%8F%E6%80%A7%E5%92%8C%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E6%80%A7%E7%9A%84%E5%90%AB%E4%B9%89%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">3.2.</span> <span class="nav-text">2、无序性和不可重复性的含义是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E6%AF%94%E8%BE%83-HashSet%E3%80%81LinkedHashSet-%E5%92%8C-TreeSet-%E4%B8%89%E8%80%85%E7%9A%84%E5%BC%82%E5%90%8C"><span class="nav-number">3.3.</span> <span class="nav-text">3、比较 HashSet、LinkedHashSet 和 TreeSet 三者的异同</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-Collection-%E5%AD%90%E6%8E%A5%E5%8F%A3%E4%B9%8B-Queue"><span class="nav-number">4.</span> <span class="nav-text">四、 Collection 子接口之 Queue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81Queue-%E4%B8%8E-Deque-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.1.</span> <span class="nav-text">1、Queue 与 Deque 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81ArrayDeque-%E4%B8%8E-LinkedList-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.2.</span> <span class="nav-text">2、ArrayDeque 与 LinkedList 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E8%AF%B4%E4%B8%80%E8%AF%B4-PriorityQueue"><span class="nav-number">4.3.</span> <span class="nav-text">3、说一说 PriorityQueue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81Map%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.</span> <span class="nav-text">五、Map接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81HashMap-%E5%92%8C-Hashtable-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.1.</span> <span class="nav-text">1、HashMap 和 Hashtable 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81HashMap-%E5%92%8C-HashSet-%E5%8C%BA%E5%88%AB"><span class="nav-number">5.2.</span> <span class="nav-text">2、HashMap 和 HashSet 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81HashMap-%E5%92%8C-TreeMap-%E5%8C%BA%E5%88%AB"><span class="nav-number">5.3.</span> <span class="nav-text">3、HashMap 和 TreeMap 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81HashSet-%E5%A6%82%E4%BD%95%E6%A3%80%E6%9F%A5%E9%87%8D%E5%A4%8D"><span class="nav-number">5.4.</span> <span class="nav-text">4、HashSet 如何检查重复?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81HashMap-%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.5.</span> <span class="nav-text">5、HashMap 的底层实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81HashMap-%E7%9A%84%E9%95%BF%E5%BA%A6%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF-2-%E7%9A%84%E5%B9%82%E6%AC%A1%E6%96%B9"><span class="nav-number">5.6.</span> <span class="nav-text">6、HashMap 的长度为什么是 2 的幂次方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81HashMap-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%93%8D%E4%BD%9C%E5%AF%BC%E8%87%B4%E6%AD%BB%E5%BE%AA%E7%8E%AF%E9%97%AE%E9%A2%98"><span class="nav-number">5.7.</span> <span class="nav-text">7、HashMap 多线程操作导致死循环问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8%E3%80%81HashMap-%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="nav-number">5.8.</span> <span class="nav-text">8、HashMap 有哪几种常见的遍历方式?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9%E3%80%81ConcurrentHashMap-%E5%92%8C-Hashtable-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">5.9.</span> <span class="nav-text">9、ConcurrentHashMap 和 Hashtable 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10%E3%80%81JDK-1-7-%E5%92%8C-JDK-1-8-%E7%9A%84-ConcurrentHashMap-%E5%AE%9E%E7%8E%B0%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-number">5.10.</span> <span class="nav-text">10、JDK 1.7 和 JDK 1.8 的 ConcurrentHashMap 实现有什么不同？</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yann Cheung"
+      src="/images/avatar.JPG">
+  <p class="site-author-name" itemprop="name">Yann Cheung</p>
+  <div class="site-description" itemprop="description">忆我少年游，一梦到华胥</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Cloudyunn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Cloudyunn" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/13/36-%E5%85%AB%E8%82%A1%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.JPG">
+      <meta itemprop="name" content="Yann Cheung">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cloudyun">
+      <meta itemprop="description" content="忆我少年游，一梦到华胥">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="八股记录——集合 | Cloudyun">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          八股记录——集合
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-03-13 22:57:03" itemprop="dateCreated datePublished" datetime="2023-03-13T22:57:03+08:00">2023-03-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-14 10:03:13" itemprop="dateModified" datetime="2023-03-14T10:03:13+08:00">2023-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="一、集合概览"><a href="#一、集合概览" class="headerlink" title="一、集合概览"></a>一、集合概览</h1><p>整体框架：</p>
+<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/java/collection/java-collection-hierarchy.png"></p>
+<h2 id="1、说说-List-Set-Queue-Map-四者的区别？"><a href="#1、说说-List-Set-Queue-Map-四者的区别？" class="headerlink" title="1、说说 List, Set, Queue, Map 四者的区别？"></a>1、说说 List, Set, Queue, Map 四者的区别？</h2><ul>
+<li><code>List</code>(对付顺序的好帮手): 存储的元素是<span style='color:red'>有序的、可重复的。</span></li>
+<li><code>Set</code>(注重独一无二的性质): 存储的元素是<span style='color:red'>无序的、不可重复的</span>。</li>
+<li><code>Queue</code>(实现排队功能的叫号机): 按特定的排队规则来<span style='color:red'>确定先后顺序，存储的元素是有序的、可重复的。</span></li>
+<li><code>Map</code>(用 key 来搜索的专家): 使用键值对（key-value）存储，类似于数学上的函数 y&#x3D;f(x)，”x” 代表 key，”y” 代表 value，key 是无序的、不可重复的，value 是无序的、可重复的，每个键最多映射到一个值。</li>
+</ul>
+<h2 id="2、集合框架底层数据结构总结"><a href="#2、集合框架底层数据结构总结" class="headerlink" title="2、集合框架底层数据结构总结"></a>2、集合框架底层数据结构总结</h2><p>先来看一下 <code>Collection</code> 接口下面的集合。</p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><ul>
+<li><code>ArrayList</code>： <code>Object[]</code> 数组</li>
+<li><code>Vector</code>：<code>Object[]</code> 数组</li>
+<li><code>LinkedList</code>： 双向链表(JDK1.6 之前为循环链表，JDK1.7 取消了循环)</li>
+</ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><ul>
+<li><code>HashSet</code>(无序，唯一): 基于 <code>HashMap</code> 实现的，底层采用 <code>HashMap</code> 来保存元素</li>
+<li><code>LinkedHashSet</code>: <code>LinkedHashSet</code> 是 <code>HashSet</code> 的子类，并且其内部是通过 <code>LinkedHashMap</code> 来实现的。有点类似于我们之前说的 <code>LinkedHashMap</code> 其内部是基于 <code>HashMap</code> 实现一样，不过还是有一点点区别的</li>
+<li><code>TreeSet</code>(有序，唯一): 红黑树(自平衡的排序二叉树)</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><ul>
+<li><code>PriorityQueue</code>: <code>Object[]</code> 数组来实现二叉堆</li>
+<li><code>ArrayQueue</code>: <code>Object[]</code> 数组 + 双指针</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><ul>
+<li><code>HashMap</code>： JDK1.8 之前 <code>HashMap</code> 由数组+链表组成的，数组是 <code>HashMap</code> 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）。JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间</li>
+<li><code>LinkedHashMap</code>： <code>LinkedHashMap</code> 继承自 <code>HashMap</code>，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红黑树组成。另外，<code>LinkedHashMap</code> 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。详细可以查看：<a target="_blank" rel="noopener" href="https://www.imooc.com/article/22931">《LinkedHashMap 源码详细分析（JDK1.8）》open in new window</a></li>
+<li><code>Hashtable</code>： 数组+链表组成的，数组是 <code>Hashtable</code> 的主体，链表则是主要为了解决哈希冲突而存在的</li>
+<li><code>TreeMap</code>： 红黑树（自平衡的排序二叉树）</li>
+</ul>
+<h2 id="3、如何选用集合"><a href="#3、如何选用集合" class="headerlink" title="3、如何选用集合?"></a>3、如何选用集合?</h2><p><img src="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.02.44.png" alt="截屏2023-03-13 23.02.44"></p>
+<p><span style='color:red'>不要下意识地认为 <code>LinkedList</code> 作为链表就最适合元素增删的场景。我在上面也说了，<code>LinkedList</code> 仅仅在头尾插入或者删除元素的时候时间复杂度近似 O(1)，其他情况增删元素的时间复杂度都是 O(n) 。</span></p>
+<h1 id="二、Collection-子接口之-List"><a href="#二、Collection-子接口之-List" class="headerlink" title="二、Collection 子接口之 List"></a>二、Collection 子接口之 List</h1><h2 id="1、ArrayList-和-Vector-的区别"><a href="#1、ArrayList-和-Vector-的区别" class="headerlink" title="1、ArrayList 和 Vector 的区别?"></a>1、ArrayList 和 Vector 的区别?</h2><p>线程安全和线程不安全</p>
+<h2 id="2、ArrayList-与-LinkedList-区别"><a href="#2、ArrayList-与-LinkedList-区别" class="headerlink" title="2、ArrayList 与 LinkedList 区别?"></a>2、ArrayList 与 LinkedList 区别?</h2><p><span style='color:red'>结合底层数据结构理解</span></p>
+<ul>
+<li>都是线程不安全</li>
+<li>底层数据结构：前者 <strong><code>Object</code> 数组</strong>，后者<strong>双向链表</strong> </li>
+<li><strong>插入和删除是否受元素位置的影响：</strong></li>
+<li><strong>是否支持快速随机访问</strong>：前者支持，后者不支持</li>
+<li>内存空间占用：ArrayList&#96; 的空间浪费主要体现在在 list 列表的结尾会<span style='color:red'>预留一定的容量空间</span>，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList <span style='color:red'>更多的空间（因为要存放直接后继和直接前驱以及数据）。</span></li>
+</ul>
+<p><span style='color:red'>不要下意识地认为 <code>LinkedList</code> 作为链表就最适合元素增删的场景。我在上面也说了，<code>LinkedList</code> 仅仅在头尾插入或者删除元素的时候时间复杂度近似 O(1)，其他情况增删元素的时间复杂度都是 O(n) 。</span></p>
+<h2 id="3、说一说-ArrayList-的扩容机制吧"><a href="#3、说一说-ArrayList-的扩容机制吧" class="headerlink" title="3、说一说 ArrayList 的扩容机制吧"></a>3、说一说 ArrayList 的扩容机制吧</h2><p><img src="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.09.52.png" alt="截屏2023-03-13 23.09.52"></p>
+<p>扩容调用的是<code>grow()</code>方法</p>
+<h1 id="三、Collection-子接口之-Set"><a href="#三、Collection-子接口之-Set" class="headerlink" title="三、Collection 子接口之 Set"></a>三、Collection 子接口之 Set</h1><h2 id="1、comparable-和-Comparator-的区别"><a href="#1、comparable-和-Comparator-的区别" class="headerlink" title="1、comparable 和 Comparator 的区别"></a>1、comparable 和 Comparator 的区别</h2><ul>
+<li><code>comparable</code> 接口实际上是出自<code>java.lang</code>包 它有一个 <code>compareTo(Object obj)</code>方法用来排序</li>
+<li>comparator<code>接口实际上是出自 java.util 包它有一个</code>compare(Object obj1, Object obj2)&#96;方法用来排序</li>
+</ul>
+<p><span style='color:red'>一般我们需要对一个集合使用自定义排序时，我们就要重写<code>compareTo()</code>方法或<code>compare()</code>方法</span></p>
+<h2 id="2、无序性和不可重复性的含义是什么"><a href="#2、无序性和不可重复性的含义是什么" class="headerlink" title="2、无序性和不可重复性的含义是什么"></a>2、无序性和不可重复性的含义是什么</h2><ul>
+<li>无序性不等于随机性 ，无序性是指<span style='color:red'>存储的数据在底层数组中并非按照数组索引的顺序添加 ，而是根据数据的哈希值决定的。</span></li>
+<li>不可重复性是指添加的元素按照 <code>equals()</code> 判断时 ，返回 false，需要同时重写 <code>equals()</code> 方法和 <code>hashCode()</code>方法。</li>
+</ul>
+<h2 id="3、比较-HashSet、LinkedHashSet-和-TreeSet-三者的异同"><a href="#3、比较-HashSet、LinkedHashSet-和-TreeSet-三者的异同" class="headerlink" title="3、比较 HashSet、LinkedHashSet 和 TreeSet 三者的异同"></a>3、比较 HashSet、LinkedHashSet 和 TreeSet 三者的异同</h2><ul>
+<li>都能保证元素唯一，并且都不是线程安全的。</li>
+<li>主要区别在于底层数据结构不同。<ul>
+<li><code>HashSet</code> 的底层数据结构是<span style='color:red'>哈希表（基于 <code>HashMap</code> 实现）</span>。</li>
+<li><code>LinkedHashSet</code> 的底层数据结构是<span style='color:red'>链表和哈希表</span>，元素的插入和取出顺序满足 FIFO。</li>
+<li><code>TreeSet</code> 底层数据结构是<span style='color:red'>红黑树</span>，元素是<span style='color:red'>有序的，排序的方式有自然排序和定制排序。</span></li>
+</ul>
+</li>
+</ul>
+<h1 id="四、-Collection-子接口之-Queue"><a href="#四、-Collection-子接口之-Queue" class="headerlink" title="四、 Collection 子接口之 Queue"></a>四、 Collection 子接口之 Queue</h1><h2 id="1、Queue-与-Deque-的区别"><a href="#1、Queue-与-Deque-的区别" class="headerlink" title="1、Queue 与 Deque 的区别"></a>1、Queue 与 Deque 的区别</h2><ul>
+<li><code>Queue</code> 是单端队列，只能从一端插入元素，另一端删除元素，实现上一般遵循 <strong>先进先出（FIFO）</strong> 规则</li>
+<li><code>Deque</code> 是双端队列，在队列的两端均可以插入或删除元素。</li>
+</ul>
+<p>在方法上的区别：</p>
+<p><img src="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.15.52.png" alt="截屏2023-03-13 23.15.52"></p>
+<p><img src="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.16.01.png" alt="截屏2023-03-13 23.16.01"></p>
+<p>事实上，<code>Deque</code> 还提供有 <code>push()</code> 和 <code>pop()</code> 等其他方法，可用于模拟栈。</p>
+<h2 id="2、ArrayDeque-与-LinkedList-的区别"><a href="#2、ArrayDeque-与-LinkedList-的区别" class="headerlink" title="2、ArrayDeque 与 LinkedList 的区别"></a>2、ArrayDeque 与 LinkedList 的区别</h2><p><code>ArrayDeque</code> 和 <code>LinkedList</code> 都实现了 <code>Deque</code> 接口，两者都具有队列的功能，但两者有什么区别呢？</p>
+<ul>
+<li><code>ArrayDeque</code> 是基于可变长的数组和双指针来实现，而 <code>LinkedList</code> 则通过链表来实现。</li>
+<li><code>ArrayDeque</code> 不支持存储 <code>NULL</code> 数据，但 <code>LinkedList</code> 支持。</li>
+<li><code>ArrayDeque</code> 是在 JDK1.6 才被引入的，而<code>LinkedList</code> 早在 JDK1.2 时就已经存在。</li>
+<li><code>ArrayDeque</code> 插入时可能存在扩容过程, 不过均摊后的插入操作依然为 O(1)。虽然 <code>LinkedList</code> 不需要扩容，但是每次插入数据时均需要申请新的堆空间，均摊性能相比更慢。</li>
+</ul>
+<p>从性能的角度上，<span style='color:red'>选用 <code>ArrayDeque</code> 来实现队列要比 <code>LinkedList</code> 更好</span>。此外，<code>ArrayDeque</code> 也可以用于实现栈，但<span style='color:red'>一般都用LinkedList来实现模拟栈。</span></p>
+<h2 id="3、说一说-PriorityQueue"><a href="#3、说一说-PriorityQueue" class="headerlink" title="3、说一说 PriorityQueue"></a>3、<span style='color:red'>说一说 PriorityQueue</span></h2><p><code>PriorityQueue</code> 是在 JDK1.5 中被引入的, 其与 <code>Queue</code> 的区别在于元素出队顺序是与优先级相关的，即总是优先级最高的元素先出队。</p>
+<ul>
+<li><code>PriorityQueue</code> 利用了二叉堆的数据结构来实现的，底层使用可变长的数组来存储数据</li>
+<li><code>PriorityQueue</code> 通过堆元素的上浮和下沉，实现了在 O(logn) 的时间复杂度内插入元素和删除堆顶元素。</li>
+<li><code>PriorityQueue</code> 是非线程安全的，且不支持存储 <code>NULL</code> 和 <code>non-comparable</code> 的对象。</li>
+<li><code>PriorityQueue</code> <span style='color:red'>默认是小顶堆</span>，但可以接收一个 <code>Comparator</code> 作为构造参数，从而来自定义元素优先级的先后。</li>
+</ul>
+<p><code>PriorityQueue</code> 在面试中可能更多的会出现在手撕算法的时候，典型例题包括堆排序、求第K大的数、带权图的遍历等，所以需要会熟练使用才行。</p>
+<h1 id="五、Map接口"><a href="#五、Map接口" class="headerlink" title="五、Map接口"></a>五、Map接口</h1><h2 id="1、HashMap-和-Hashtable-的区别"><a href="#1、HashMap-和-Hashtable-的区别" class="headerlink" title="1、HashMap 和 Hashtable 的区别"></a>1、HashMap 和 Hashtable 的区别</h2><ul>
+<li><strong>线程是否安全：</strong> <code>HashMap</code> 是非线程安全的，<code>Hashtable</code> 是线程安全的</li>
+<li><strong>效率：</strong> 因为线程安全的问题，<code>HashMap</code> 要比 <code>Hashtable</code> 效率高一点。</li>
+<li><strong>对 Null key 和 Null value 的支持：</strong> <code>HashMap</code> 可以存储 null 的 key 和 value，但 null 作为键只能有一个，null 作为值可以有多个；Hashtable 不允许有 null 键和 null 值，否则会抛出 &#96;NullPointerException</li>
+<li><strong>初始容量大小和每次扩充容量大小的不同</strong>：<ul>
+<li>创建时如果不指定容量初始值，<span style='color:red'>之后每次扩充，容量变为原来的 2n+1。</span>，<code>HashMap</code> 默认的<span style='color:red'>初始化大小为 16。之后每次扩充，容量变为原来的 2 倍。</span></li>
+<li>创建时如果给定了容量初始值，那么 <code>Hashtable</code> 会<span style='color:red'>直接使用你给定的大小，而 <code>HashMap</code> 会将其扩充为 2 的幂次方大小</span>（<code>HashMap</code> 中的<code>tableSizeFor()</code>方法保证）。也就是说 <code>HashMap</code> 总是使用 2 的幂作为哈希表的大小,后面会介绍到为什么是 2 的幂次方（平均分布，减少碰撞，提高算法性能）</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、HashMap-和-HashSet-区别"><a href="#2、HashMap-和-HashSet-区别" class="headerlink" title="2、HashMap 和 HashSet 区别"></a>2、HashMap 和 HashSet 区别</h2><p><code>HashSet</code> 底层就是基于 <code>HashMap</code> 实现的，但部分方法不同，其中 <code>clone()</code>、<code>writeObject()</code>、<code>readObject()</code>是 <code>HashSet</code> 自己不得不实现的。<img src="https://picgooo.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-03-13%2023.27.30.png" alt="截屏2023-03-13 23.27.30"></p>
+<h2 id="3、HashMap-和-TreeMap-区别"><a href="#3、HashMap-和-TreeMap-区别" class="headerlink" title="3、HashMap 和 TreeMap 区别"></a>3、HashMap 和 TreeMap 区别</h2><p><code>TreeMap</code>它还实现了<code>NavigableMap</code>接口和<code>SortedMap</code> 接口。</p>
+<p>实现 <code>NavigableMap</code> 接口让 <code>TreeMap</code> 有了对集合内元素的搜索的能力。实现<code>SortedMap</code>接口让 <code>TreeMap</code> 有了对集合中的元素根据键排序的能力。默认是按 key 的升序排序，不过我们也可以指定排序的比较器。示例代码如下：</p>
+<p>综上：<strong>相比于<code>HashMap</code>来说 <span style='color:red'><code>TreeMap</code> 主要多了对集合中的元素根据键排序的能力以及对集合内元素的搜索的能力。</span></strong></p>
+<h2 id="4、HashSet-如何检查重复"><a href="#4、HashSet-如何检查重复" class="headerlink" title="4、HashSet 如何检查重复?"></a>4、HashSet 如何检查重复?</h2><p>当你把对象加入<code>HashSet</code>时，<code>HashSet</code> 会先计算对象的<code>hashcode</code>值来判断对象加入的位置，同时也会与其他加入的对象的 <code>hashcode</code> 值作比较，如果没有相符的 <code>hashcode</code>，<code>HashSet</code> 会假设对象没有重复出现。但是<span style='color:red'>如果发现有相同 <code>hashcode</code> 值的对象，这时会调用<code>equals()</code>方法来检查 <code>hashcode</code> 相等的对象是否真的相同</span>。如果两者相同，<code>HashSet</code> 就不会让加入操作成功。</p>
+<h2 id="5、HashMap-的底层实现"><a href="#5、HashMap-的底层实现" class="headerlink" title="5、HashMap 的底层实现"></a>5、HashMap 的底层实现</h2><p>JDK1.8 之前 <code>HashMap</code> 底层是 <strong>数组和链表</strong> 结合在一起使用也就是 <strong>链表散列</strong></p>
+<p>相比于之前的版本， JDK1.8 之后在解决哈希冲突时有了较大的变化，当<span style='color:red'>链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）</span>时，将链表转化为红黑树，以减少搜索时间</p>
+<h2 id="6、HashMap-的长度为什么是-2-的幂次方"><a href="#6、HashMap-的长度为什么是-2-的幂次方" class="headerlink" title="6、HashMap 的长度为什么是 2 的幂次方"></a>6、HashMap 的长度为什么是 2 的幂次方</h2><ul>
+<li><p>为了能让 HashMap <span style='color:red'>存取高效，尽量较少碰撞</span>，也就是要尽量<span style='color:red'>&gt;把数据分配均匀。&lt;&#x2F;span</p>
+</li>
+<li><p>而且存储时，散列值是不能直接拿来用的。用之前还要先做对数组的长度取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。这个数组下标的计算方法是<span style='color:red'>“ <code>(n - 1) &amp; hash</code>”</span>。<span style='color:red'>取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&amp;)操作</span>（也就是说 hash%length&#x3D;&#x3D;hash&amp;(length-1)的前提是 length 是 2 的 n 次方；）。”** 并且 <strong>采用二进制位操作 &amp;，相对于%能够<span style='color:red'>提高运算效率</span></strong></p>
+</li>
+</ul>
+<h2 id="7、HashMap-多线程操作导致死循环问题"><a href="#7、HashMap-多线程操作导致死循环问题" class="headerlink" title="7、HashMap 多线程操作导致死循环问题"></a>7、HashMap 多线程操作导致死循环问题</h2><p>主要原因在于并发下的 Rehash 会造成元素之间会形成一个循环链表。jdk 1.8 后解决了这个问题，但是还是不建议在多线程下使用 HashMap,因为多线程下使用 HashMap 还是会存在其他问题比如数据丢失</p>
+<h2 id="8、HashMap-有哪几种常见的遍历方式"><a href="#8、HashMap-有哪几种常见的遍历方式" class="headerlink" title="8、HashMap 有哪几种常见的遍历方式?"></a>8、HashMap 有哪几种常见的遍历方式?</h2><h2 id="9、ConcurrentHashMap-和-Hashtable-的区别"><a href="#9、ConcurrentHashMap-和-Hashtable-的区别" class="headerlink" title="9、ConcurrentHashMap 和 Hashtable 的区别"></a>9、ConcurrentHashMap 和 Hashtable 的区别</h2><p>主要在于实现线程安全的方式区别：</p>
+<ul>
+<li><strong>底层数据结构：</strong><ul>
+<li>ConcurrentHashMap：数组+链表&#x2F;红黑二叉树</li>
+<li>Hashtable： <strong>数组+链表</strong> 。数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的；</li>
+</ul>
+</li>
+<li><strong>实现线程安全的方式</strong>：<ul>
+<li>jdk1.7：<code>ConcurrentHashMap</code> 对整个桶数组进行了分割分段——Segment分段锁。</li>
+<li>jdk1.7之后：<code>Node</code> 数组+链表+红黑树的数据结构来实现，并发控制使用 <code>synchronized</code> 和 CAS 来操作。</li>
+<li><strong><code>Hashtable</code>(同一把锁)</strong> ：使用 <code>synchronized</code> 来保证线程安全，效率非常低下</li>
+</ul>
+</li>
+</ul>
+<h2 id="10、JDK-1-7-和-JDK-1-8-的-ConcurrentHashMap-实现有什么不同？"><a href="#10、JDK-1-7-和-JDK-1-8-的-ConcurrentHashMap-实现有什么不同？" class="headerlink" title="10、JDK 1.7 和 JDK 1.8 的 ConcurrentHashMap 实现有什么不同？"></a>10、JDK 1.7 和 JDK 1.8 的 ConcurrentHashMap 实现有什么不同？</h2><ul>
+<li><strong>线程安全实现方式</strong> ：JDK 1.7 采用 <span style='color:red'><code>Segment</code> 分段锁</span>来保证安全， <code>Segment</code> 是继承自 <code>ReentrantLock</code>。JDK1.8 放弃了 <code>Segment</code> 分段锁的设计，采用 <span style='color:red'>Node + CAS + synchronized</span>&#96;&#96; 保证线程安全，锁粒度更细，<code>synchronized</code> 只锁定当前链表或红黑二叉树的首节点。</li>
+<li><strong>Hash 碰撞解决方法</strong> : JDK 1.7 采用拉链法，JDK1.8 采用拉链法结合红黑树（链表长度超过一定阈值时，将链表转换为红黑树）。</li>
+<li><strong>并发度</strong> ：JDK 1.7 最大并发度是 Segment 的个数，默认是 16。JDK 1.8 最大并发度是 Node 数组的大小，并发度更大。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/" rel="tag"><i class="fa fa-tag"></i> 八股文</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/13/35-%E5%85%AB%E8%82%A1%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94Java%E5%9F%BA%E7%A1%80/" rel="prev" title="八股记录——Java基础部分">
+                  <i class="fa fa-chevron-left"></i> 八股记录——Java基础部分
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yann Cheung</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">350k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">5:18</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+
+</body>
+</html>
