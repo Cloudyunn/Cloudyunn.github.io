@@ -227,9 +227,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-03-14 16:20:03 / Modified: 17:18:19" itemprop="dateCreated datePublished" datetime="2023-03-14T16:20:03+08:00">2023-03-14</time>
+      <time title="Created: 2023-03-14 16:20:03" itemprop="dateCreated datePublished" datetime="2023-03-14T16:20:03+08:00">2023-03-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-03-15 09:45:56" itemprop="dateModified" datetime="2023-03-15T09:45:56+08:00">2023-03-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,154 +279,14 @@
 <li><code>InputStream</code>&#x2F;<code>Reader</code>: 所有的输入流的基类，前者是字节输入流，后者是字符输入流。</li>
 <li><code>OutputStream</code>&#x2F;<code>Writer</code>: 所有输出流的基类，前者是字节输出流，后者是字符输出流。</li>
 </ul>
-<h1 id="二、字节流"><a href="#二、字节流" class="headerlink" title="二、字节流"></a>二、字节流</h1><h2 id="1、InputStream-常用方法"><a href="#1、InputStream-常用方法" class="headerlink" title="1、InputStream 常用方法"></a>1、<code>InputStream</code> 常用方法</h2><ul>
-<li><code>read()</code> ：返回输入流中下一个字节的数据。</li>
-<li><code>read(byte b[ ])</code> : 从输入流中读取一些字节存储到数组 <code>b</code> 中。读取的字节数最多等于 <code>b.length</code>，返回读取的字节数。这个方法等价于 <code>read(b, 0, b.length)</code>。</li>
-<li><code>read(byte b[], int off, int len)</code> ：在<code>read(byte b[ ])</code> 方法的基础上增加了 <code>off</code> 参数（偏移量）和 <code>len</code>参数（要读取的最大字节数）。</li>
-<li><code>skip(long n)</code> ：忽略输入流中的 n 个字节 ,返回实际忽略的字节数。</li>
-<li><code>available()</code> ：返回输入流中可以读取的字节数。</li>
-<li><code>close()</code> ：关闭输入流释放相关的系统资源。</li>
-</ul>
-<p>从 Java 9 开始，<code>InputStream</code> 新增加了多个实用的方法：</p>
-<ul>
-<li><code>readAllBytes()</code> ：读取输入流中的所有字节，返回字节数组。</li>
-<li><code>readNBytes(byte[] b, int off, int len)</code> ：阻塞直到读取 <code>len</code> 个字节。</li>
-<li><code>transferTo(OutputStream out)</code> ： 将所有字节从一个输入流传递到一个输出流。</li>
-</ul>
-<p><code>FileInputStream</code> 是一个比较常用的字节输入流对象，可直接指定文件路径，可以直接读取单字节数据，也可以读取至字节数组中。一般我们是不会直接单独使用 <code>FileInputStream</code> ，<span style='color:orange'>通常会配合 <code>BufferedInputStream</code></span>（字节缓冲输入流，后文会讲到）来使用。</p>
-<h2 id="2、OutputStream-常用方法"><a href="#2、OutputStream-常用方法" class="headerlink" title="2、OutputStream 常用方法"></a>2、OutputStream 常用方法</h2><ul>
-<li><code>write(int b)</code> ：将特定字节写入输出流。</li>
-<li><code>write(byte b[ ])</code> : 将数组<code>b</code> 写入到输出流，等价于 <code>write(b, 0, b.length)</code> 。</li>
-<li><code>write(byte[] b, int off, int len)</code> : 在<code>write(byte b[ ])</code> 方法的基础上增加了 <code>off</code> 参数（偏移量）和 <code>len</code> 参数（要读取的最大字节数）。</li>
-<li><code>flush()</code> ：刷新此输出流并强制写出所有缓冲的输出字节。</li>
-<li><code>close()</code> ：关闭输出流释放相关的系统资源。</li>
-</ul>
-<h1 id="三、字符流"><a href="#三、字符流" class="headerlink" title="三、字符流"></a>三、字符流</h1><h2 id="1、为什么-I-x2F-O-流操作要分为字节流操作和字符流操作"><a href="#1、为什么-I-x2F-O-流操作要分为字节流操作和字符流操作" class="headerlink" title="1、为什么 I&#x2F;O 流操作要分为字节流操作和字符流操作"></a>1、为什么 I&#x2F;O 流操作要分为字节流操作和字符流操作</h2><ul>
-<li>字符流是由 Java 虚拟机将字节转换得到的，这个过程还算是比较耗时。</li>
-<li>如果我们不知道编码类型就很容易出现乱码问题。</li>
-</ul>
-<p>字符流默认采用的是 <code>Unicode</code> 编码，我们可以通过构造方法自定义编码。顺便分享一下之前遇到的笔试题：</p>
-<h2 id="2、常用字符编码所占字节数？"><a href="#2、常用字符编码所占字节数？" class="headerlink" title="2、常用字符编码所占字节数？"></a>2、常用字符编码所占字节数？</h2><ul>
-<li><code>utf8</code> :英文占 1 字节，中文占 3 字节</li>
-<li><code>unicode</code>：任何字符都占 2 个字节</li>
-<li><code>gbk</code>：英文占 1 字节，中文占 2 字节。</li>
-</ul>
-<h2 id="3、Reader-常用方法"><a href="#3、Reader-常用方法" class="headerlink" title="3、Reader 常用方法"></a>3、Reader 常用方法</h2><ul>
-<li><code>ead()</code> : 从输入流读取一个字符。</li>
-<li><code>read(char[] cbuf)</code> : 从输入流中读取一些字符，并将它们存储到字符数组 <code>cbuf</code>中，等价于 <code>read(cbuf, 0, cbuf.length)</code> </li>
-<li><code>read(char[] cbuf, int off, int len)</code> </li>
-<li><code>skip(long n)</code> ：忽略输入流中的 n 个字符 ,返回实际忽略的字符数。</li>
-<li><code>close()</code> : 关闭输入流并释放相关的系统资源。</li>
-</ul>
-<h2 id="4、Writer常用方法"><a href="#4、Writer常用方法" class="headerlink" title="4、Writer常用方法"></a>4、Writer常用方法</h2><ul>
-<li><code>write(int c)</code> : 写入单个字符。</li>
-<li><code>write(char[] cbuf)</code> ：写入字符数组 <code>cbuf</code>，等价于<code>write(cbuf, 0, cbuf.length)</code>。</li>
-<li><code>write(char[] cbuf, int off, int len)</code> ：</li>
-<li><code>write(String str)</code> ：写入字符串，等价于 <code>write(str, 0, str.length())</code> 。</li>
-<li><code>write(String str, int off, int len)</code> ：在<code>write(String str)</code> 方法的基础上增加了 <code>off</code> 参数（偏移量）和 <code>len</code> 参数（要读取的最大字符数）。</li>
-<li><code>append(CharSequence csq)</code> ：将指定的字符序列附加到指定的 <code>Writer</code> 对象并返回该 <code>Writer</code> 对象。</li>
-<li><code>append(char c)</code> ：将指定的字符附加到指定的 <code>Writer</code> 对象并返回该 <code>Writer</code> 对象。</li>
-<li><code>flush()</code> ：刷新此输出流并强制写出所有缓冲的输出字符。</li>
-<li><code>close()</code>:关闭输出流释放相关的系统资源。</li>
-</ul>
-<h1 id="四、字节缓冲流"><a href="#四、字节缓冲流" class="headerlink" title="四、字节缓冲流"></a>四、字节缓冲流</h1><h2 id="1、BufferedInputStream（字节缓冲输入流）"><a href="#1、BufferedInputStream（字节缓冲输入流）" class="headerlink" title="1、BufferedInputStream（字节缓冲输入流）"></a>1、BufferedInputStream（字节缓冲输入流）</h2><p><code>BufferedInputStream</code> 从源头（通常是文件）读取数据（字节信息）到内存的过程中不会一个字节一个字节的读取，而是会先将读取到的字节存放在<span style='color:red'>缓存区</span>，并从内部缓冲区中单独读取字节。这样大幅减少了 IO 次数，提高了读取效率。</p>
-<p><span style='color:red'><code>BufferedInputStream</code> 内部维护了一个缓冲区，这个缓冲区实际就是一个字节数组</span></p>
-<h2 id="2、BufferedOutputStream（字节缓冲输出流）"><a href="#2、BufferedOutputStream（字节缓冲输出流）" class="headerlink" title="2、BufferedOutputStream（字节缓冲输出流）"></a>2、BufferedOutputStream（字节缓冲输出流）</h2><p>同样是先将要写入的字节存放在缓存区，并从内部缓冲区中单独写入字节。这样大幅减少了 IO 次数，提高了读取效率</p>
-<p>类似于 <code>BufferedInputStream</code> ，<code>BufferedOutputStream</code> 内部也维护了一个缓冲区，并且，<span style='color:red'>这个缓存区的大小也是 <strong>8192</strong> 字节。</span></p>
-<h1 id="五、字符缓冲流"><a href="#五、字符缓冲流" class="headerlink" title="五、字符缓冲流"></a>五、字符缓冲流</h1><p><code>BufferedReader</code> （字符缓冲输入流）和 <code>BufferedWriter</code>（字符缓冲输出流）类似于 <code>BufferedInputStream</code>（字节缓冲输入流）和<code>BufferedOutputStream</code>（字节缓冲输入流），内部都维护了一个字节数组作为缓冲区。不过，前者主要是用来操作字符信息。</p>
-<h1 id="六、打印流"><a href="#六、打印流" class="headerlink" title="六、打印流"></a>六、打印流</h1><p><code>System.out</code> 实际是用于获取一个 <span style='color:orange'><code>PrintStream</code> 对象</span>，<code>print</code>方法实际调用的是 <code>PrintStream</code> 对象的 <code>write</code> 方法。</p>
-<p><code>PrintStream</code> 属于<span style='color:orange'>字节打印流</span>，与之对应的是 <code>PrintWriter</code> （字符打印流）。<code>PrintStream</code> 是 <code>OutputStream</code> 的子类，<code>PrintWriter</code> 是 <code>Writer</code> 的子类。</p>
-<h1 id="七、随机访问流"><a href="#七、随机访问流" class="headerlink" title="七、随机访问流"></a>七、随机访问流</h1><p>持随意跳转到文件的任意位置进行读写的 <code>RandomAccessFile</code> 。</p>
-<p><span style='color:red'><code>RandomAccessFile</code> 比较常见的一个应用就是实现大文件的 <strong>断点续传</strong></span> 。何谓断点续传？简单来说就是上传文件中途暂停或失败（比如遇到网络问题）之后，不需要重新上传，只需要上传那些未成功上传的文件分片即可。<span style='color:red'>分片（先将文件切分成多个文件分片）上传是断点续传的基础。</span></p>
-<h1 id="八、Java-IO设计模式总结——重要！！！"><a href="#八、Java-IO设计模式总结——重要！！！" class="headerlink" title="八、Java IO设计模式总结——重要！！！"></a><span style='color:red'>八、Java IO设计模式总结——重要！！！</span></h1><h2 id="1、装饰器模式"><a href="#1、装饰器模式" class="headerlink" title="1、装饰器模式"></a>1、装饰器模式</h2><p><span style='color:red'>核心</span>：在不改变原有对象的情况下拓展其功能。<span style='color:red'>装饰者设计模式主要是利用<strong>多态</strong>，将子类对象作为参数传递，达到装饰的效果</span>。如果不采用装饰者模式，而是采用继承结构，会造成类爆炸，假如有n种属性，那所有的搭配种类就有 2n 个</p>
-<p>装饰器模式通过<span style='color:red'>组合替代继承</span>来扩展原始类的功能，在一些继承关系比较复杂的场景（IO 这一场景各种类的继承关系就比较复杂）更加实用。</p>
-<p><span style='color:red'><code>FilterInputStream</code> （对应输入流）和<code>FilterOutputStream</code>（对应输出流）</span> 是装饰器模式的核心，分别用于增强 <code>InputStream</code> 和<code>OutputStream</code>子类对象的功能。</p>
-<p>常见的<code>BufferedInputStream</code>(字节缓冲输入流)、<code>DataInputStream</code> 等等都是<code>FilterInputStream</code> 的子类，<code>BufferedOutputStream</code>（字节缓冲输出流）、<code>DataOutputStream</code>等等都是<code>FilterOutputStream</code>的子类。</p>
-<p>装饰器模式很重要的一个特征，那就是：<span style='color:red'>可以对原始类嵌套使用多个装饰器。</span></p>
-<h2 id="2、适配器模式"><a href="#2、适配器模式" class="headerlink" title="2、适配器模式"></a>2、适配器模式</h2><p><strong>适配器（Adapter Pattern）模式</strong> 主要用于<span style='color:orange'>接口互不兼容的类的协调工作</span>，你可以将其联想到我们日常经常使用的电源适配器。</p>
-<ul>
-<li><strong>适配者(Adaptee)</strong> ：被适配的对象或者类。</li>
-<li><strong>适配器(Adapter)</strong> ：作用于适配者的对象或者类。例如：<code>InputStreamReader</code> 和 <code>OutputStreamWriter</code></li>
-</ul>
-<p>适配器分为对象适配器和类适配器。</p>
-<ul>
-<li>类适配器：使用继承关系来实现</li>
-<li>对象适配器：使用组合关系来实现。</li>
-</ul>
-<p>IO 流中的字符流和字节流的接口不同，它们之间可以协调工作就是基于适配器模式来做的，更准确点来说是<strong>对象适配器</strong>。</p>
-<p><code>InputStream</code> 和 <code>OutputStream</code> 的子类是被适配者， <code>InputStreamReader</code> 和 <code>OutputStreamWriter</code>是适配器。</p>
-<h2 id="3、适配器模式和装饰器模式有什么区别呢？"><a href="#3、适配器模式和装饰器模式有什么区别呢？" class="headerlink" title="3、适配器模式和装饰器模式有什么区别呢？"></a>3、<strong>适配器模式和装饰器模式有什么区别呢？</strong></h2><p><strong>装饰器模式</strong>：</p>
-<ul>
-<li>更侧重于动态地增强原始类的功能</li>
-<li>装饰器类需要跟原始类继承相同的抽象类或者实现相同的接口。</li>
-<li>支持对原始类嵌套使用多个装饰器。</li>
-</ul>
-<p><strong>适配器模式</strong></p>
-<ul>
-<li>更侧重于让接口不兼容而不能交互的类可以一起工作</li>
-<li>当我们调用适配器对应的方法时，适配器内部会调用适配者类或者和适配类相关的类的方法，这个过程透明的。适</li>
-<li>配器和适配者两者不需要继承相同的抽象类或者实现相同的接口。</li>
-</ul>
-<h2 id="4、工厂模式"><a href="#4、工厂模式" class="headerlink" title="4、工厂模式"></a>4、工厂模式</h2><p>在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。</p>
-<ul>
-<li><p>意图：定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。</p>
-</li>
-<li><p>主要解决：主要解决接口选择的问题。</p>
-</li>
-<li><p>何时使用：我们明确地计划不同条件下创建不同实例时。</p>
-</li>
-<li><p>如何解决：让其子类实现工厂接口，返回的也是一个抽象的产品。</p>
-</li>
-<li><p>关键代码：创建过程在其子类执行。</p>
-</li>
-</ul>
-<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
-<li>首先工厂模式是为了<span style='color:red'>解耦</span>：把对象的创建和使用的过程分开。就是Class A 想调用 Class B ，那么A只是调用B的方法，而至于B的实例化，就交给工厂类。</li>
-<li><strong>其次</strong>，工厂模式可以降低代码重复。如果创建对象B的过程都很复杂，需要一定的代码量，而且很多地方都要用到，那么就会有很多的重复代码。我们可以这些创建对象B的代码放到工厂里统一管理。既减少了重复代码，也方便以后对B的创建过程的修改维护。</li>
-<li><strong>另外</strong>，因为工厂管理了对象的创建逻辑，使用者并不需要知道具体的创建过程，只管使用即可，减少了使用者因为创建逻辑导致的错误。</li>
-</ul>
-<h3 id="使用环境：不仅限于以下场景）："><a href="#使用环境：不仅限于以下场景）：" class="headerlink" title="使用环境：不仅限于以下场景）："></a>使用环境：不仅限于以下场景）：</h3><ul>
-<li>对象的创建过程&#x2F;实例化准备工作很复杂，需要初始化很多参数、查询数据库等。</li>
-<li>类本身有好多子类，这些类的创建过程在业务中容易发生改变，或者对类的调用容易发生改变。</li>
-</ul>
-<p>工厂模式用于创建对象，NIO 中大量用到了工厂模式，比如 <code>Files</code> 类的 <code>newInputStream</code> 方法用于创建 <code>InputStream</code> 对象（静态工厂）、 <code>Paths</code> 类的 <code>get</code> 方法创建 <code>Path</code> 对象（静态工厂）、<code>ZipFileSystem</code> 类（<code>sun.nio</code>包下的类，属于 <code>java.nio</code> 相关的一些内部实现）的 <code>getPath</code> 的方法创建 <code>Path</code> 对象（简单工厂）。</p>
-<h2 id="5、观察者模式"><a href="#5、观察者模式" class="headerlink" title="5、观察者模式"></a>5、观察者模式</h2><p>当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知依赖它的对象。观察者模式属于行为型模式。</p>
-<p><strong>意图：</strong>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
-<p><strong>主要解决：</strong>一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。</p>
-<p><strong>何时使用：</strong>一个对象（目标对象）的状态发生改变，所有的依赖对象（观察者对象）都将得到通知，进行广播通知。</p>
-<p><strong>如何解决：</strong>使用面向对象技术，可以将这种依赖关系弱化。</p>
-<p><strong>关键代码：</strong>在抽象类里有一个 ArrayList 存放观察者们</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>NIO 中的文件目录监听服务使用到了观察者模式。</p>
-<p>NIO 中的文件目录监听服务基于 <code>WatchService</code> 接口和 <code>Watchable</code> 接口。<code>WatchService</code> 属于观察者，<code>Watchable</code>属于被观察者。</p>
-<p><code>Watchable</code> 接口定义了一个用于将对象注册到 <code>WatchService</code>（监控服务） 并绑定监听事件的方法 <code>register</code> 。</p>
-<p><code>WatchService</code> 用于监听文件目录的变化，同一个 <code>WatchService</code> 对象能够监听多个文件目录。</p>
-<p><span style='color:red'><code>WatchService</code> 内部是通过一个 daemon thread（守护线程）采用定期轮询的方式来检测文件的变化</span></p>
-<h1 id="九、Java-IO模型详解"><a href="#九、Java-IO模型详解" class="headerlink" title="九、Java IO模型详解"></a>九、Java IO模型详解</h1><h2 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h2><p><strong>从计算机结构的视角来看的话， I&#x2F;O 描述了计算机系统与外部设备之间通信的过程。</strong></p>
-<p>**从应用程序的角度来解读一下 I&#x2F;O。用户进程想要执行 IO 操作的话，必须通过 **<span style='color:red'>系统调用</span>来间接访问内核空间</p>
-<p>根据大学里学到的操作系统相关的知识：为了保证操作系统的稳定性和安全性，一个进程的地址空间划分为 <strong>用户空间（User space）</strong> 和 <strong>内核空间（Kernel space ）</strong> 。</p>
-<p>当应用程序发起 I&#x2F;O 调用后，会经历两个步骤：</p>
-<ol>
-<li>内核等待 I&#x2F;O 设备准备好数据</li>
-<li>内核将数据从内核空间拷贝到用户空间。</li>
-</ol>
-<h2 id="2、常用IO模型"><a href="#2、常用IO模型" class="headerlink" title="2、常用IO模型"></a>2、常用IO模型</h2><ul>
-<li><strong>同步阻塞 I&#x2F;O</strong></li>
-<li><strong>同步非阻塞 I&#x2F;O</strong></li>
-<li><strong>I&#x2F;O 多路复用</strong></li>
-<li><strong>信号驱动 I&#x2F;O</strong> </li>
-<li><strong>异步 I&#x2F;O</strong></li>
-</ul>
-<h2 id="3、Java中常见的3种IO模型"><a href="#3、Java中常见的3种IO模型" class="headerlink" title="3、Java中常见的3种IO模型"></a>3、Java中常见的3种IO模型</h2><h3 id="（1）BIO-Blocking-I-x2F-O-——同步阻塞-IO-模型-。"><a href="#（1）BIO-Blocking-I-x2F-O-——同步阻塞-IO-模型-。" class="headerlink" title="（1）BIO (Blocking I&#x2F;O)——同步阻塞 IO 模型 。"></a>（1）BIO (Blocking I&#x2F;O)——<strong>同步阻塞 IO 模型</strong> 。</h3><p>应用程序发起 read 调用后，会一直阻塞，直到内核把数据拷贝到用户空间。</p>
-<h3 id="（2）NIO-Non-blocking-x2F-New-I-x2F-O"><a href="#（2）NIO-Non-blocking-x2F-New-I-x2F-O" class="headerlink" title="（2）NIO (Non-blocking&#x2F;New I&#x2F;O)"></a>（2）NIO (Non-blocking&#x2F;New I&#x2F;O)</h3><p>它是支持面向缓冲的，基于通道的 I&#x2F;O 操作方法。 对于高负载、高并发的（网络）应用，应使用 NIO 。Java 中的 NIO 可以看作是 <strong>I&#x2F;O 多路复用模型</strong>。也有很多人认为，Java 中的 NIO 属于同步非阻塞 IO 模型。</p>
-<p><strong>同步非阻塞 IO 模型</strong>：</p>
-<p>应用程序会一直发起 read 调用，等待数据从内核空间拷贝到用户空间的这段时间里，线程依然是阻塞的，直到在内核把数据拷贝到用户空间。</p>
-<p>问题在于：<span style='color:red'>应用程序不断进行 I&#x2F;O 系统调用轮询数据是否已经准备好的过程是十分消耗 CPU 资源的。</span></p>
-<p><span style='color:red'>I&#x2F;O 多路复用模型：</span></p>
-<p>线程首先发起 select 调用，询问内核数据是否准备就绪，等内核把数据准备好了，用户线程再发起 read 调用。read 调用的过程（数据从内核空间 -&gt; 用户空间）还是阻塞的。</p>
-<p>Java 中的 NIO ，有一个非常重要的<strong>选择器 ( Selector )</strong> 的概念，也可以被称为 <strong>多路复用器</strong>。通过它，只需要一个线程便可以管理多个客户端连接。当客户端数据到了之后，才会为其服务。</p>
-<h3 id="（3）AIO——（Asynchronous-I-x2F-O"><a href="#（3）AIO——（Asynchronous-I-x2F-O" class="headerlink" title="（3）AIO——（Asynchronous I&#x2F;O)"></a>（3）AIO——（Asynchronous I&#x2F;O)</h3><p>异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</p>
-<h3 id="总结：JAVA中的三种IO模型："><a href="#总结：JAVA中的三种IO模型：" class="headerlink" title="总结：JAVA中的三种IO模型："></a>总结：JAVA中的三种IO模型：</h3><p><img src="https://images.xiaozhuanlan.com/photo/2020/33b193457c928ae02217480f994814b6.png"></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/14/37-%E5%85%AB%E8%82%A1%E6%96%87%E8%AE%B0%E5%BD%95%E2%80%94%E2%80%94IO%E5%9F%BA%E7%A1%80/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
